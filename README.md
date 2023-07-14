@@ -4,7 +4,11 @@ To download for local edits:
 
 `git clone https://github.com/qbead/qbead.github.io.git`
 
-Then download the submodules (e.g., there is one for the main page with the book).
+Then download the submodules (e.g., there is one for the main page with the book):
+
+`git submodule add git@github.com:qbead/qbeadWebsite.git websitesource`
+
+There is a make command to help with other cleanup.
 
 `make register_submodule_updates`
 

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="dancing, kinematics, color, light, programming" />
+  <title>Dancing with Color -Rotational Motion-</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<img src="/images/banners/dancer_color.png">
+<h1 class="title">Dancing with Color<br>-Rotational Motion-</h1>
+</header>
+<main>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<div class="intro-box">
+<p>This adventure builds on the first Dancing with Color Adventure. You will now start coding the SpinWheel to light up in response to rotational motion. By combining what you learned in the previous adventure with this one, you will be able to create an accessory that lights up and changes color based on the motions of a dance.</p>
+</div>
+<p>In the first part of the <a href="/dancing">Dancing with Color</a> adventure, we talked about moving through space in a line, but now imagine a dancer’s feet doing turn after turn and their arms being outstretched in different configurations. Can you picture how their arms and legs move through space in small tight turns, like chaînés turns, and wide turns, like an attitude or a fouetté?</p>
+<p>There are many different ways we can describe dances mathematically! A dancer moving side to side is a type of translational motion. A dancer turning in a circle is a type of rotational motion.</p>
+<figure>
+<img src="/images/bookpics/dance_turn.png" alt="" /><figcaption>Notice how in tight turns or wide turns, a dancer’s feet create different size circles on the floor. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>A simple way to describe rotational motion is as the movement around an axis. When a dancer spins, without moving around the stage, they are rotating around the axis of their body. There are special sensors in your SpinWheel, called gyroscopes, that allow it to detect rotational motion. We can use the output from these sensors to program the SpinWheel to respond to spinning!</p>
+<figure>
+<img src="/images/bookpics/dance_axis.png" alt="" /><figcaption>This picture demonstrates the three axes that the SpinWheel can detect rotation around. We’ll dive into what this means more in the rest of the lesson! <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<h2 id="rotation-around-one-axis">Rotation Around One Axis</h2>
+<p>To begin, we can program the SpinWheel to light up when it detects rotation around one axis. This is similar to the dancer spinning in place where their body represents the axis of each turn. In this case, we’re measuring the rotation around the SpinWheel’s x-axis, which is stored in the variable <code>SpinWheel.gx</code>. <code>SpinWheel.gx</code> provides us with the angular velocity of the SpinWheel around the <span class="footnote">x-axis of the device.<span>To visualize what this represents on the SpinWheel, scroll up to the image of the SpinWheel and its axes.</span></span></p>
+<div class="further-reading">
+<p>In our <a href="/vectors">Vectors and Motion</a> lesson, we cover in more depth the velocity you are probably already familiar with: velocity along a straight line (like a car moving down a straight stretch of highway). Above we reference another type of velocity, angular velocity, which is often used for describing rotatonal motion like that of our dancer spinning or a car speeding along a circular racetrack. You can read our <a href="/rotation">Rotation</a> lesson to learn more about angular velocity.</p>
+</div>
+<p>As the SpinWheel’s sensors are very sensitive to even small motions of the device, we only want to change color if the rotation is fast enough. This ensures that the lights don’t turn on when you are just holding it in your hand without intentionally moving it. In this case, we will only have the color change <code>if</code> the absolute value of the rotation is greater than 100 degrees per second, <code>abs(SpinWheel.gx) &gt; 100</code>. Below is the essential piece of code, where we tell the SpinWheel to light up only when motion is detected (<code>if (abs(SpinWheel.gx) &gt; 100)</code> and to otherwise (<code>else</code>) turn off all of the LEDs.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// if there is enough rotation, then light up the </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co">// LEDs a light blue</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="cf">if</span> (abs(SpinWheel.gx) &gt; <span class="dv">100</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  SpinWheel.setLargeLEDsUniform(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>);</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="co">// otherwise, keep the LEDs turned off</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="cf">else</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>  SpinWheel.setLargeLEDsUniform(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>);</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>}</span></code></pre></div>
+<p>To see your SpinWheel light up in response to rotional motion, upload the full sketch (<code>File → Examples → SpinWearables → Dancing_with_Color → 1D_Rotation_Light_Up_Basic</code>) to your SpinWheel and explore what happens when you rotate your SpinWheel. You can can also read more about what each command in <a href="/codedoc/examples/Dancing_with_Color/1D_Rotation_Light_Up_Basic/1D_Rotation_Light_Up_Basic.ino.html">this 1D Rotation sketch</a> does.</p>
+<p>If you prefer other colors to the light blue that we chose, then you can modify the code for this example to light up your SpinWheel a different color.</p>
+<div class="further-reading">
+<p>Looking for a refresher on how to customize the LEDs to light up your favorite color? In our <a href="/sight">Biology of Sight adventure</a>, we discuss how three light sources can be used to represent any color of the rainbow by taking advantage of how our eyes perceive color.</p>
+</div>
+<h2 id="changing-color-with-the-direction-of-rotation">Changing Color with the Direction of Rotation</h2>
+<p>Now let’s modify the <code>1D_Rotation_Light_Up_Basic</code> sketch to have the LEDs change color based on the direction of rotation. We include the important new elements of the code below, including defining new variables <code>pos_spin</code> and <code>neg_spin</code> to store the direction that the SpinWheel is rotating around the x-axis.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// If the x rotation (gx) is big enough, then </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co">// change the color of the big LEDs based on the</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="co">// direction of the spin</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="cf">if</span> (SpinWheel.gx &gt; <span class="dv">100</span>) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  pos_spin = <span class="dv">255</span>;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  neg_spin = <span class="dv">0</span>;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="cf">else</span> <span class="cf">if</span> (SpinWheel.gx &lt; -<span class="dv">100</span>) {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  neg_spin = <span class="dv">255</span>;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>  pos_spin = <span class="dv">0</span>;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="cf">else</span> {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  pos_spin = <span class="dv">0</span>;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  neg_spin = <span class="dv">0</span>;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>}</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="co">// If gx is positive, set the big LEDs to light up green</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="co">// If gx is negative, set the big LEDs to light up blue</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>SpinWheel.setLargeLEDsUniform(<span class="dv">0</span>, pos_spin, neg_spin);</span></code></pre></div>
+<p>In this script, the LEDs light up green when the device is spun around the x-axis in one direction (<code>if (SpinWheel.gx &gt; 100)</code>), and blue when spun in the other direction (<code>else if (SpinWheel.gx &lt; -100)</code>). The <code>else</code> statment ensures that the SpinWheel’s LEDs turn off when not enough rotation is detected. You can upload the sketch from: <code>Examples → SpinWearables → Dancing_with_Color → 1D_Rotation_Light_Up_Advanced</code> to give it a try on your own SpinWheel. For a more detailed explanation of this code, you can also check out <a href="/codedoc/examples/Dancing_with_Color/1D_Rotation_Light_Up_Advanced/1D_Rotation_Light_Up_Advanced.ino.html">this script</a>.</p>
+<h2 id="modifying-animation-adventure-sketches-to-respond-to-motion">Modifying Animation Adventure Sketches to Respond to Motion</h2>
+<p>In the <a href="/animation">Intro to Animation</a> and <a href="/animation2">Animations and Patterns</a> adventures, you created animations for the SpinWheel that relied on time. It is possible to use those same sketches, but only have them change color when rotational motion is detected. For instance, check out <a href="/codedoc/examples/Dancing_with_Color/Rainbow_Chase_Advanced/Rainbow_Chase_Advanced.ino.html">this version of the rainbow chase sketch</a> to see how you can use rotation around the z-axis of the SpinWheel instead of time to update the animation. You can also upload the full sketch onto your SpinWheel from here: full sketch (<code>Examples → SpinWearables → Dancing_with_Color → Rainbow_Chase_Advanced</code>.</p>
+<p>To get the full effect of this sketch, we recommend you unplug your SpinWheel from your computer and try spinning in a circle yourself. If you hold the SpinWheel horizontal as you turn, you’ll be able to see the colors change as you’re moving and stop when you stop. Just remember, when you plug the SpinWheel back into the computer to make sure the switch is back on <code>usb</code>.</p>
+<div class="further-reading">
+<p>Is there a difference between moving in a circular path and spinning? While we might think of these both as rotation, to the SpinWheel’s sensor they aren’t the same. It can only detect spinning around an axis. To try a simple experiment to confirm this for yourself, check out the very end of the <a href="/rotation">Rotation</a> lesson.</p>
+</div>
+<p>If you want a further challenge, try modifying another sketch from the animation adventures to respond to your motion. For instance, try modifying the <a href="/codedoc/examples/Animations_and_Patterns/Smoother_Blink">Smoother Blink</a> sketch to only change color when the device spins around the y-axis.</p>
+<h2 id="rotating-lights-or-an-led-snake">Rotating Lights (or an LED “snake”)</h2>
+<p>One of the programs that came preloaded on your SpinWheel was an LED “snake” that spins around the device like a dancer. We can change that basic snake code so that it only rotates colors when you rotate the SpinWheel.</p>
+<video src="/images/behindthescenes/circling.mp4" muted autoplay playsinline loop>
+</video>
+<p>To create this snake, we’ll introduce a new function that lights up several LEDs (making a snake): <code>SpinWheel.setSmallLEDsPointer(angle, red, green, and blue)</code>. <code>Angle</code> controls where your snake starts, while <code>red</code>, <code>green</code>, and <code>blue</code> control the red, green, and blue components of the small LEDs. By changing these values, you can change the color that your LED “snake” lights up and where the “head” of the snake is. To try modifying the snake on your SpinWheel, upload the example sketch from here: <code>Examples → SpinWearables → Dancing_with_Color → Motion_Snake</code>. You can also read more about our <a href="/codedoc/examples/Dancing_with_Color/Motion_Snake/Motion_Snake.ino.html">motion snake script here</a> to learn more about how this script works.</p>
+<p>You may have noticed that the “snake” currently only moves when you rotate around the x-axis. Can you have it respond to rotation around the other axes?<br />
+What about making it respond to motion in all three directions? For a hint of how to do this, think about how we <a href="/stepcounter">detected motion in the Step Counter adventure</a>.</p>
+<p>The past few examples all rely on the measurements from the gyroscope (rotation sensor). However, you could also have the snake (or any of the other sketches) respond to acceleration instead. You can modify the snake to respond to acceleration in one direction or even all three.</p>
+<h2 id="rotation-in-3d-space">Rotation in 3D Space</h2>
+<p>In the two last sketches, the SpinWheel only changed color when its rotation was around the x-axis. It is also possible to measure and change the SpinWheel’s LEDs color based on rotation around any axis in 3D space!</p>
+<p>To start off, upload the 3D rotation sketch from here: <code>Examples → SpinWearables → Dancing_with_Color → 3D_Rotation_Light_Up</code>. If you read the <a href="/codedoc/examples/Dancing_with_Color/3D_Rotation_Light_Up/3D_Rotation_Light_Up.ino.html">details about the code</a>, you will see how you can code the red, green, and blue components of the LEDs to respond to the rotation around the x, y, and z axes. Rather than only modifying the large LEDs as in the earlier sketches, this sketch also has the small LEDs light up in response to the SpinWheel’s rotational motion. Try rotating your SpinWheel in different directions to make it fully red, green or blue. Can you combine these rotations to make other colors? If the rotation is around two axes at the same time, both colors are shown, making yellow, purple or teal.</p>
+<h2 id="the-grand-finale-showing-off-all-its-colors">The Grand Finale: Showing Off All Its Colors</h2>
+<p>You’ve explored both linear and rotational motion independently in the two parts of the Dancing with Color adventure series. Using the scripts you’ve created as a starting point, you can modify the SpinWheel to respond to your motion however you see fit! To inspire your imagination, we’ll leave you with one final more complicated sketch that combines both the <code>Motion_Snake</code> and <code>Rainbow_Chase_Advanced</code> sketches. Here is a webpage with our <a href="/codedoc/examples/Dancing_with_Color/Grand_Finale/Grand_Finale.ino.html">grand finale code and explanation</a>. This sketch programs the SpinWheel to respond to both acceleration and rotation. To try this code on your SpinWheel or use it as a framework for your own creations, you can find it at <code>Examples → SpinWearables → Dancing_with_Color → Grand_Finale</code>.</p>
+<p>Using the code we’ve presented as an inspiration, try writing your own sketch where the SpinWheel’s LEDs respond to your motion!</p>
+<p>Here is the diagram of the SpinWheel again, if you want a reminder of what number corresponds to which LED as you are creating your own dancing companion sketches:</p>
+<figure>
+<img src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+<p><a class="imagecredit" href="https://johnhegarty8.wixsite.com/johnhegarty">Header image credit: Jack Hegarty</a></p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

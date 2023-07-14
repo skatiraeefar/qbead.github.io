@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="neural network, gesture recognition, arduino" />
+  <title>Gesture Recognition and Recurrent Neural Networks on an Arduino</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<video src="/images/bookpics/rnn_vis_pad.mp4" muted autoplay playsinline></video>
+<h1 class="title">Gesture Recognition and Recurrent Neural Networks on an Arduino</h1>
+</header>
+<main>
+<div class="intro-box">
+<p>For the majority of our lessons we use the SpinWheel and its <a href="https://spinwearables.com">engaging aesthetics</a> as a hook and introduction to many STEM topics accessible to K12 students without prior experience. Here we decided to do something different and show how that same platform can be used to study much more advanced topics. In this writeup we will see:</p>
+<ul>
+<li>simple linear algebra and neural networks on a microcontroller</li>
+<li>hardware speed testing to decide how big of a NN to use</li>
+<li>recurrent NN from scratch as a filter and a gesture recognizer</li>
+<li>recording training data from a microcontroller</li>
+<li>visualizing information propagating through the NN</li>
+</ul>
+</div>
+<h2 id="brief-review-neural-networks-and-recurrent-neural-networks">Brief review: Neural Networks and Recurrent Neural Networks</h2>
+<div class="further-reading">
+<p>We will not attempt to teach what a neural network is from scratch, as there is a rich ecosystem of online resources on the topic. <a href="http://neuralnetworksanddeeplearning.com/index.html">Nielsen’s online book</a> is a great in-depth resource, but starting with <a href="https://jalammar.github.io/visual-interactive-guide-basics-neural-networks/">visual introductions like Alammar’s</a> might be more approachable, including a <a href="https://jalammar.github.io/feedforward-neural-networks-visual-interactive/">second part focusing on the simpler mathematical building blocks</a>. A lovely visual representation of the training process for a neural network can be seen on <a href="http://playground.tensorflow.org">Tensorflow’s playground</a>. Coursera and Stanford, among others, have online classes on the topic as well: <a href="https://www.coursera.org/learn/machine-learning">1</a>, <a href="https://cs230.stanford.edu/">2</a>, <a href="http://cs231n.stanford.edu/">3</a>. To delve deeper in <strong>recurrent</strong> neural networks, consider the <a href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks">Standford CS230 notes</a>, or <a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">Karpathy’s writeup</a>.</p>
+</div>
+<p>As you can see in the detailed resources cited above, an artificial neuron is a small piece of code that:</p>
+<ul>
+<li>takes numerical input values (one value per “synapse”)</li>
+<li>sums them up with by giving each one varying degree of importance in the sum (its “weight” or the strength of the synapse)</li>
+<li>applies a “threshold function”, i.e. it responds differently if the sum is small or large</li>
+<li>outputs this final value</li>
+</ul>
+<p>Thus, by layering such artificial neurons we can input the motion sensor data and output, after a few layers, a number representing the gesture we have been performing while holding the device. A very important step would be to teach or “train” the neural network how to make that decision. Just like in biology, this will be done by changing the strength of the connections between the neurons, i.e. by finding appropriate values for the aforementioned weights.</p>
+<p>By grouping the neurons in layers it becomes easier to write down the necessary computer code as standard linear algebra operations. Moreover, <strong>as gesture recognition requires understanding the entire history of a motion</strong>, we will dedicate a few neurons to work as a memory, turning our neural network into a recurrent neural network. This leads us to our architecture of choice.</p>
+<h3 id="the-recurrent-neural-network-of-choice-for-our-task">The Recurrent Neural Network of choice for our task</h3>
+<p>Our motion sensor can easily report measured acceleration and rotation 50 times a second. This will be the input for our recurrent neural network: a 6-dimensional vector containing the acceleration <span class="math inline">\(\vec{a}\)</span> and rotation speed <span class="math inline">\(\vec{\omega}\)</span> components for each of the 3 directions of space: <span class="math display">\[\text{input vector:}\ \ \ \vec{v}_\textrm{in} = (a_x,a_y,a_z,\omega_x,\omega_y,\omega_z).\]</span> We will also reserve a vector <span class="math inline">\(\vec{s}\)</span> as a memory. With each new measurement sent to the network (50 times a second), we will update that memory in the following way: <span class="math display">\[\text{memory update rule:}\ \ \ \vec{s}\leftarrow \sigma(W_s\cdot\vec{s}+U\cdot\vec{v}_\textrm{in}+\vec{b}_s),\]</span> Where the matrices <span class="math inline">\(W_s\)</span> and <span class="math inline">\(U\)</span> (synapse connection weights) as well as the vector <span class="math inline">\(\vec{b}_s\)</span> (bias) are parameters to be trained. <span class="math inline">\(\sigma\)</span> is the thresholding function, for which we have chosen to use <span class="math inline">\(\textrm{relu}\)</span>, because it is easy to compute on simple hardware.</p>
+<p>Out of this memory we can now compute the output of the recurrent layer of the neural network: <span class="math display">\[\text{recurrent layer output:}\ \ \ \vec{v}_\textrm{rec}=\sigma(W_o\cdot\vec{s}+\vec{b}_o),\]</span> where <span class="math inline">\(W_o\)</span> and <span class="math inline">\(\vec{b}_o\)</span> are more parameters that need to be trained.</p>
+<p>We can repeat multiple such recurrent layers, where the output of the previous layer is used as an input for the next layer with its own unique memory vector. We ended up using 2 recurrent layers for our implementation, but a typical 16MHz arduino can run quite a few more of them at a rate of 50Hz if necessary. Our memory vectors and our output vectors all have 6 dimensions.</p>
+<p>At the very end of the neural network, we need to take the output of the last recurrent layer and turn it into a decision of which gesture is being performed. For simplicity we will use only three rather simple gestures for our first network:</p>
+<ul>
+<li>keeping the device steady</li>
+<li>shaking the device in one direction</li>
+<li>shaking the device in the orthogonal direction</li>
+</ul>
+<p>Thus, our output vector <span class="math inline">\(\vec{v}_\textrm{out}\)</span> will have three components, each representing the probability (or certainty of belief) that the device is performing the corresponding gesture. As they need to sum up to one, it is natural to use the <span class="math inline">\(\textrm{softmax}\)</span> function on a final non-recurrent neural network layer: <span class="math display">\[\text{classification result:}\ \ \ \vec{v}_\textrm{out}=\textrm{softmax}(W\cdot\vec{v}_\textrm{rec}+\vec{b}),\]</span> where <span class="math inline">\(W\)</span> and <span class="math inline">\(\vec{b}\)</span> are the final set of parameters in need of training.</p>
+<h2 id="implementing-a-recurrent-neural-network-on-an-arduino">Implementing a Recurrent Neural Network on an Arduino</h2>
+<p>The typical Arduino hardware does not directly support floating point numbers. The compiler still lets you use them, but the generated machine code emulates them by using the underlying integer data types. This emulation is usually judged to be much too slow, as a simple multiplication of two floating point numbers will take much longer than the time for an integer numbers multiplication. If this significant overhead is making our network too slow for the 50Hz rate at which we want to run it, we can retrain the network to use only integers. This is, however, much more succeptible to bugs, so let us first benchmark the performance of a typical floating point network running on a 16MHz Arduino.</p>
+<p>We will need to implement a mock neural network to do these tests. <a href="/codedoc/examples/RNN/net.h.html">This <code>net.h</code> file</a> (also embedded below) contains such an implementation, together with all the linear algebra operations that we will need.</p>
+<style>
+  iframe {
+    width: 95%;
+    height: 30vh;
+    min-height:400px;
+    display: block;
+    margin: auto;
+    border: black 1px solid;
+    border-radius: 1em;
+  }
+</style>
+<script>
+  function cleanIframe(obj) {
+    var l = obj.contentWindow.document.getElementById('license');
+    l.parentElement.removeChild(l);
+    var n = obj.contentWindow.document.getElementsByClassName('nav')[0];
+    n.parentElement.removeChild(n);
+    var i = obj.contentWindow.document.getElementById('isso-thread');
+    i.parentElement.removeChild(i);
+  }
+</script>
+<iframe src="/codedoc/examples/RNN/net.h.html" frameborder="0" scrolling="yes" onload="cleanIframe(this)">
+</iframe>
+<p>The <code>network()</code> function at the bottom of that file is the one that looks at the globally defined array <code>input</code>, computes one iteration of our recurrent neural network on it, and stores the results in the globally defined array <code>output</code>. It then finds which element of <code>output</code> is the largest, and reports it as the most probable gesture being recorded by the device.</p>
+<p>The entirety of the user code, assuming <code>net.h</code> contains properly trained parameters, would then be</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SpinWheel.readIMU(); <span class="co">// read the motion sensor</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>input[<span class="dv">0</span>] = SpinWheel.ax; <span class="co">// acceleration components</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>input[<span class="dv">1</span>] = SpinWheel.ay;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>input[<span class="dv">2</span>] = SpinWheel.az;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>input[<span class="dv">3</span>] = SpinWheel.gx; <span class="co">// rotation speed components</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>input[<span class="dv">4</span>] = SpinWheel.gy;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>input[<span class="dv">5</span>] = SpinWheel.gz;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>c = network(); <span class="co">// accesses `input` as a global variable</span></span></code></pre></div>
+<p>where most of the lines simply move measurement data from the sensor to the neural network code. At the end the variable <code>c</code> contains the number representing the most probable gesture according to the neural network. At that point <code>c</code> can be used as a trigger to perform other operations on the device, e.g. lighting up the LEDs in a pretty pattern to acknowledge the detected gesture.</p>
+<p>By using the <code>millis()</code> function (which reports number of milliseconds since the device has started) we can measure how slow the neural network computation is. The entirety of the code described above takes 7.2ms (7.2 thousands of a second), out of which 2.3ms are dedicated to communicating with the motion sensor. This leaves plenty of space in our 20ms (i.e. 50Hz) time budget for many more additional layers in our neural network or for using more advanced types of memory (like an LSTM or GRU recurrent networks). We will explore these topics later on, as a way to enable more advanced types of gesture recognition.</p>
+<h3 id="regulating-the-pace-of-the-computation">Regulating the pace of the computation</h3>
+<p>Now that we know we are fast enough, we need to ensure that each measurement and each neural network computation are done at regular intervals. Otherwise a small change in our neural network architecture might significantly change the rate at which we are acquiring measurements, because of the computation taking longer. Instead, we will simply ensure that each computation starts at regular intervals and takes less time than the length of the interval, without worrying exactly how long that is. We can do this by defining a <code>pacer</code> function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">void</span> pacer(<span class="dt">long</span> period_ms) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  <span class="at">static</span> <span class="dt">long</span> t = millis(); <span class="co">// a variable preserved between function runs</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="cf">while</span>(millis()-t &lt; period_ms){} <span class="co">// constantly checking the time</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  t += period_ms; <span class="co">// recording the last time `pacer` finished</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Can you see how this function is different from simply using <code>delay()</code>?</p>
+<p>Now the entirety of our user code is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  pacer(<span class="dv">20</span>); <span class="co">// run only on 20ms intervals</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  SpinWheel.readIMU(); <span class="co">// read the motion sensor</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  input[<span class="dv">0</span>] = SpinWheel.ax; <span class="co">// acceleration components</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  input[<span class="dv">1</span>] = SpinWheel.ay;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  input[<span class="dv">2</span>] = SpinWheel.az;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>  input[<span class="dv">3</span>] = SpinWheel.gx; <span class="co">// rotation speed components</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>  input[<span class="dv">4</span>] = SpinWheel.gy;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  input[<span class="dv">5</span>] = SpinWheel.gz;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>  c = network(); <span class="co">// accesses `input` as a global variable</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  <span class="co">// do something based on the value of `c`</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="implementing-the-same-neural-network-in-python">Implementing the same neural network in Python</h2>
+<p>We will need to train the neural network, and regrettably the microcontroller of the SpinWheel can be too slow for that. Instead, we will gather the necessary data from the SpinWheel, but run the training procedure on a separate computer. It is straightforward to reimplement our neural network in <code>numpy</code> or <code>tensorflow</code>, two popular Python libraries for numerical computation (<code>tensorflow</code> in particular provides us with the gradients for free). Other popular options are <code>jax</code> and <code>pytorch</code>, but in all of these libraries the code would look virtually the same.</p>
+<p>We start by implementing a generic single layer RNN, implementing the previously mentioned math in code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> rnn_step(state, v_in, Ws, U, Bs, Wo, Bo):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    new_state <span class="op">=</span> relu(Ws<span class="op">@</span>state <span class="op">+</span> U<span class="op">@</span>v_in <span class="op">+</span> Bs)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    v_out <span class="op">=</span> relu(Wo<span class="op">@</span>new_state<span class="op">+</span>Bo)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    <span class="cf">return</span> new_state, v_out</span></code></pre></div>
+<p>Here <code>@</code> denotes matrix multiplication.</p>
+<p>The neural network as a whole will repeatedly apply two such RNN layers to the incoming measurements in order to get us the output vector of probabilities. To set the notation, we will denote the parameters of the network as <code>W1s, U1, W1o, B1s, B1o, W2s, U2, W2o, B2s, B2o, Wout, Bout</code>: these are the same matrices and bias vectors discussed earlier. The final neural network would look like:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">def</span> model_step(state1, state2, v_in):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="co"># RNN layer 1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    state1, v1 <span class="op">=</span> rnn_step(state1, v_in, W1s, U1, B1s, W1o, B1o)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="co"># RNN layer 2</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    state2, v2 <span class="op">=</span> rnn_step(state2, v1  , W2s, U2, B2s, W2o, B2o)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    <span class="co"># Last NN layer (no memory, softmax activation)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    v_out <span class="op">=</span> Wout<span class="op">@</span>v2 <span class="op">+</span> Bout</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    v_out <span class="op">=</span> exp(v_out)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    v_out <span class="op">/=</span> <span class="bu">sum</span>(v_out) <span class="co"># The final probability vector</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    <span class="cf">return</span> state1, state2, v1, v2, v_out</span></code></pre></div>
+<p>Applying our 2D array of measurements is now a simple python loop as seen below. The <code>recorded_input</code> object is an N-by-6 array, where N is the number of recordings taken from the motion sensor (and 6 for the other dimension, because of the 3 acceleration + 3 rotation measurements taken each time).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>output <span class="op">=</span> [] <span class="co"># To contain all output results.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>state1 <span class="op">=</span> np.zeros(<span class="dv">6</span>) <span class="co"># Initially the memories</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>state2 <span class="op">=</span> np.zeros(<span class="dv">6</span>) <span class="co"># are all set to zero.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="cf">for</span> row <span class="kw">in</span> recorded_input:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>    state1, state2, v1, v2, v_out <span class="op">=</span> model_step(state1, state2, row)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>    output.append(v_out)</span></code></pre></div>
+<h3 id="using-the-scan-function-for-higher-performance">Using the <code>scan</code> function for higher performance</h3>
+<p>Python loops can be rather slow. Different numerical libraries address this problem differently, but <code>tensorflow</code> in particular lets you use a function called <code>scan</code> to run through an entire array and apply a given routine efficiently to each element. Importantly, it also lets you save accumulated values. As such, it is a general version of the <code>map</code> and <code>reduce</code> functions from many other languages.</p>
+<p>To use it, we will first restructure our input recordings. That would make the training of the network easier as well. Instead of N recordings, each of 6 values, we will cut up all these N recordings into multiple shorter fixed-duration recordings. For instance, we cut all records into sequences of 50 samples, leaving us with roughly <span class="math inline">\(N/50\)</span> such records. We can stack them, resulting in a three-axis array with dimensions 50-by-6-by-n where <span class="math inline">\(n\approx N/50\)</span>.</p>
+<figure>
+<img src="/images/bookpics/rnn_array_reshape.png" title="Reshaping the array containing the training data." alt="" /><figcaption>Reshaping the array containing all of our training data by cutting it up in smaller 1-second tracks and stacking them. Doing this simplifies the rest of our code and makes training easier to frame.</figcaption>
+</figure>
+<p>Now we can simply apply our first RNN layer to the entirety of the recorded data (which we will denote simply <code>x</code> to keep with conventions).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>states, v1_outs <span class="op">=</span> tf.scan(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="kw">lambda</span> state_vout, v_in: rnn_step(state_vout[<span class="dv">0</span>], v_in, W1s, U1, B1s, W1o, B1o),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>    x,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>)</span></code></pre></div>
+<p>Now <code>v1_outs</code> is a vector with the same dimensions as <code>x</code>, but instead of containing the input recordings at a given time step, it contains the outputs of the first RNN layer at that same time step.</p>
+<p>The entire model becomes:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">def</span> model(x,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>          W1s, U1, W1o, B1s, B1o,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>          W2s, U2, W2o, B2s, B2o,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>          Wout, Bout,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>          initializer<span class="op">=</span>tf.random.normal):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="co"># first RNN layer</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    _, v1_outs <span class="op">=</span> tf.scan(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>        <span class="kw">lambda</span> state_vout, v_in: rnn_step(state_vout[<span class="dv">0</span>], v_in, W1s, U1, B1s, W1o, B1o),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>        x,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>        initializer <span class="op">=</span> (initializer((neurons_1s,x.shape[<span class="dv">2</span>])), x[<span class="dv">0</span>,...])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>    )</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>    <span class="co"># second RNN layer</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>    _, v2_outs <span class="op">=</span> tf.scan(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>        <span class="kw">lambda</span> state_vout, v_in: rnn_step(state_vout[<span class="dv">0</span>], v_in, W2s, U2, B2s, W2o, B2o),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>        v1_outs,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>        initializer <span class="op">=</span> (initializer((neurons_2s,x.shape[<span class="dv">2</span>])), x[<span class="dv">0</span>,...])</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a>    )</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>    <span class="co"># Last NN layer (no memory, softmax activation)</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>    y_model <span class="op">=</span> tf.einsum(<span class="st">&#39;ij,TjS-&gt;TSi&#39;</span>, Wout, v2_outs) <span class="op">+</span> Bout</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>    y_model <span class="op">=</span> tf.nn.softmax(y_model, axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a>    <span class="cf">return</span> y_model</span></code></pre></div>
+<p>Notice the <code>initializer</code> term in this function. This decides whether the initial values for <code>state1</code> and <code>state2</code> (the memories of the two RNN layers) should be simply zeroes or should be random values. If we want the network to work robustly, the initial value of the memory should not matter much, and we will need to ensure this is indeed the case during training. One way to do that is to train with random initial values for the memory as enabled by the code above.</p>
+<h2 id="training-the-neural-network">Training the neural network</h2>
+<p>Now that we finally have the network implemented both on the microcontroller and on our computer, we can go ahead and train it. To do that, we need to gather the motion sensor data from the SpinWheel, while performing the gestures we want to learn. We can do that by simply adding some printing code to our SpinWheel code and recording the transmitted data through a USB cable to our computer. An example logging code could look like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="cf">for</span> (i=<span class="dv">0</span>; i&lt;<span class="dv">6</span>; i++) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>  Serial.print(input[i]);</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>  Serial.print(<span class="ch">&#39; &#39;</span>);</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>Serial.println();</span></code></pre></div>
+<p>And for the training, we just need to reformat this recording into a sequence of smaller recordings as discussed above and run a gradient descent through <code>tensorflow</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="cf">with</span> tf.GradientTape() <span class="im">as</span> tape:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>    <span class="co"># calculating the model prediction</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    y_model <span class="op">=</span> model(x,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>                    W1s, U1, W1o, B1s, B1o,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>                    W2s, U2, W2o, B2s, B2o,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>                    Wout, Bout,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>                    <span class="co">#initializer=tf.zeros,</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>                   )</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    <span class="co"># picking only the last few results from the record</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    y_model <span class="op">=</span> y_model[burnin:,:,:]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    <span class="co"># calculating the error between the model and the training data</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>    err <span class="op">=</span> tf.reduce_mean((y_model<span class="op">-</span>y_onehot)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>    <span class="co"># adding a regularization term</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    reg <span class="op">=</span> tf.reduce_mean([tf.reduce_mean(tf.<span class="bu">abs</span>(_)) <span class="cf">for</span> _ <span class="kw">in</span> variables])</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>    total_loss <span class="op">=</span> err<span class="op">+</span><span class="fl">0.05</span><span class="op">*</span>reg</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="co"># calculating the gradient</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>grads <span class="op">=</span> tape.gradient(total_loss, variables)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>opt.apply_gradients(<span class="bu">zip</span>(grads, variables))</span></code></pre></div>
+<p>By repeating this step a few hundred times we can train the network to indeed predict what gesture we are performing based on the motion data. There are a couple of things to note here:</p>
+<ul>
+<li>The training procedure would have easier time finding good parameters if we first start with zeroed-out initial memory values (i.e. <code>initializer=tf.zeros</code>);</li>
+<li>However, this would be unrealistic for the real-life performance of the network. Therefore, after some initial training with zeroed-out memory, we should continue the training runs by setting the initial values of the memory to random numbers. This would ensure the network works well independently of the length of recordings we are giving to it.</li>
+</ul>
+<p>The effect of such a switch, from zero to random initializer, can be observed in the history of our training runs:</p>
+<figure>
+<img src="/images/bookpics/rnn_train.png" title="Training and testhing history." alt="" /><figcaption>The training and testing history of our neural network. For the first 800 iterations of gradient descent we used the zero initializer for the memory neurons in the RNN layers. While this enabled us to start converging to a minimum for the training loss (blue), we see that we were still performing terribly on the testing dataset (orange and green). After the 800th iteration we switched to a random initializer which made our neural network converge to a much more robust state that enabled it to generalize well to previously unseen data.</figcaption>
+</figure>
+<ul>
+<li>We did not use the entire recording in our cost function. Instead of basing our error estimate on <code>y_model</code> we used only a fraction of the data in that array, namely <code>y_model[burnin:,:,:]</code>. I.e. we skipped the first <code>burnin</code> number of predictions. This is in order to give the network enough time to settle on a decision after seeing new measurement data. One can play with that value in order to get faster decisions, maybe even anneal it. Another option is to utilize a smoother weighting of each data point instead of an abrupt cutoff.</li>
+</ul>
+<h2 id="visualizing-the-results-and-the-information-flow-through-the-network-itself">Visualizing the results and the information flow through the network itself</h2>
+<p>It would be a significant understatement to say that understanding how a neural network decides what prediction to give is difficult. Especially in the case of deep neural networks with layers upon layers of neurons, it is still an open area of research to interpret their behavior. We can perform a humble attempt of our own to do that same task. Thankfully our network is rather small, so it is feasible to represent it graphically:</p>
+<figure>
+<img src="/images/bookpics/rnn_vis.png" title="Visualization of the network." alt="" /><figcaption>Visualization of the network: Each column corresponds to a set of neurons (the input, namely the motion measurements, then the memory and output of the first RNN layer, followed by the second RNN layer, followed by the <code>softmax</code> output predictions). Bigger circle implies larger numerical value. Between each two columns we pictorially represent the synapses, where thicker lines represent larger weights. In order, they are <code>U1</code>, <code>W1o</code>, <code>U2</code>, <code>W2o</code>, and <code>Wout</code>. The feedback synapses in the memories <code>W1s</code> and <code>W2s</code> are not shown – they would connect neurons within the <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> columns. The biases for each layer of neurons is also not represented.</figcaption>
+</figure>
+<p>On its own, such a visualization does not immediately give too much useful information. But we can create an animation of the entire history of the network, which might be more elucidating. We will also pair it up with an actual recording of the device (you might want to full-screen it):</p>
+<video src="/images/bookpics/rnn_vis_inset.mp4" muted autoplay playsinline loop controls>
+</video>
+<p>A few question spring here:</p>
+<ul>
+<li>Some neurons become very active, but their outgoing connections are weak (thin lines). Is this desired or is the network unnecessary convoluted?</li>
+<li>Many neurons in the same layer seem to respond in the same way. Does this mean we do not need such larger layers?</li>
+<li>Even neurons deep in the network seem to respond mostly to the immediate motion measurement, not to the overall gesture. Is this is a desired feature or is it a sign of a bad architectural decision?</li>
+</ul>
+<p>Some of these question go against the standard approach of deep learning, where we just explode the number of training parameters, hopefully making the cost landscape easier to train on. However, such questions of simplifying our neural network might be important when we want to run them on simple underpowered hardware.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>There are a number of important steps to take in order to understand this setup better and improve upon it. The next guide would explore:</p>
+<ul>
+<li>Was it really necessary to use a neural network for this task? Look at the video above and how noticeable the x and y accelerations were. Maybe we can simply use a low-pass filter that takes the magnitudes of the x and y accelerations and makes the decisions purely based on that. This would certainly work for the simple gestures we picked here, but it will not work well for a general gesture. Moreover, this type of “feature engineering” (the technical term for cherry-picking parts of the signal manually) needs to be redone for every new gesture. On the other hand, a neural network simply needs to be trained on the new training data without much extra thought being put into it.</li>
+<li>Can we force our network, through judicious use of regularization, to learn a simpler model, like the one above, on its own. After all, this is the whole reason for regularization: to steer the learning process away from unnecessarily convoluted and overfitting models. Until recently this was a very popular notion in machine learning: that we should look at the simplest and smallest neural net. While in the present case we can probably do it, this approach does not scale. It turns out that it is much easier to train significantly overparameterized system than to train a small neural net. This is the big surprise the recent progress in deep neural networks taught us: while the extra parameters are “unnecessary”, they make the learning process drastically easier.</li>
+<li>We know that LSTM and GRU architectures can run on the SpinWheel and other Arduino-compatible hardware (both in terms of clock-rate and RAM). <strong>Such architectures are much better at “remembering” the recent past and will be indispensable for advanced gesture recognition.</strong> This will be the main next step in this series of educational activities.</li>
+<li>If we switch to using only integers the network can be an order of magnitude larger.</li>
+<li>The output of the network can be a bit jittery (observe the last layer from the video above). A low-pass filter on that output might be a useful postprocessing addition to the model.</li>
+</ul>
+<p>And here you can find the <code>python</code> code used for <a href="https://nbviewer.jupyter.org/github/SpinWearables/SpinWearablesFirmware/blob/master/examples/RNN/training.ipynb">training</a> and <a href="https://nbviewer.jupyter.org/github/SpinWearables/SpinWearablesFirmware/blob/master/examples/RNN/visualizing.ipynb">visualization</a> of the network.</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

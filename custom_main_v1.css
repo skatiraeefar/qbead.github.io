@@ -1,0 +1,197 @@
+:root {
+  --color-greybg: #303E44;
+  --color-whitetext: #fff;
+  --color-colorfullbg: #a5cdd3;
+}
+
+main {
+  text-align: center;
+  margin: 0 0 0 0;
+  line-height: 1.25em;
+}
+
+@media screen and (min-width: 800px) {
+  header.hero > h1 {
+    font-size: 3rem;
+  }
+}
+
+header.hero > img {
+  max-width: 100%;
+  max-height: 95vh;
+  object-fit: contain;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.column > p {
+  margin: 1em 10% 1em 10%;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1
+  }
+  .long-text > p {
+    text-align: justify;
+    max-width: 800px;
+    margin: 2em auto;
+  }
+}
+
+.column > h1 {
+  height: 100%;
+}
+
+.column > p:first-child {
+  margin-top: 2em;
+}
+
+.column > p:last-child {
+  margin-bottom: 2em;
+}
+
+.column > img {
+  width: 100%;
+}
+
+.column > video {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.row-small-reverse {
+  flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 800px) {
+  main > .row-small-reverse {
+    flex-direction: row;
+  }
+}
+
+header.hero {
+  background-color: var(--color-greybg);
+  padding-bottom: 1px;
+}
+
+header.hero > h1 {
+  margin-top: -2.1em;
+  margin-bottom: 0.7em;
+  color: var(--color-colorfullbg);
+}
+
+
+header {
+  text-align: center;
+}
+
+header > h1 {
+  font-size: 2rem;
+}
+
+header > img {
+  max-width: 1500px ;
+  max-height: 484px;
+  object-fit: contain;
+  width: 90%;
+}
+
+header > video {
+  max-width: 1500px ;
+  max-height: 484px;
+  width: 90%;
+}
+
+header > .nav {
+  font-size: 1em;
+  line-height: 3rem;
+  background-color: #303E44d0; /*this is derived from a variable, write it better*/
+  color: var(--color-whitetext);
+  text-align: left;
+}
+
+header > .nav a {
+  color: var(--color-whitetext);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+header > .nav a:hover {
+  background-color: #00000050;
+  transition: 0.5s;
+}
+
+header > .nav > #menu > a {
+  height: 100%; 
+  padding: 0 1em;
+  display: inline-block;
+}
+
+header > .nav > #menu > #menu-label {
+  height: 100%; 
+  padding: 0 1em;
+  display: inline-block;
+}
+
+@media screen and (max-width: 800px) {
+  header > .nav > #menu > a {
+    display: none;
+  }
+  header > .nav > #menu:hover > a {
+    display: block;
+  }
+  #book-button {
+    float: right;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  header > .nav {
+    top: 0px;
+    width: 100%;
+  }
+  header > .nav > #menu > #menu-label {
+    display: none;
+  }
+  #book-button {
+    float:right;
+  }
+}
+
+.dark {
+  background-color: var(--color-greybg);
+  color: var(--color-whitetext);
+}
+
+.colorful {
+  background-color: var(--color-colorfullbg);
+  color: var(--color-whitetext);
+}
+
+.round-button {
+  background-color: transparent;
+  color: var(--color-whitetext);
+  border: 2px solid var(--color-whitetext);
+  border-radius: 1.5em; 
+  padding: 0.5em 1em;
+}
+
+.round-button:hover {
+  background-color: #00000050;
+  transition: 0.5s;
+}
+

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="spinwheel, STEM, science, science and art, physics, computer science, middle school, high school, textbook" />
+  <title>The SpinWheel Field Guide</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<video src="/images/banners/linewheel_crossfade.mp4" muted autoplay playsinline></video>
+<h1 class="title">The SpinWheel Field Guide</h1>
+</header>
+<main>
+<script src="/jquery.min.js"></script>
+<script src="/springy/springy.js"></script>
+<script src="/springy/springyui.js"></script>
+<script>
+
+jQuery(function(){
+  var graph = new Springy.Graph();
+
+  var intro = graph.newNode({label: "Getting Started with the SpinWheel", color: "red"});
+  var quick = graph.newNode({label: "Initial Setup", color: "red"});
+  var basic = graph.newNode({label: "Basic Structure of a Program"});
+  var arduino = graph.newNode({label: "Arduino 101", color: "grey"});
+  var sight = graph.newNode({label: "Biology of Sight"});
+  var strobe = graph.newNode({label: "Stroboscope"});
+  var ani = graph.newNode({label: "Intro to Animations"});
+  var ani2 = graph.newNode({label: "Animations and Patterns"});
+  var step = graph.newNode({label: "Step Counter"});
+  var dance = graph.newNode({label: "Dancing Companion"});
+  var compass = graph.newNode({label: "Compass"});
+  var progpatterns = graph.newNode({label: "Building Blocks of Coding", color: "grey"});
+  var light = graph.newNode({label: "Light and Color", color: "grey"});
+  var colortheory = graph.newNode({label: "Color Theory", color: "grey"});
+  var inertia = graph.newNode({label: "Inertial Reference Frames", color: "grey"});
+  var rotation = graph.newNode({label: "Rotation", color: "grey"});
+  var magnet = graph.newNode({label: "Magnetism", color: "grey"});
+  var vector = graph.newNode({label: "Vectors and Motion", color: "grey"});
+  
+  graph.newEdge(intro, quick);
+  graph.newEdge(quick, sight); 
+  graph.newEdge(quick, strobe);
+  graph.newEdge(sight, ani); 
+  graph.newEdge(ani, basic);
+  graph.newEdge(basic, arduino);  
+  graph.newEdge(sight, light); 
+  graph.newEdge(light, colortheory); 
+  graph.newEdge(ani, ani2); 
+  graph.newEdge(arduino, progpatterns); 
+  graph.newEdge(ani2, progpatterns); 
+  graph.newEdge(ani2, step); 
+  graph.newEdge(ani2, dance);
+  graph.newEdge(dance, compass); 
+  graph.newEdge(compass, magnet);
+  graph.newEdge(step, compass);
+  graph.newEdge(dance, vector); 
+  graph.newEdge(vector, rotation); 
+  graph.newEdge(dance, inertia);
+  graph.newEdge(step, inertia);
+
+  var springy = jQuery('#springymap').springy({
+    graph: graph,
+    stiffnes: 200,
+    repulsion: 2000,
+    damping: 0.5
+  });
+});
+
+</script>
+<canvas id="springymap" width="800" height="600">
+</canvas>
+<p>There is a lot going on in the map above, so below we have our recommended order for completing the lessons and adventures. However, this is just a recommendation! Depending on which activities you are excited by and your comfort with programming, then you may jump around.</p>
+<style>
+@font-face {
+  font-family: 'xkcd';
+  src: url('/xkcd-script.ttf')  format('truetype');
+}
+
+:root {
+  /* Change this to change the appearance of the hexaons */
+  --hex-width: 150px; 
+  --hex-inner-border: 15px;
+  
+  /* Other hexagon dimentions */
+  --hex-side: calc(var(--hex-width)/2);
+  --hex-height: calc(var(--hex-side)*1.7320508075688772);
+  --hex-tiptotip: calc(var(--hex-side)*3 - var(--hex-inner-border)*0.75);
+  --hex-transition: all .2s ease;
+}
+
+/* Hexagons */
+.hexagon-container {
+  display: grid;
+  grid-template-columns: var(--hex-tiptotip) var(--hex-tiptotip) var(--hex-tiptotip) var(--hex-tiptotip);
+  grid-auto-rows: calc(var(--hex-height)/2 - var(--hex-inner-border)*1.7320508075688772/8);
+  grid-gap: 0 0;
+  font-family: xkcd;
+}
+.hexagon {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: var(--hex-height);
+  justify-content: center;
+  position: relative;
+  transition: var(--hex-transition);
+  width: var(--hex-width);
+}
+
+.hexagon:nth-child(8n + 5),
+.hexagon:nth-child(8n + 6),
+.hexagon:nth-child(8n + 7),
+.hexagon:nth-child(8n + 8) {
+  margin-left: calc(var(--hex-side) * 1.5 - var(--hex-inner-border)*0.375);
+}
+
+.hexagon {
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+}
+
+.hexagon * {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--hex-transition);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  background-color: white;
+}
+
+.hexagon a {
+  text-align: center;
+  line-height: 18px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.hexagon *:hover {
+  background-color: white !important;
+  font-size: 18px !important;
+}
+
+.hexagon > * {
+  width: calc(var(--hex-width) - var(--hex-inner-border));
+  height: calc(var(--hex-height) - var(--hex-inner-border)*1.7320508075688772/2);
+}
+
+.hexagon > div > div {
+  width: calc(var(--hex-width) - 1.8*var(--hex-inner-border));
+  height: calc(var(--hex-height) - 1.8*var(--hex-inner-border)*1.7320508075688772/2);
+}
+
+.hexagon > div > div > a {
+  width: calc(var(--hex-width) - 2.1*var(--hex-inner-border));
+  height: calc(var(--hex-height) - 2.1*var(--hex-inner-border)*1.7320508075688772/2);
+}
+</style>
+<ul id="hexmap" class="hexagon-container">
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+</ul>
+<script>
+const tiles = [
+{x:1, y:2, bgcolor:"#ffffff", textcolor:"#bf1e2e", bordercolor:"#bf1e2e", inner: true, text:"Getting<br>Started<br>with the<br>SpinWheel", href:"/intro"},
+{x:2, y:3, bgcolor:"#f2d2d5", textcolor:"#bf1e2e", bordercolor:"#bf1e2e", inner: true, text:"SpinWheel<br>Initial<br>Setup", href:"/quickstart"},
+//light
+{x:2, y:5, bgcolor:"#d0eeec", textcolor:"#13a89e", bordercolor:"#13a89e", inner: true, text:"Mixing<br>Color with<br>Light", href:"#"},
+{x:1, y:6, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: true, text:"Biology of<br>Sight", href:"/sight"},
+{x:1, y:7, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: false, text:"Color<br>Theory", href:"/colortheory"},
+{x:1, y:5, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: false, text:"Light and<br>Color", href:"/lightandcolor"},
+//basic prog
+{x:2, y:4, bgcolor:"#d3eef9", textcolor:"#25aae1", bordercolor:"#25aae1", inner: true, text:"Customizing<br>the SpinWheel&#39;s<br>Display", href:"#"},
+{x:2, y:6, bgcolor:"#d3eef9", textcolor:"#25aae1", bordercolor:"#25aae1", inner: true, text:"Arduino<br>101", href:"/arduino101"},
+{x:3, y:5, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: false, text:"Basic<br>Structure<br>of a<br>Program", href:"/basics"},
+//animations
+{x:3, y:3, bgcolor:"#d2e2f0", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Creating<br>Animations<br>with the<br>SpinWheel", href:"#"},
+{x:3, y:2, bgcolor:"#d2e2f0", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: false, text:"Coding<br>Building<br>Blocks", href:"/progpatterns"},
+{x:3, y:4, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Intro to<br>Animations", href:"/animation"},
+{x:4, y:5, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Animations<br>and<br>Patterns", href:"/animation2"},
+//motion
+{x:4, y:7, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Make a<br>Step Counter", href:"/stepcounter"},
+{x:3, y:8, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: false, text:"Vectors<br>and<br>Motion", href:"/vectors"},
+{x:4, y:9, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Dancing<br>with<br>Color", href:"/dancing"},
+{x:4, y:8, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: false, text:"Inertial<br>Reference<br>Frames", href:"/inertia"},
+{x:4, y:10, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: false, text:"Rotation<br>and<br>Circular<br>Motion", href:"/rotation"},
+//magnetism
+{x:3, y:10, bgcolor:"#ffffff", textcolor:"#ef5188", bordercolor:"#ef5188", inner: true, text:"Make a<br>Compass", href:"/compass"},
+{x:3, y:11, bgcolor:"#ffffff", textcolor:"#ef5188", bordercolor:"#ef5188", inner: false, text:"Magnetism", href:"/magnetism"},
+//reference
+{x:4, y:1, bgcolor:"#fdded4", textcolor:"#f1592b", bordercolor:"#f1592b", inner: false, text:"SpinWheel<br>Functions<br>Reference", href:"/allcommands"},
+];
+const hexmap = document.getElementById("hexmap");
+const allhexes = hexmap.getElementsByClassName("hexagon");
+for (const tile of tiles) {
+  const hex = allhexes[(tile.x-1)+4*(tile.y-1)];
+
+  hex.style["background-color"] = tile.bordercolor;
+  var innerHTML = `<a href="${tile.href}" style="color:${tile.textcolor};background-color:${tile.bgcolor}">${tile.text}</a>`;
+  if (tile.inner==true) {
+    innerHTML = `<div style="background-color:${tile.bgcolor}"><div style="background-color:${tile.bordercolor}">${innerHTML}</div></div>`;
+  }
+  hex.innerHTML = innerHTML;
+}
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

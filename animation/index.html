@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="animations, frames, timing" />
+  <title>Intro to Animation</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Intro to Animation</h1>
+</header>
+<main>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<div class="intro-box">
+<p>An animation is created by rapidly cycling through a series of still images. You may be familiar with animations from watching cartoons, but we can also create animations with the SpinWheel’s LEDs. In this lesson, you’ll be able to try out doing just that.</p>
+</div>
+<div class="warning">
+<p>If you haven’t already done the <a href="/quickstart">Initial Setup Guide</a> and the <a href="/basics">Basic Structure of a Program lesson</a>, then we recommend reading them before completing this lesson. They contain important information about downloading the software necessary to program the SpinWheel and other useful information about controlling the LEDs.</p>
+</div>
+<p>To create an animation or a video, we need a rapid sequence of still images, called frames. The frames must be displayed rapidly enough that it looks like a smoothly changing pattern to our eyes. This is true both for the computer screen playing a video and for the SpinWheel lights changing their patterns. For example, this is a short repeating animation of a rainbow pattern playing on the LEDs.</p>
+<video src="/images/behindthescenes/pretty_device.mp4" muted autoplay playsinline loop>
+</video>
+<p>There are two ways such a pattern can be animated on a given device or screen. The first approach is to just draw every single frame by hand, save that large collection of images, and display them one by one in a rapid succession. Frequently, this is the only possible way. For instance, in an animated movie, the majority of the frames are drawn by an artist, even if they use modern computer graphics technologies to automate some of their work. This method requires a lot of manual work, and a lot of computer memory to store the artwork.</p>
+<figure>
+<img src="/images/bookpics/generative_art.png" alt="" /><figcaption>What if the computer itself created the images? This is called generative art and you’ll be learning how to do this yourself in the rest of this adventure. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>However, there is another type of art, called <em>generative art</em>, which does not have such taxing requirements. It obeys different constraints, and it requires a particular mindset, but its beauty comes from the fact that you tell a computer how to create art on its own, instead of drawing the art yourself. The creative element is deep in your imagination, and it depends on your skill to instruct and teach a computer to do something. We will explore this type of art here. We will learn how to command a computer (the SpinWheel) to draw patterns of color that evolve in time. Along the way we might even learn a bit about how to write programs.</p>
+<div class="warning">
+<p>Keep in mind that we will be learning a new language, a language that lets us instruct a simple computer (the SpinWheel’s brain) to do something. Just like with any other language, at first you will not be able to understand all the words or the <span class="footnote">entire sentence.<span>In this metaphor a sentence is a computer program.</span></span> As a new programmer, the important thing is to latch on to the words that mean something to you, even if you cannot understand the entire language.</p>
+</div>
+<p>We have prepared many small example programs you can play with, before you start trying to modify them. All of these sketches are included in the SpinWearables library, which you downloaded while completing the <a href="/quickstart">Initial Setup Guide</a>. You should not need to type out any of the examples described here. Simply attempt to upload them to the device and read through them, even if you are not changing them.</p>
+<h2 id="timing">Timing</h2>
+<p>Our first goal, before we are able to make something as advanced as the rainbow pattern above, is to simply make our device blink. Writing this code will give us the framework upon which to build more sophisticated animations.</p>
+<video src="/images/bookpics/simple_blink.mp4" muted autoplay playsinline loop>
+</video>
+<p>To make our device blink, we need to tell it how long to be on or off. This is the timing of our animation. Thankfully our device has a built-in timer that can measure milliseconds (1 second equals 1000 milliseconds). One of the first things we will need to do in our generative art program is to ask for the time and save it for future calculations. The command that we need to write looks like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">int</span> t = millis();</span></code></pre></div>
+<p>Shortly, we will see how this command can be woven in with others as part of a complete program. Here, <code>millis()</code> is a <span class="footnote">command that reads the number of milliseconds that have passed since the device was started.<span>This command, together with many other useful commands comes built into the software we are using. Later, we will even learn how to make commands of our own.</span></span> These commands are special directions that ask the computer to complete a task. The rest of the small piece of code depicted above ensures that the number of milliseconds given by <code>millis()</code> is stored somewhere: in the variable we have named <code>t</code> (you can use more descriptive names if you wish). We also had to specify the type of the variable (<code>int</code> as in “integer”) because otherwise our SpinWheel will get confused. If we put this line of code in the <code>loop</code> block of our code, the value of t will change every time the <code>loop</code> is repeated.</p>
+<!--FIGURE: An image showing the type and name on the lhs, and the expression on the rhs, stressing the rigidity of this syntax.-->
+<figure>
+<video src="/images/bookpics/time_loop.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Every time the <code>loop()</code> block is run, <code>millis()</code> determines the number of milliseconds since <code>setup()</code> was run and stores it in the variable <code>t</code>. Think of it as if you are checking the time on a stopwatch. You hit ‘start’ right when the SpinWheel is initialized in <code>setup()</code> and then check how much time has passed at the start of each loop by using the <code>millis()</code> command.
+</figcaption>
+</figure>
+<p>The entirety of our animation will depend on the number stored in this <code>t</code> variable. Based on that number, another piece of code can decide when to shine a given color, when to be illuminating brightly or showing subdued colors, when to alternate hues from one LED to the other, and in this particular case, simply when to blink.</p>
+<p>What follows is the most crucial concept in the construction of our animations. If we want our animations to repeat, we will need to turn this ever-growing counter <code>t</code>, into a number that <em>wraps around</em>. For instance, if we want our animation to repeat every 2500 milliseconds (2.5 seconds), then the number on which the animation depends should itself repeat in the same manner.</p>
+<p>The simplest way to do that is to subdivide time into intervals of the same length as our animation and see how many milliseconds have passed since the start of the current interval. We can do that by looking at the remainder after dividing time by the length of our repeating unit. For example, if 5600 milliseconds have passed since the device was powered, then <span class="math display">\[ 5600\div 2500 = 2 \text{ with a remainder of } 600.\]</span> This means that two full intervals of 2500 milliseconds have passed and we are 600 milliseconds into the third interval.</p>
+<figure>
+<img src="/images/Modular_division_timeline.png" title="Division of time (shown in blue) into intervals of 2500 (shown in orange)" alt="" /><figcaption>Division of time into intervals of 2500. In this example, 5600 milliseconds have passed, which is 2 full cycles of 2500 milliseconds with a remainder of 600.</figcaption>
+</figure>
+<p>We can also consider intervals of different lengths, but for now we will stick to 2.5 seconds. This interval is short enough for us to be able to see the animation we create without waiting an unnecessary amount of time, and long enough that our eyes can capture how things change.</p>
+<p>Lastly, we need to tell the computer that we want it to compute a division with a remainder for us. Thankfully, we can find in our dictionary of programming languages that the notation <code>a % b</code> is <span class="footnote">frequently used<span>Programmers have the bad habit of taking established symbols like the percent sign and using it for unrelated concepts, like it is use here for division with remainder.</span></span> to mean “find the remainder of dividing <code>a</code> by <code>b</code>”. With all this knowledge, we now know how to measure time in repeating intervals of (for example) 2500 milliseconds.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">int</span> t_repeating = t % <span class="dv">2500</span>;</span></code></pre></div>
+<p>This command takes the time that we stored in <code>t</code> and uses the <code>%</code> notation to find the remainder when <code>t</code> is divided by 2500. The remainder is stored in a new variable, <code>t_repeating</code>.</p>
+<figure>
+<video src="/images/bookpics/time_remainder.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Using time to create a repeating pattern: the value returned by <code>millis()</code> (in blue) is divided into equal intervals. The remainder of that division (in orange) provides a steady repeating sequence of numbers on which we can base a repeating animation.
+</figcaption>
+</figure>
+<h3 id="a-picture-that-depends-on-time">A picture that depends on time</h3>
+<p>Finally, we have all that we need to create our first animation. We will use the timing variable we have created, <code>t_repeating</code>, and based on its value we will calculate a brightness value <code>b</code>. We will use this brightness variable to set all of the large LEDs (and each of their red, green, and blue colors) to the same time-dependent value. The maximal permitted brightness value of our software is <code>255</code>. Because <code>t_repeating</code> can have any value between 0 and 2500, we have to divide <code>t_repeating</code> by 10 to keep <code>b</code> from going beyond <code>255</code>.</p>
+<p>The <span class="footnote"> important part of the necessary code<span>We skip the setup code for the sake of space</span></span> is shown in the SpinWheel simulator below.<span class="footnote"> Try to explain in the words of your own language what every single line of the computer programming language says.<span>You will frequently hear programmers talk about the “story” that their code tells. Being able to retell the instructions of a piece of computer code in the form of a human-language story is a sure sign you are starting to understand a piece of code.</span></span> As a hint, we will mention that <code>setLargeLEDsUniform</code> is used to set all large LEDs to the same uniform color (specified by three numbers, corresponding to the red, green, and blue components of the color).</p>
+<p>Now let’s put all of this together and see what happens by clicking run on the virtual SpinWheel.</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  int t = millis();
+  int t_repeating = t % 2500;
+  int b = t_repeating / 10;
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(b, b, b);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>At this point, you might be wondering whether you can <span class="footnote"> modify the color <span>Try modifying other lines above to see what happens as well! </span></span> of the LEDs in the above sketch. By changing the line <code>SpinWheel.setLargeLEDsUniform(b, b, b)</code>, you can do just that! For instance, to make the LEDs teal instead of white, change that line to be <code>SpinWheel.setLargeLEDsUniform(0, b, b)</code>. What about making the LEDs light up yellow? To experiment more quickly, first try this in the virtual SpinWheel above. Then, when you have some modifications that you are interested in trying out on your SpinWheel, you can make the same changes in the example sketch in the Arduino software.</p>
+<div class="further-reading">
+<p>Feeling stumped on how to make a different color? In our <a href="/sight">Biology of Sight</a> adventure you will have the opportunity to try mixing colors with red, green, and blue light. The <a href="/colortheory">Color Theory</a> lesson provides more information about why we can use red, green, and blue LEDs to represent all the colors of the rainbow.</p>
+</div>
+<p>Now let us upload this code to the SpinWheel device itself. Make sure that the SpinWheel’s switch is on <code>USB</code> and then connect your device with a micro USB cable to your computer. To run this code on your SpinWheel, navigate to <code>File → Examples → SpinWearables → Animations_and_Patterns → Simple_Blink</code> in the Arduino software and open the file and upload it to your SpinWheel. If you simply copy the above code, it will not run because it is missing the important setup information. The file in <code>Examples</code> contains the entirety of the necessary code.</p>
+<div class="further-reading">
+<p>If you want a reminder about why the above code will not work if you run it on your SpinWheel, check out the <a href="/basics">Basic Structure of a Program lesson</a>.</p>
+</div>
+<p>So far in this lesson, we have discussed certain building blocks of the above code (like <code>millis()</code>), but we have yet to dive into what every line means. When you uploaded the code onto your SpinWheel, you may have noticed that the sketch had many more comments than the code for the virtual SpinWheel. These comments provide more in-depth explanations of the code. We have also provided a <a href="/codedoc/examples/Animations_and_Patterns/Simple_Blink">webpage with a detailed explanation of the sketch</a> where you can read more.</p>
+<figure>
+<img src="/images/bookpics/creating_own_functions.png" alt="" /><figcaption>Check out our lesson on the building blocks of coding to learn more about the essential pieces of writing a sketch. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>By learning to control the SpinWheel’s LEDs, you are already learning some basic coding concepts. To expand on this, we have also put together a reference guide that introduces <a href="/progpatterns">some of the most important building blocks in programming</a>. We recommend checking this out now and also referring back to it as you move onto the more advanced adventures.</p>
+<p>If you are excited about making more complicated animations on your SpinWheel, then we invite you to dive into the <a href="/animation2">Animations and Patterns adventure</a> next. We will modify this sketch and introduce how to make the color (rather than simply the brightness) change with time. If you are already accustomed to programming and want to simply see the list of available commands, <a href="/allcommands">check out our function documentation</a> and let your inmagination run wild.</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

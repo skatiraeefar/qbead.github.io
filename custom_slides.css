@@ -1,0 +1,42 @@
+figure {
+  text-align: center;
+  height: 65vh;
+}
+
+figure > img {
+}
+
+figure > figcaption {
+  font-size: 0.6em;
+  line-height: 1.1;
+}
+
+.imagecredit {
+  font-size: 0.8em;
+  display: block;
+}
+
+table {
+  font-size: 0.5em;
+}
+
+.ssw-container {
+  background: grey;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.ssw-codeblock {
+  font-size: 0.5em !important;
+  width: 90% !important;
+  color: white;
+  background: grey;
+  box-shadow: unset !important;
+}
+
+textarea.ssw-codeblock {
+  border-left: 1px solid red !important;
+}
+
+.sourceCode {
+}

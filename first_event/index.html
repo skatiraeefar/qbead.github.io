@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="physical computing, computer science, arduino, programming" />
+  <title>An Introduction to the SpinWheel</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<video src="/images/banners/linewheel_crossfade.mp4" muted autoplay playsinline></video>
+<h1 class="title">An Introduction to the SpinWheel</h1>
+</header>
+<main>
+<div class="intro-box">
+<p><strong>Thank you for signing up to help test the SpinWheel!</strong></p>
+<p>We hope that by the end of this event you will be more comfortable with the Arduino platform and that you will have successfully used this knowledge to program the SpinWheel yourself. With our volunteers’ help, you will complete the SpinWheel’s initial setup. We will then provide a quick presentation on programming. Our volunteers will then be there to answer any questions you may have as you complete the “Biology of Sight” adventure. If you want to, at the very bottom you can also read about more general ways to program the SpinWheel. We hope you enjoy using the SpinWheel!</p>
+</div>
+<p>The SpinWheel has four components: a power source (the battery), a sensor (for motion and magnetic fields), a set of lights (the light emitting diodes, or LEDs), and a micro computer (the brain of the device).</p>
+<p>Much of the joy of the SpinWheel comes from your potential to change it, and make it do whatever you wish! To do this, you will need a way to reprogram the micro computer on the SpinWheel. You can do that by by using <a href="https://arduino.cc/en/Main/Software">the Arduino programming package</a> that is already available on the computers provided for this activity.</p>
+<p>Plug your SpinWheel into your computer with a micro USB cable and open the Arduino software. You should be able to see your device appear in <code>Tools→ Port</code>. There will be some text describing the serial port which you need to select in order for the software to connect to the SpinWheel. If there are multiple ports and you are unsure which one is the right one, simply check which one disappears when you unplug the SpinWheel.</p>
+<p>Under the Tools menu, select Arduino Leonardo as the board (a.k.a. processor), so that the software knows which “dialect” to use to talk to the device (just like a language you speak can have different dialects!).</p>
+<p>Learning to code is just like learning a new language - it may not be easy at first, but once you learn the basics, you will be able to write code to communicate effectively with computers! Today we will do this together by exploring a few SpinWheel code examples.</p>
+<style>
+  iframe {
+    width: 100%;
+  }
+</style>
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    var l = obj.contentWindow.document.getElementById('license');
+    l.parentElement.removeChild(l);
+    var n = obj.contentWindow.document.getElementsByClassName('nav')[0];
+    n.parentElement.removeChild(n);
+    var i = obj.contentWindow.document.getElementById('isso-thread');
+    i.parentElement.removeChild(i);
+  }
+</script>
+<div class="further-reading">
+<p>We are now going to introduce some of the important computer science concepts to program the SpinWheel. If you’d like to reference this information, check out our <a href="/progpatterns">basic programming guide</a>.</p>
+</div>
+<iframe src="/sight" frameborder="0" scrolling="no" onload="resizeIframe(this)">
+</iframe>
+<iframe src="/quickapi" frameborder="0" scrolling="no" onload="resizeIframe(this)">
+</iframe>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

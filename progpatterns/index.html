@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="physical computing, computer science, arduino, programming" />
+  <title>Coding Building Blocks</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Coding Building Blocks</h1>
+</header>
+<main>
+<div class="intro-box">
+<p>This page will introduce you to many of the typical building blocks programmers use to write code. If this is your first time thinking about computer code, it would be helpful to also consult the <a href="/basics">Basic Structure of a Program lesson</a>, which is a mini-reference on the SpinWheel’s programming style.</p>
+</div>
+<p>Writing a computer program of your own, whether a desktop app, an interactive website, or the hidden brain of a robot, starts by writing a sequence of instructions in one of the many available computer languages. In this lesson, we will use a very popular older language that runs well on simple computers like the SpinWheel’s microcontroller. The name of this language is <code>C++</code>. While <code>C++</code> has a specific set of commands and rules used to write computer programs, the main ideas are common to other programming languages. In fact, the vast majority of computer languages share the same patterns, just like how many human languages share ideas such as the distinction between a noun and a verb, or the difference between a word and a sentence. We will describe the most important such patterns in this chapter.</p>
+<h2 id="variables">Variables</h2>
+<p>Computer programs do one thing and one thing only: process information. That information can be the time of a mouse click, a voicemail on your phone, or a picture of the road taken by a self-driving car. Before processing such data, we have to tell the computer to store it in its memory. This is done using <strong>variables</strong>.</p>
+<figure>
+<img src="/images/bookpics/variables.png" alt="" /><figcaption>“Variables” are like labeled shelves for information. When you need to save a number for later use, you put it in a variable of your choice. Above we have number 3 stored in the variable <code>a</code>, number 4 stored in variable <code>b</code> and the number 7 is about to be stored in a variable named <code>e</code>. We can pick the names for the variables ourselves (any sequence of letters that is not interrupted by whitespaces). <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>We will only discuss two types of variables: integers and decimals. Other types do exist, but we won’t cover them here. If you store a number as an integer, it must be a whole number (like 2 or 3011) and cannot have a decimal component. On the other hand, a decimal can have a decimal part (like 0.4, 560.17, or 2.0). Integers are easier for a computer to work with because it does not need to store all of the data after the decimal point. Treating them separately from decimals lets us have faster code, which is especially important for small computers that don’t have much storage space like in the SpinWheel.</p>
+<p>To <strong>define</strong> a new integer variable you need the following line in your code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">int</span> my_special_integer = <span class="dv">6</span>;</span></code></pre></div>
+<p>This reserves a location in the memory of the computer, lets us refer to that location by the name <code>my_special_integer</code>, and stores the value <code>6</code> there. We can name the variable anything as long as it is a single word (or multiple words separated with underscores). We usually pick names that tell us something about the purpose of the variable. In this variable type, we can store any integer we want as long as it is not too large (no larger than roughly 30 000, due to limitations of how this computer stores integers).</p>
+<p>If we want to work with decimals, we use the variable type <code>float</code> instead of <code>int</code>. The name comes from the early history of computers and is unimportant for our purposes (how the decimal point can “float” between the digits).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">float</span> pi = <span class="fl">3.1415</span>;</span></code></pre></div>
+<p>Here we stored an approximation of the number <span class="math inline">\(\pi\)</span> in a variable with the name <code>pi</code>. We could then use this variable in other parts of our code to do computations that involve circles.</p>
+<p>Notice that throughout all of our code we have used the equality sign <code>=</code> to mean “store the value on the right in the memory cell on the left”. This differs from the usual mathematical meaning of the sign, which usually means “check if the left and right side have the same value”. You can blame early computer scientists and their laziness for the misuse of this sign in most modern programming languages.</p>
+<p>Now that you’ve learned more about variables, we encourage you to look at the start of <a href="/arduino101">Arduino 101</a> that discusses variables again. As you move through the online material and deepen your understanding of the SpinWheel, we encourage you to go back and forth between the various online pages.</p>
+<h2 id="functions">Functions</h2>
+<p>In computer programming, functions are commands that take a few variables and do something useful with them. Functions are reusable pieces of code. A function can act like a calculator, computing a new value based on the variables that are given to it. A function can also do something that affects the world around it, like blinking an LED, playing a sound, or sending a message.</p>
+<p>Most programing languages have some functions built into them, similar to how a new cellphone comes with pre-installed apps. We can use these functions without having to write them ourselves. Here is some code that uses an example function called <code>max</code> that takes two numbers as input and returns the larger number. The input values are also called the <strong>arguments</strong> of the function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(number_a, number_b);</span></code></pre></div>
+<p>Let’s step through each part of this code.</p>
+<ul>
+<li><code>int number_a = 5</code> assigns the value of 5 to the integer variable <code>number_a</code></li>
+<li><code>int number_b = 7</code> assigns the value of 7 to the integer variable <code>number_b</code></li>
+<li><code>int resulting_number = max(....)</code> store the result of the function <code>max(...)</code> in the integer variable <code>resulting_number</code></li>
+<li><code>max(number_a, number_b)</code> calls, or uses, the function <code>max(...)</code> with two arguments, <code>number_a</code> and <code>number_b</code>, and returns the larger number.</li>
+</ul>
+<p>The value stored in <code>resulting_number</code> in this case would be <code>7</code>.</p>
+<figure>
+<img src="/images/bookpics/functions.png" alt="" /><figcaption>Functions are tools provided in a given programming language that are capable of ingesting a number of parameters and producting (a.k.a “returning”) some new value that depended on the input parameters. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>Here is another example where one of the arguments for our function is specified directly, without first being stored in a variable. In this case, the value stored in <code>resulting_number</code> will be <code>8</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">int</span> my_number = <span class="dv">6</span>;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(my_number, <span class="dv">8</span>);</span></code></pre></div>
+<p>As you have seen, the typical syntax rules for the use of a function are to put its arguments inside parentheses immediately after the name of the function. You might have seen this in math class with trigonometric functions like <span class="math inline">\(\sin{(x)}\)</span> or <span class="math inline">\(\cos{(x)}\)</span>.</p>
+<!--TODO: Computer science and math both use the word function in slightly different ways. Consider adding a link that talks about this more.-->
+<p>We can nest functions and use arithmetic operations on the arguments as well. For instance, here we will use two more functions, <code>min</code> which returns the smaller of two numbers and <code>sqrt</code> which returns the square root of a given number. Can you explain why the value stored in <code>resulting_number</code> in the following example is <code>4</code>? Here is a hint: <span class="math inline">\(\sqrt{5-1}=\sqrt{4}=2\)</span>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(sqrt(number_a-<span class="dv">1</span>) * <span class="dv">2</span>, min(number_b, <span class="dv">2</span>));</span></code></pre></div>
+<figure>
+<video src="/images/bookpics/calc_tree.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+In this diagram, you can see the order in which the computer evaluates this piece of code. It first finds the minimum of <code>number_b</code> and <code>2</code>. It then subtracts <code>1</code> from <code>number_a</code>, then evaluates the <code>sqrt()</code> function and multiples the output by <code>2</code>. Finally, it evaluates <code>max()</code>. This is similar to how when solving a math equation, you first do anything within parenthenses and then work your way out.
+</figcaption>
+</figure>
+<h2 id="creating-your-own-functions">Creating your own functions</h2>
+<figure>
+<img src="/images/bookpics/creating_own_functions.png" alt="" /><figcaption>Now we have the pieces to begin to create our own functions. In the beginning, this may be like creating a poem using a limited set of magnetic word tiles. With practice, your bank of pieces will increase in size, enabling you to write more complicated code. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>A large part of programming is creating your own functions and building interesting, complex, and useful functions out of small simple functions. Here we give an example of how to write your own function that takes two numbers, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, and returns their average, <span class="math inline">\(\frac{x+y}{2}\)</span>. We will name the function <code>avg</code>. Let us first write an example of how this function would be used if it already existed:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="dt">float</span> x = <span class="fl">3.5</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="dt">float</span> y = <span class="fl">2.5</span>;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="dt">float</span> resulting_number = avg(x, y);</span></code></pre></div>
+<p>In this code example, <code>resulting_number</code> will have the value of <code>3.0</code>.</p>
+<p>To define this new function, we need to write down its name, together with the type of data it will be producing, followed by a set of computational instructions:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">float</span> avg(<span class="dt">float</span> first_argument, <span class="dt">float</span> second_argument) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>  <span class="cf">return</span> <span class="fl">0.5</span>*(first_argument+second_argument);</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Let’s step through each part of this code.</p>
+<ul>
+<li><code>float avg(.....)</code>: The very first <code>float</code> specifies the type of data the function will produce (in this case they are decimals). This is followed by the name we have picked for our function, <code>avg</code>.</li>
+<li><code>(float first_argument, float second_argument)</code>: In parentheses, we have a list of the arguments the function will be taking. Unlike when we call the function, we have to specify their types, so we wrote <code>float</code> to denote working with decimals. We also gave temporary names for these arguments so that we can refer to them in the function.</li>
+<li><code>{ ... }</code> : The curly brackets surround the instructions of our function.</li>
+<li><code>0.5*(first_argument+second_argument)</code> : This where the math happens in our function. It is simply the sum of the two arguments multiplied by one-half.</li>
+<li><code>return</code> : a keyword to state that the result of this line of code should be returned to the code that called the function.</li>
+</ul>
+<p>We can have multiple sequential instructions inside the block when the computation is more difficult. That is the purpose of the curly brackets <code>{ }</code> - to separate all the code that defines our function from the rest of the program that might be in the same file. For instance, here we will show how to compute the fourth root of a number. The fourth root of a number, or x raised to the <span class="math inline">\(\frac{1}{4}\)</span> power, can be computed by taking the square root of the square root and we will use this fact to write the fourth root function below.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="dt">float</span> root4(<span class="dt">float</span> x) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>  <span class="dt">float</span> intermediate_value = sqrt(x);</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>  <span class="cf">return</span> sqrt(intermediate_value);</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Maybe the functions <code>avg</code> and <code>root4</code> seem too redundant to you, and you would prefer to always write <code>(x+y)/2</code> instead of <code>avg(x,y)</code>. This is quite valid feeling for such short functions, but as you build more complex programs you will have longer pieces of code that would be cumbersome to repeat every time. Functions let you have a shorthand notation, so you do not need to make such repetitions.</p>
+<h2 id="functions-that-do-not-return-values">Functions that do not return values</h2>
+<p>Functions can also be used to change something in the environment of the device instead of being used as advanced calculators. Such functions do not return a value and don’t need a variable to store their output. One example of such a function is the <code>delay</code> function that pauses the computer for the length of time specified by the input variable. In the following example, calling the <code>delay</code> function will pause the program for 1000 milliseconds (which equals one second) before executing the next line:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>a = calculation1();</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>delay(<span class="dv">1000</span>);</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>b = calculation2();</span></code></pre></div>
+<p>While this built-in function is nice, what if we want to specify the delay in seconds instead of milliseconds? When writing our own functions that do not have a return value, we specify the type of data that the function will be returning as <code>void</code>. This denotes that the returned value is empty or “void”. Our new function takes the number of seconds as its input, calculates the number of milliseconds corresponding to the provided number of seconds and then uses the <code>delay</code> function to pause the program for that length of time. We do not need to use the <code>return</code> keyword because our function doesn’t return a value.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">void</span> delay_seconds(<span class="dt">int</span> number_of_seconds) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>  <span class="dt">int</span> number_of_milliseconds = <span class="dv">1000</span> * number_of_seconds;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>  delay(number_of_milliseconds);</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="comments">Comments</h2>
+<p>As the code we write grows longer, it helps to add notes in the code to ourselves and our friends who might view our code. This makes it easier to understand the purpose of the code when we look at it again in the future. Such notes are usually called “comments”, and are completely ignored by the computer when it runs the code. In the language we are using, comments are denoted by a double slash <code>//</code> – everything to the right of these symbols, until the end of the line, is a message for fellow humans. We will use such comments below in some more complicated examples of code.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co">// I am writing this comment to remind me that the next</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="co">// line stores the number 5 in the variable named my_test_variable.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="dt">int</span> my_test_variable = <span class="dv">5</span>;</span></code></pre></div>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>After we have created all the variables and functions we need for our code to do what we want it to do, we need to actually start the program. To do this, the program needs to know what function to run first. In different languages this is done differently. In our particular case, we do it by defining two special functions: <code>setup</code> and <code>loop</code>. Our computer is instructed to run these functions first. It finds the <code>setup</code> function and runs it before anything else. Usually this function is used to <strong>set up</strong> any settings we need in advance. Then the computer repeatedly runs the <code>loop</code> function, which is named this way because it <strong>runs in a loop</strong> (or repeats itself).</p>
+<div class="further-reading">
+<p>To learn more about the <code>setup</code> and <code>loop</code> functions, check out <a href="/basics">the Basic Structure of a Program</a> lesson.</p>
+</div>
+<p>Here is a large example that includes all these features. It will use the <code>Serial.println()</code> function in order to send messages to the computer. Use the <code>Serial Monitor</code> tool in the Arduino software in order to see these messages being sent back over the USB cable (<code>Tools → Serial Monitor</code>).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co">// Here we define a convenient pausing function</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="co">// that waits a given number of seconds</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="dt">void</span> delay_seconds(<span class="dt">int</span> number_of_seconds) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>  <span class="dt">int</span> number_of_milliseconds = <span class="dv">1000</span> * number_of_seconds;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>  delay(number_of_milliseconds);</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>}</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a><span class="co">// This is the setup function that will automatically run</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a><span class="co">// first when the device starts.</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>  <span class="co">// The next line ensures that the communication hardware</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a>  <span class="co">// on our device is ready to send messages.</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>  <span class="co">// The name &quot;Serial&quot; is such for historical reasons</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a>  <span class="co">// (it is the name for this type of communication).</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>  Serial.begin(<span class="dv">9600</span>); <span class="co">// The 9600 is the speed of the conection.</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a>}</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a><span class="co">// Define a variable in which we will store a counter that goes up by one on</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a><span class="co">// each step.</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a><span class="dt">int</span> counter = <span class="dv">1</span>;</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true"></a><span class="co">// This function runs repeatedly after the setup function finishes.</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true"></a>  <span class="co">// Send a message to the connected computer.</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true"></a>  <span class="co">// The message will just be the value of the counter.</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true"></a>  Serial.println(counter);</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true"></a>  <span class="co">// Increment the value of the counter.</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true"></a>  counter = counter + <span class="dv">1</span>;</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true"></a>  <span class="co">// Wait for a second before you start the loop function again.</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true"></a>  delay_seconds(<span class="dv">1</span>);</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Read the comments in the code above to try to understand what each line does. One great way to test your understanding is to consider what would happen if you change the code. For example, if you changed the line <code>counter = counter + 1</code> to the line below, how would the output change?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>counter = counter + <span class="dv">2</span></span></code></pre></div>
+<p>Variables and functions are two of the most important building blocks of programming. At this point, we encourage you to continue to <a href="/animation">Intro to Animation</a> to continue discovering more about programming!</p>
+<div class="further-reading">
+<p>We provide more information about the <code>Serial Monitor</code> in our <a href="/arduino101">intro to the Arduino Software</a> page. The Arduino community also has very detailed resources on the programming language that we are using. You can start with their <a href="https://www.arduino.cc/en/Tutorial/Foundations">tutorial</a> for instance.</p>
+</div>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

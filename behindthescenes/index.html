@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="spinwheel, education, STEM, outreach, science, engineering day, electronics, computer science, physics" />
+  <title>Behind the Scenes</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_main_v2.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body style="background-image:url('/images/behindthescenes/orig/reflow_soldering.jpg');">
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<div id="book-button">
+<!--<a class="round-button" href="/book">The Field Guide</a>-->
+<!--<a class="round-button" href="https://docs.google.com/forms/d/1NNnI2X-dK4wnUyNSsXfdq8xN18CFByAWo7pxPSmucb0/viewform">Sign up for updates</a>-->
+<!--<a class="round-button" id="topbutton" href="https://store.spinwearables.com/">Get a SpinWheel!</a>-->
+</div>
+<div id="menu">
+<span id="menu-label" onclick="document.querySelectorAll('#menu > a').forEach(e => e.style.display='block')">Menu</span>
+<a href="/">The SpinWheel</a>
+<a href="/book">Educational Guide</a>
+<a href="/team">The Team</a>
+<a href="/behindthescenes">Behind the Scenes</a>
+</div>
+</div>
+<div id="title-bar" >
+<h1 class="title">Behind the Scenes</h1>
+<h2 class="subtitle">An overview of what it took to design and build the SpinWheel.</h2>
+</div>
+</header>
+<main>
+<div class="row">
+<div class="column long-text">
+<p>
+The idea for a stylish wearable device to encourage the pursuit of science and engineering originated in 2017 with one of our regular outreach events on Yale’s campus. We invited high schoolers to campus to use breadboards, LED strips, and a motion sensor to create a motion-sensing bracelet. The feedback after the event was overwhelmingly positive, particularly among those students who hadn’t worked with electronic components before, confirming our conviction that building something beautiful can overcome initial fears about math and science.
+</p>
+</div>
+</div>
+<div class="row">
+<div class="column large-text">
+<p>We were particularly encouraged when students who hadn’t worked with electronic components before expressed their commitment to keep exploring after our event.</p>
+</div>
+<div class="column column-long">
+<img src="/images/behindthescenes/early_bracelet.jpg">
+</div>
+</div>
+<div class="row row-small-reverse dark">
+<div class="column column-long">
+<img src="/images/behindthescenes/volunteer_placeholder.jpg">
+</div>
+<div class="column large-text">
+<p>The SpinWheel eliminates the need for experienced volunteers to help with debugging and wiring; moreover, the current design is both more resilient and (we believe) more elegant than the original LED bracelets.</p>
+</div>
+</div>
+<div class="row dark">
+<div class="column large-text">
+<p>
+We iterated through many designs to find something that was wearable, aesthetically pleasing, and included sufficient LEDs to represent cardinal directions, measured tilt, and other physical quantities.
+</p>
+</div>
+<div class="column column-long">
+<img src="/images/behindthescenes/draft_layout_inset.jpg">
+</div>
+</div>
+<div class="row dark">
+<div class="column column-long">
+<video src="/images/behindthescenes/schem_timelapse.mp4" muted autoplay playsinline loop>
+</video>
+</div>
+<div class="column large-text">
+<p>
+Once we had our components and a rough sketch of the layout, we began designing the circuit board using computer aided design (CAD) tools. The main challenge was fitting all of the components into a compact form factor and completing the circuit without crossing electrical components.
+</p>
+</div>
+</div>
+<div class="row">
+<div class="column large-text">
+<p>
+By ordering a small number of test boards for hand soldering, we were able to double check the performance of each component and ensure the final device will work reliably.
+</p>
+</div>
+<div class="column column-long">
+<img src="/images/behindthescenes/elise_testing_square.jpg">
+</div>
+</div>
+<div class="row row-small-reverse dark">
+<div class="column column-long">
+<img src="/images/behindthescenes/step_counter_screenshot.jpg">
+</div>
+<div class="column large-text">
+<p>
+We based our device on the open-source Arduino platform, which is used by makers world-wide. We structured our lessons to be accessible to students who have never programmed, but also allow advanced users to create customized scripts.
+</p>
+</div>
+</div>
+<div class="row dark">
+<div class="column large-text">
+<p>
+With the SpinWheel, we have created a beautiful wearable device that students can confidently use to explore the marvels of science on their own.
+</p>
+</div>
+<div class="column column-long">
+<video src="/images/behindthescenes/pretty_device.mp4" muted autoplay playsinline loop>
+</video>
+</div>
+</div>
+<div class="row">
+<p>
+If this sparked your curiosity, check out a more <a href="/behindthescenes_long/">detailed version</a> and learn about the <a href="/specs/">specs</a> of the device in the <a href="/diary">“Engineer’s Diary”</a> part of our educational guide. We also have a few notes on the <a href="/swe_side_husle">entrepreneurial side of things</a>.
+</p>
+<p>
+By discussing the design and testing process in more detail, we hope that makers of all ages will feel empowered to create their own devices.
+</p>
+</div>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

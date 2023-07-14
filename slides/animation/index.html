@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="keywords" content="color, animation, programming">
+  <title>Animating with Code</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/reveal.js/css/reset.css">
+  <link rel="stylesheet" href="/reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/custom_slides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/reveal.js/css/print/pdf.css' : '/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Animating with Code</h1>
+</section>
+
+<section class="slide level2">
+
+<p>Based on the <a href="/animation">Intro to Animation</a> and <a href="/animation2">Animations and Patterns</a> pages.</p>
+</section>
+<section>
+<section id="intro-to-animation" class="title-slide slide level1">
+<h1>Intro to Animation</h1>
+<p>How to use code to light up the display and make properly timed animation frames.</p>
+</section>
+<section class="slide level2">
+
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<video src="/images/behindthescenes/pretty_device.mp4" muted autoplay playsinline loop>
+</video>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/generative_art.png" alt="" /><figcaption>We will create “generative” art. Instead of having pre-drawn animation frames, we will let the computer generate them from scratch. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section id="timing" class="slide level2">
+<h2>Timing</h2>
+<video src="/images/bookpics/simple_blink.mp4" muted autoplay playsinline loop>
+</video>
+<p>How does the computer keep time so that it knows when to change a frame?</p>
+</section>
+<section id="timing-1" class="slide level2">
+<h2>Timing</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">int</span> t = millis();</span></code></pre></div>
+<p><code>millis()</code> gives the number of milliseconds since the device was turned on.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<video src="/images/bookpics/time_loop.mp4" muted playsinline loop>
+</video>
+<figcaption>
+Every time the <code>loop()</code> block is run, <code>millis()</code> determines the number of milliseconds since <code>setup()</code> was run and stores it in the variable <code>t</code>.
+</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/Modular_division_timeline.png" title="Division of time (shown in blue) into intervals of 2500 (shown in orange)" alt="" /><figcaption>Division of time into intervals of 2500. In this example, 5600 milliseconds have passed, which is 2 full cycles of 2500 milliseconds with a remainder of 600.</figcaption>
+</figure>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">int</span> t_repeating = t % <span class="dv">2500</span>;</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">int</span> t_repeating = t % <span class="dv">2500</span>;</span></code></pre></div>
+<figure>
+<video src="/images/bookpics/time_remainder.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Using time to create a repeating pattern: the value returned by <code>millis()</code> (in blue) is divided into equal intervals. The remainder of that division (in orange) provides a steady repeating sequence of numbers on which we can base a repeating animation.
+</figcaption>
+</figure>
+</section>
+<section id="a-picture-that-depends-on-time" class="slide level2">
+<h2>A picture that depends on time</h2>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  int t = millis();
+  int t_repeating = t % 2500;
+  int b = t_repeating / 10;
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(b, b, b);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/creating_own_functions.png" alt="" /><figcaption>Check out our lesson on the building blocks of coding to learn more about the essential pieces of writing a sketch. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section></section>
+<section>
+<section id="animations-and-patterns" class="title-slide slide level1">
+<h1>Animations and Patterns</h1>
+<p>Common tools for more pleasant animations</p>
+</section>
+<section id="smoother-pulsing" class="slide level2">
+<h2>Smoother pulsing</h2>
+<figure>
+<video src="/images/bookpics/triangular_wave.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Instead of the pattern of brightness that abruptly dropped to zero that we saw previously, we can employ a pattern that also decreases steadily, making for a more pleasant pulsing light.
+</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p><a href="/codedoc/examples/Animations_and_Patterns/Smoother_Blink"><code>Examples → SpinWearables → Animations_and_Patterns → Smoother_Blink</code></a></p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int b = triangularWave(t_repeating / 10);
+  // The next function takes three arguments:
+  // The red, green, and blue components of the color we desire.
+  // We are mixing only red and blue, setting green to zero.
+  SpinWheel.setLargeLEDsUniform(b, 0, b);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+</section>
+<section id="the-color-wheel" class="slide level2">
+<h2>The color wheel</h2>
+<figure>
+<img data-src="/images/bookpics/colorwheel.png" title="The color wheel lets you generate a color based on a single continuously changing (maybe time-dependent) number." alt="" /><figcaption>The color wheel lets you generate a color based on a single continuously changing (maybe time-dependent) number. The red, blue and green components of the colors in the color wheel are shown in the plot on the right.</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int s = t_repeating/10;
+  SpinWheel.setLargeLEDsUniform(colorWheel(s));
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p><a href="/codedoc/examples/Animations_and_Patterns/Color_Wheel"><code>Animations_and_Patterns → Color_Wheel</code></a></p>
+</section>
+<section id="non-uniform-patterns-and-accessing-separate-leds" class="slide level2">
+<h2>Non-uniform patterns and accessing separate LEDs</h2>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int w = triangularWave(t_repeating/10);
+  // The next line sets the intensity of the 2nd LED 
+  // to be opposite of the value in w
+  int w_opposite = 255 - w;
+  SpinWheel.setLargeLED(0, w, 0, 0);
+  SpinWheel.setLargeLED(2, 0, w_opposite, 0);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p><a href="/codedoc/examples/Animations_and_Patterns/Railroad_Signal"><code>Railroad_Signal</code></a></p>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_delay = 200; // Change this number! What happens?
+  int t0 = (t % 2500) / 10;
+  int t1 = ((t+t_delay) % 2500) / 10;
+  int t2 = ((t+2*t_delay) % 2500) / 10;
+  int t3 = ((t+3*t_delay) % 2500) / 10;
+  SpinWheel.setLargeLED(0, colorWheel(t0));
+  SpinWheel.setLargeLED(1, colorWheel(t1));
+  SpinWheel.setLargeLED(2, colorWheel(t2));
+  SpinWheel.setLargeLED(3, colorWheel(t3));
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p><a href="/codedoc/examples/Animations_and_Patterns/Rainbow_Chase"><code>Rainbow_Chase</code></a></p>
+</section>
+<section class="slide level2">
+
+Overwhelmed by the possibilities of how you can modify the above sketches? Here are some suggestions:
+<ul>
+<li>
+Try to add more LEDs to your patterns.
+</li>
+<li>
+Try to have some of them (e.g. the small ones) have varying brightness, while others (e.g. the large ones) have changing colors.
+</li>
+<li>
+Mix and match code from the previous examples.
+</li>
+</ul>
+<p>Let your creativity sing through the code!</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

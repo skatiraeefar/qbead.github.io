@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="keywords" content="spinwheel, physical computing, arduino, color, programming">
+  <title>Getting Started with the SpinWheel</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/reveal.js/css/reset.css">
+  <link rel="stylesheet" href="/reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/custom_slides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/reveal.js/css/print/pdf.css' : '/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Getting Started with the SpinWheel</h1>
+</section>
+
+<section class="slide level2">
+
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<p>Based on the <a href="/intro">Getting Started</a> and <a href="/quickstart">Initial Setup</a> pages.</p>
+</section>
+<section>
+<section id="setting-up-the-spinwheel" class="title-slide slide level1">
+<h1>Setting up the SpinWheel</h1>
+
+</section>
+<section id="setting-up-the-spinwheel-1" class="slide level2">
+<h2>Setting up the SpinWheel</h2>
+<p>See <a href="https://spinwearables.com/quickstart/">spinwearables.com/quickstart</a> for details.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/quickstart/unboxing.small.png" title="Unboxing the device." alt="" /><figcaption>The SpinWheel has four main components: a power source (the battery), a sensor (for motion and magnetic fields), a set of lights (the light emitting diodes, or LEDs), and a micro computer (the brain of the device). <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<ol type="1">
+<li>The battery of your Spinwheel might not be attached when you receive it. Before attaching the battery, slide the switch on the back of the SpinWheel to be on “USB.” Then firmly insert the battery connector into the battery jack on the circuit board. If you have difficulty, see our <a href="/troubleshoot">Troubleshooting Guide</a>.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="2" type="1">
+<li>To turn on the SpinWheel, flip the switch on the back to “BAT” (for “battery”). You should see it turn on and light up brightly!</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="3" type="1">
+<li>The SpinWheel comes preloaded with several basic animations. You can press the button on the back of the SpinWheel to toggle between different animations.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="4" type="1">
+<li>To turn off the SpinWheel, flip the switch to “USB”.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="5" type="1">
+<li>To charge, plug a micro USB cable into the USB jack on the back of the SpinWheel, set the switch to “USB” and charge using a computer or USB-to-wall converter. Note: the battery may require charging before use. Reaching full charge takes approximately 1 hr.</li>
+</ol>
+</section>
+<section id="installing-arduino.ccensoftware" class="slide level2">
+<h2>Installing <a href="https://www.arduino.cc/en/software">arduino.cc/en/software</a></h2>
+<iframe src="https://www.arduino.cc/en/software" style="width:100%; height:70vh">
+</iframe>
+<p>We will use the Arduino programming environment, which is open and free to install.</p>
+</section>
+<section class="slide level2">
+
+<p>Do not worry if you find this part challenging, learning new things can be confusing at first.</p>
+<p>If you get stuck, check out the Troubleshooting Guide at <a href="https://spinwearables.com/troubleshoot/">spinwearables.com/troubleshoot</a> and don’t be afraid to experiment.</p>
+<p>While feeling confused is normal, it will get easier as you go!</p>
+</section>
+<section id="configuring-the-arduino-software" class="slide level2">
+<h2>Configuring the Arduino Software</h2>
+<p>Once the software is installed, we have to configure it to communicate with the SpinWheel.</p>
+</section>
+<section class="slide level2">
+
+<ol type="1">
+<li><p>Plug your SpinWheel into your computer with a micro USB cable and flip the switch to the position labeled “USB”.</p></li>
+<li><p>Open the Arduino software.</p></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol start="3" type="1">
+<li>Open the <code>Tools</code> menu and go to <code>Port</code>. You will see a list of serial ports on your computer; select the port that corresponds to the SpinWheel.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/quickstart/port_and_board_screenshot.png" title="Use `Tools→ Port` and `Tools→ Board` to change the settings on the Arduino software." alt="" /><figcaption>4. Go back to the Tools menu and select <code>Tools → Board</code>. Select Arduino Leonardo as the board (a.k.a. processor), so that the software knows which “dialect” to use to talk to the SpinWheel. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p>Properly selecting the board and port are essential for the Arduino software to communicate with the SpinWheel. If you are unable to upload code to the Spinwheel in the next section, double check that the switch is set to “USB” and that you have the correct board and port selected.</p>
+</section>
+<section id="installing-the-spinwheel-libraries" class="slide level2">
+<h2>Installing the SpinWheel Libraries</h2>
+<ol type="1">
+<li>To get the first set of examples of this new language and the other libraries necessary to run the SpinWheel code, download our SpinWearables Arduino Library using <code>Sketch → Include Library → Manage Libraries...</code>.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/quickstart/adding_libraries_screenshot.png" title="Installing Arduino libraries." style="max-width:90%" alt="" /><figcaption>2. In the search bar of the Library Manager, search for <code>SpinWearables</code> and then click <code>Install</code>. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section id="running-a-program-on-the-spinwheel" class="slide level2">
+<h2>Running a Program on the SpinWheel</h2>
+<p>To test that your SpinWheel is working properly, you can install a new program, or sketch, from the example files to animate your SpinWheel.</p>
+</section>
+<section class="slide level2">
+
+<ol type="1">
+<li>Choose a file to install by opening <code>File → Examples → SpinWearables</code> and picking one of the examples. For instance, pick <a href="/codedoc/examples/BlinkingFirmware"><code>BlinkingFirmware</code></a>. This will open a new window with the code.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/quickstart/upload_button_screenshot.png" title="Upload programs to your SpinWheel using the `Upload` button (highlighted in white)." style="width:100%" alt="" /><figcaption>2. Upload the code to your SpinWheel by pressing the upload button (the arrow at the top).</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p>Now your SpinWheel will have the new colorful blinking pattern (from <code>BlinkingFirmware</code>) you just uploaded. If you get an error here, then check out our <a href="/troubleshoot">Troubleshooting Guide</a> for help on some common problems.</p>
+</section></section>
+<section>
+<section id="what-does-it-mean-to-program-an-artistic-piece-of-electronics" class="title-slide slide level1">
+<h1>What does it mean to program an artistic piece of electronics?</h1>
+
+</section>
+<section id="what-does-it-mean-to-program-an-artistic-piece-of-electronics-1" class="slide level2">
+<h2>What does it mean to program an artistic piece of electronics?</h2>
+<p>See <a href="https://spinwearables.com/intro/">spinwearables.com/intro</a> for details.</p>
+</section>
+<section class="slide level2">
+
+<!--WARNING: This really abuses the virtual spinwheel code. Here be dragons... and bugs...-->
+<style>
+#first-color {
+  width:50vw;
+}
+.colortests {
+  font-size: 2rem;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0  white,
+    -1px 1px 0  white,
+    1px 1px 0   white;
+  color: black;
+}
+.colortests input {
+  width: 80%;
+  margin: 0;
+}
+.colortests span {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.colortests .vis {
+  width: 80%;
+  height: 2em;
+  line-height: 2em;
+  border: solid 1px;
+}
+.redshow {border-color: red !important;}
+.greenshow {border-color: green !important;}
+.blueshow {border-color: blue !important;}
+</style>
+<div id="first-color" class="ssw-container ssw-skip">
+<div class="ssw-code">
+<div class="colortests">
+<div>
+<input type="range" min="0" max="255" value="0" class="red"><br><span class="vis redshow">0</span><br><br><input type="range" min="0" max="255" value="0" class="green"><br><span class="vis greenshow">0</span><br><br><input type="range" min="0" max="255" value="0" class="blue"><br><span class="vis blueshow">0</span>
+</div>
+<script>
+var firstcolornode = document.getElementById("first-color");
+function changeColor(){
+  var r = firstcolornode.getElementsByClassName("red")[0].value;
+  var g = firstcolornode.getElementsByClassName("green")[0].value;
+  var b = firstcolornode.getElementsByClassName("blue")[0].value;
+  var col =`rgb(${r},${g},${b})`;
+  for (let led of firstcolornode.getElementsByClassName("ssw-large-led")) {
+    led.style["background-color"]=col;
+  }
+  firstcolornode.getElementsByClassName("redshow")[0].innerHTML=r;
+  firstcolornode.getElementsByClassName("redshow")[0].style["background-color"]=`rgb(${r},0,0)`;
+  firstcolornode.getElementsByClassName("greenshow")[0].innerHTML=g;
+  firstcolornode.getElementsByClassName("greenshow")[0].style["background-color"]=`rgb(0,${g},0)`;
+  firstcolornode.getElementsByClassName("blueshow")[0].innerHTML=b;
+  firstcolornode.getElementsByClassName("blueshow")[0].style["background-color"]=`rgb(0,0,${b})`;
+}
+firstcolornode.getElementsByClassName("red")[0].oninput = changeColor;
+firstcolornode.getElementsByClassName("green")[0].oninput = changeColor;
+firstcolornode.getElementsByClassName("blue")[0].oninput = changeColor;
+changeColor();
+</script>
+</div>
+</div>
+<div class="ssw-vis-out" style="width: 200px;">
+<div class="ssw-vis">
+<div>
+<img src="/simspinwheel/spinwheel_invertgray.png">
+<div class="ssw-large-led ssw-large-led0">
+
+</div>
+<div class="ssw-large-led ssw-large-led1">
+
+</div>
+<div class="ssw-large-led ssw-large-led2">
+
+</div>
+<div class="ssw-large-led ssw-large-led3">
+
+</div>
+<div class="ssw-large-led ssw-large-led4">
+
+</div>
+<div class="ssw-large-led ssw-large-led5">
+
+</div>
+<div class="ssw-large-led ssw-large-led6">
+
+</div>
+<div class="ssw-large-led ssw-large-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led0">
+
+</div>
+<div class="ssw-small-led ssw-small-led1">
+
+</div>
+<div class="ssw-small-led ssw-small-led2">
+
+</div>
+<div class="ssw-small-led ssw-small-led3">
+
+</div>
+<div class="ssw-small-led ssw-small-led4">
+
+</div>
+<div class="ssw-small-led ssw-small-led5">
+
+</div>
+<div class="ssw-small-led ssw-small-led6">
+
+</div>
+<div class="ssw-small-led ssw-small-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led8">
+
+</div>
+<div class="ssw-small-led ssw-small-led9">
+
+</div>
+<div class="ssw-small-led ssw-small-led10">
+
+</div>
+<div class="ssw-small-led ssw-small-led11">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>The corresponding command in code looks like <code>SpinWheel.setLargeLEDsUniform(50, 255, 250)</code></p>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(50, 255, 250);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<!--WARNING: This really abuses the virtual spinwheel code. Here be dragons... and bugs...-->
+<div id="second-color" class="ssw-container ssw-skip">
+<div class="ssw-code">
+<div class="colortests">
+<div>
+<input type="range" min="0" max="7" value="0" class="number"><br>LED Number <span class="numshow">0</span><br><br><input type="range" min="0" max="255" value="255" class="red"><br><span class="vis redshow">255</span><br><br><input type="range" min="0" max="255" value="255" class="green"><br><span class="vis greenshow">255</span><br><br><input type="range" min="0" max="255" value="255" class="blue"><br><span class="vis blueshow">255</span>
+</div>
+<script>
+var secondcolornode = document.getElementById("second-color");
+function changeSingleColor(){
+  var n = secondcolornode.getElementsByClassName("number")[0].value;
+  var r = secondcolornode.getElementsByClassName("red")[0].value;
+  var g = secondcolornode.getElementsByClassName("green")[0].value;
+  var b = secondcolornode.getElementsByClassName("blue")[0].value;
+  var col =`rgb(${r},${g},${b})`;
+  secondcolornode.getElementsByClassName(`ssw-large-led${n}`)[0].style["background-color"]=col;
+  secondcolornode.getElementsByClassName("numshow")[0].innerHTML=n;
+  secondcolornode.getElementsByClassName("redshow")[0].innerHTML=r;
+  secondcolornode.getElementsByClassName("redshow")[0].style["background-color"]=`rgb(${r},0,0)`;
+  secondcolornode.getElementsByClassName("greenshow")[0].innerHTML=g;
+  secondcolornode.getElementsByClassName("greenshow")[0].style["background-color"]=`rgb(0,${g},0)`;
+  secondcolornode.getElementsByClassName("blueshow")[0].innerHTML=b;
+  secondcolornode.getElementsByClassName("blueshow")[0].style["background-color"]=`rgb(0,0,${b})`;
+}
+function changeSingleColorNumber(){
+  var n = secondcolornode.getElementsByClassName("number")[0].value;
+  secondcolornode.getElementsByClassName("numshow")[0].innerHTML=n;
+}
+secondcolornode.getElementsByClassName("number")[0].oninput = changeSingleColorNumber;
+secondcolornode.getElementsByClassName("red")[0].oninput = changeSingleColor;
+secondcolornode.getElementsByClassName("green")[0].oninput = changeSingleColor;
+secondcolornode.getElementsByClassName("blue")[0].oninput = changeSingleColor;
+changeSingleColor();
+</script>
+</div>
+</div>
+<div class="ssw-vis-out" style="width: 200px;">
+<div class="ssw-vis">
+<div>
+<img src="/simspinwheel/spinwheel_invertgray.png">
+<div class="ssw-large-led ssw-large-led0">
+
+</div>
+<div class="ssw-large-led ssw-large-led1">
+
+</div>
+<div class="ssw-large-led ssw-large-led2">
+
+</div>
+<div class="ssw-large-led ssw-large-led3">
+
+</div>
+<div class="ssw-large-led ssw-large-led4">
+
+</div>
+<div class="ssw-large-led ssw-large-led5">
+
+</div>
+<div class="ssw-large-led ssw-large-led6">
+
+</div>
+<div class="ssw-large-led ssw-large-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led0">
+
+</div>
+<div class="ssw-small-led ssw-small-led1">
+
+</div>
+<div class="ssw-small-led ssw-small-led2">
+
+</div>
+<div class="ssw-small-led ssw-small-led3">
+
+</div>
+<div class="ssw-small-led ssw-small-led4">
+
+</div>
+<div class="ssw-small-led ssw-small-led5">
+
+</div>
+<div class="ssw-small-led ssw-small-led6">
+
+</div>
+<div class="ssw-small-led ssw-small-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led8">
+
+</div>
+<div class="ssw-small-led ssw-small-led9">
+
+</div>
+<div class="ssw-small-led ssw-small-led10">
+
+</div>
+<div class="ssw-small-led ssw-small-led11">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>The corresponding command is <code>SpinWheel.setLargeLED(4, 255, 0, 100);</code></p>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 0, 100);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="turning-on-the-small-leds">Turning on the Small LEDs</h3>
+<p>You can also turn on all of the small LEDs. To do this, instead of using <code>SpinWheel.setLargeLEDsUniform</code>, you can use the line<br />
+<code>SpinWheel.setSmallLEDsUniform</code>. Like above, the three numbers represent the red, green, and blue components of the color you want to make.</p>
+</section>
+<section class="slide level2">
+
+<p><code>SpinWheel.setSmallLEDsUniform(0, 200, 255);</code></p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setSmallLEDsUniform(0, 200, 255);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<p><code>SpinWheel.setSmallLED(2, 0, 255, 0);</code></p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setSmallLED(2, 0, 255, 0);
+  SpinWheel.setSmallLED(5, 0, 255, 0);
+  SpinWheel.setSmallLED(8, 0, 255, 0);
+  SpinWheel.setSmallLED(11, 0, 255, 0);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<p>At this point, you can modify the code above to create your own pattern that uses all of the LEDs.</p>
+<p>We encourage you to take some time to experiment with this to create your own designs.</p>
+<p>Consider checking out:</p>
+<ul>
+<li><a href="/quickstart">SpinWheel Initial Setup at <code>/quickstart</code></a></li>
+<li><a href="/intro">Getting Started with the SpinWheel at <code>/intro</code></a></li>
+<li><a href="/troubleshoot">SpinWheel Troubleshooting Guide at <code>/troubleshoot</code></a></li>
+<li><a href="/arduino101">Arduino 101 at <code>/arduino101</code></a></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

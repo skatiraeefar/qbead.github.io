@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="keywords" content="spinwheel, physical computing, arduino, color, programming">
+  <title>Programming the SpinWheel</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/reveal.js/css/reset.css">
+  <link rel="stylesheet" href="/reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/custom_slides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/reveal.js/css/print/pdf.css' : '/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Programming the SpinWheel</h1>
+</section>
+
+<section class="slide level2">
+
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<p>Based on the <a href="/basics">Basic Structure of a Program</a> and <a href="/progpatterns">Coding Building Blocks</a> pages.</p>
+</section>
+<section>
+<section id="what-does-a-computer-program-look-like" class="title-slide slide level1">
+<h1>What does a computer program look like?</h1>
+
+</section>
+<section class="slide level2">
+
+<p>Approach this page the way you would approach the first few lines of a foreign language you want to learn. Try to pick out words that make sense, without worrying about the overall structure, correct syntax, or proper grammar. As time passes and you have learned new things, come back to this page and see whether you can understand a bit more of it.</p>
+</section>
+<section id="the-skeleton-of-an-arduino-program" class="slide level2">
+<h2>The Skeleton of an Arduino Program</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>This program does absolutely nothing.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<video src="/images/bookpics/setup_loop.mp4" muted playsinline loop>
+</video>
+<figcaption>
+When you turn on the SpinWheel, <code>setup()</code> is run once and then the <code>loop()</code> block is run repeatedly until the SpinWheel is turned off.
+</figcaption>
+</figure>
+</section>
+<section id="extra-elements-of-a-spinwheel-program" class="slide level2">
+<h2>Extra Elements of a SpinWheel Program</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// Include extra resources and commands</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co">// specific to the SpinWheel.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  <span class="co">// Instruct the specific SpinWheel hardware</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="co">// to be ready to receive instructions.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>Make it light up:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  <span class="co">// Set the large LED number 0 to</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>  <span class="co">// have red=255, green=0, and blue=0 color.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  SpinWheel.setLargeLED(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  <span class="co">// Update the currently shining LEDs</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="co">// based on the instructions provided up to here.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 0, 0);
+  SpinWheel.setLargeLED(2, 255, 0, 0);
+  SpinWheel.setLargeLED(7, 255, 255, 255);
+  SpinWheel.setLargeLED(5, 255, 255, 255);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+</section>
+<section id="creating-changing-patterns" class="slide level2">
+<h2>Creating changing patterns</h2>
+<p>To begin writing more complex code, we need to introduce the idea of <em>variables</em>. Variables allow us to store information in the program and change that information as needed.</p>
+<p>To <strong>define</strong> a new variable we can add the following line to the loop block:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">1</span>;</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>  <span class="dt">int</span> which_LED = <span class="dv">1</span>;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="co">// We have to declare which_LED outside of the loop to change it every loop</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">0</span>; </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>  <span class="co">// clear all LEDs</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>  SpinWheel.clearAllLEDs();</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>  <span class="co">// Turn on 1 LED</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>  </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>  <span class="co">// change the LED to use</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>  which_LED = which_LED + <span class="dv">1</span>;</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>  </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>  <span class="co">// pause the code to delay running the next loop</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>  </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<video src="/images/bookpics/brightness_loop.mp4" muted playsinline loop>
+</video>
+</section>
+<section class="slide level2">
+
+<h3 id="additional-programming-notes">Additional Programming Notes</h3>
+<ul>
+<li>Only one “command” per line. This makes the code more readable.</li>
+<li>Command are followed by a semicolon <code>;</code>.</li>
+<li>Commands tend to be some name followed by parentheses <code>()</code>.</li>
+<li>Inside these parentheses we put some extra information: this information can control how a command performs.</li>
+</ul>
+</section></section>
+<section>
+<section id="building-blocks-for-your-program" class="title-slide slide level1">
+<h1>Building Blocks for your Program</h1>
+
+</section>
+<section id="variables" class="slide level2">
+<h2>Variables</h2>
+<p>Before processing data, we have to tell the computer to store it in its memory. This is done using <strong>variables</strong>.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/variables.png" alt="" /><figcaption>“Variables” are like labeled shelves for information. When you need to save a number for later use, you put it in a variable of your choice. Above we have number 3 stored in the variable <code>a</code>, number 4 stored in variable <code>b</code> and the number 7 is about to be stored in a variable named <code>e</code>. We can pick the names for the variables ourselves (any sequence of letters that is not interrupted by whitespaces). <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p>We will only discuss two types of variables: integers and decimals. Other types do exist, but we won’t cover them here.</p>
+<p>To <strong>define</strong> a new integer variable you need the following line in your code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">int</span> my_special_integer = <span class="dv">6</span>;</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>If we want to work with decimals, we use the variable type <code>float</code> instead of <code>int</code>. The name comes from the early history of computers and is unimportant for our purposes (how the decimal point can “float” between the digits).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="dt">float</span> pi = <span class="fl">3.1415</span>;</span></code></pre></div>
+</section>
+<section id="functions" class="slide level2">
+<h2>Functions</h2>
+<p>In computer programming, functions are commands that take a few variables and do something useful with them. Functions are reusable pieces of code.</p>
+</section>
+<section class="slide level2">
+
+<p>Here is some code that uses an example function called <code>max</code> that takes two numbers as input and returns the larger number. The input values are also called the <strong>arguments</strong> of the function.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(number_a, number_b);</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(number_a, number_b);</span></code></pre></div>
+<p>The value stored in <code>resulting_number</code> in this case would be <code>7</code>.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/functions.png" alt="" /><figcaption>Functions are tools provided in a given programming language that are capable of ingesting a number of parameters and producting (a.k.a “returning”) some new value that depended on the input parameters. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="dt">int</span> result = max(sqrt(number_a-<span class="dv">1</span>) * <span class="dv">2</span>, min(number_b, <span class="dv">2</span>));</span></code></pre></div>
+<figure>
+<video src="/images/bookpics/calc_tree.mp4" muted playsinline loop>
+</video>
+<figcaption>
+</figcaption>
+</figure>
+</section>
+<section id="creating-your-own-functions" class="slide level2">
+<h2>Creating your own functions</h2>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/creating_own_functions.png" alt="" /><figcaption>Now we have the pieces to begin to create our own functions. In the beginning, this may be like creating a poem using a limited set of magnetic word tiles. With practice, your bank of pieces will increase in size, enabling you to write more complicated code. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="dt">float</span> x = <span class="fl">3.5</span>;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="dt">float</span> y = <span class="fl">2.5</span>;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="dt">float</span> resulting_number = avg(x, y);</span></code></pre></div>
+<p>In this code example, <code>resulting_number</code> will have the value of <code>3.0</code>.</p>
+</section>
+<section class="slide level2">
+
+<p>To define this new function, we need to write down its name, together with the type of data it will be producing, followed by a set of computational instructions:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="dt">float</span> avg(<span class="dt">float</span> first_argument, <span class="dt">float</span> second_argument) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>  <span class="cf">return</span> <span class="fl">0.5</span>*(first_argument+second_argument);</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section id="functions-that-do-not-return-values" class="slide level2">
+<h2>Functions that do not return values</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>a = calculation1();</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>delay(<span class="dv">1000</span>);</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>b = calculation2();</span></code></pre></div>
+</section>
+<section id="comments" class="slide level2">
+<h2>Comments</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="co">// I am writing this comment to remind me</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="co">// that the next line stores the number 5</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="co">// in the variable named my_test_variable.</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="dt">int</span> my_test_variable = <span class="dv">5</span>;</span></code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="physical computing, computer science, arduino, programming" />
+  <title>Arduino 101</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<img src="/images/banners/sensor_controller_actuator.png">
+<h1 class="title">Arduino 101</h1>
+</header>
+<main>
+<div class="intro-box">
+<p>The SpinWheel relies on the Arduino software to be programmed. This guide provides the important information for understanding how this software works.</p>
+</div>
+<p>Many simple computer chips for DIY projects make use of the Arduino software, a platform for writing and uploading code onto a physical circuit board. The Arduino software makes use of a simplified version of C++, a programming language that we will begin to introduce below. This page will take you through the basics of using the Arduino software and should be used as a guide as you read the other lessons and adventures.</p>
+<h2 id="installing-arduino">Installing Arduino</h2>
+<p>To be able to write your own programs and control your computer chip, you first have to download the Arduino software. You can download it for free from <a href="https://arduino.cc/en/Main/Software#download">arduino.cc/en/Main/Software</a>. Be careful to select the correct version for your computer’s operating system (for instance, if you have a Windows computer, choose the one for the version of Windows you have). If you get stuck, Arduino has provided <a href="https://www.arduino.cc/en/Guide">instructions</a> for each operating system that you can check out for more help.</p>
+<h2 id="configuring-arduino-for-your-device">Configuring Arduino for your device</h2>
+<p>Before we can upload a simple program, we have to configure the Arduino software to communicate with the device. To do this you need to first select the <code>Port</code> under <code>Tools</code> in the main menu. You will see a list of serial ports on your computer; to find the right one, simply plug and unplug your device. The one that disappears and reappears is the one to choose.</p>
+<p>Next you will have to select <code>Board</code> for the device you want to program. For instance, for the SpinWheel you would select the Arduino Leonardo as the board (a.k.a. processor), so that the software knows which <span class="footnote">“dialect” <span>Computer languages have dialects just like human languages!</span></span> to use to talk to the SpinWheel.</p>
+<p>Properly selecting the board and port is essential for the Arduino software to communicate with whatever software you are working with.</p>
+<div class="further-reading">
+<p>For more help with this for the SpinWheel, first read our <a href="/quickstart">Initial Setup Guide</a> and then check out our <a href="/troubleshoot">Troubleshooting Guide</a>, if you are still stuck.</p>
+</div>
+<h2 id="the-skeleton-of-an-arduino-program">The skeleton of an Arduino program</h2>
+<p>Computers follow instructions, and do not solve problems on their own. So, you need to be very explicit in the instructions that you write in your programs! The particular language we are using imposes a certain structure on our programs. The most bare-bones program looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>This program does absolutely nothing. It contains two blocks (or sections) of code which start and end with the brackets <code>{</code> and <code>}</code>. For our program to do anything, we need to fill these blocks with instructions. The first block is called <code>setup</code> and executes only once, immediately after the device is powered up. This block is used for setting up any initial conditions we might require.</p>
+<p>Next there is the <code>loop</code> block. This block is executed repeatedly “in a loop”, starting immediately after <code>setup</code> is done and repeating itself until the power is turned off. Most of our instructions will be written in this block.</p>
+<h2 id="uploading-a-simple-arduino-sketch-to-your-device">Uploading a simple Arduino sketch to your device</h2>
+<p>Now we can try uploading a simple sketch!</p>
+<figure>
+<img src="/images/quickstart/upload_button_screenshot.png" title="Upload programs to your SpinWheel using the `Upload` button (highlighted in white)." style="max-width:388px" alt="" /><figcaption>Upload programs to your SpinWheel using the <code>Upload</code> button (highlighted in white).</figcaption>
+</figure>
+<p>First, open a new sketch in the Arduino software (<code>File → New</code>). Notice how it has the <code>setup()</code> and <code>loop()</code> blocks already in place. Next, copy the text below into that new sketch and click <code>Upload</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// This is the setup function that will automatically run</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co">// first when the device starts.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="co">// Define a variable in which we will store a counter that goes up by one on</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="co">// each step.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="dt">int</span> counter = <span class="dv">1</span>;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="co">// This function runs repeatedly after the setup function finishes.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>  <span class="co">// Increment the value of the counter.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  counter = counter + <span class="dv">1</span>;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>}</span></code></pre></div>
+<p>You may have noticed that nothing happens when you upload this sketch to your device. That is because this sketch simply adds one to a variable <code>counter</code> with each loop. In the next section, we will add to this sketch to see how counter increases in value.</p>
+<h2 id="receiving-communication-from-your-device">Receiving communication from your device</h2>
+<p>It can be very useful to have a way to receive message from the computer chip you are programming. For instance, in the code above you want to be able to see how counter is increasing with time. Having this information can be very important when debugging - or attempting to find errors in - code to have a way to keep track of what the value of different variables are.</p>
+<p>Different computer languages provide different ways of doing this. If you are working with Arduino, then you can use the <code>Serial Monitor</code> to see these messages being sent back over the USB cable. To access the <code>Serial Monitor</code>, navigate to <code>Tools → Serial Monitor</code>. When you you use <code>Serial Monitor</code> or <code>Serial Plotter</code> a single small red LED will light up.</p>
+<p>Then if you want to see how a particular variable changes, we can setup the device to send messages at the right connection speed using <code>Serial.begin(9600)</code> and print the message you want using the <code>Serial.println()</code> function. In the code below, you will use <code>Serial.println(counter)</code> in order to send the value of <code>counter</code> back to the computer.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">// This is the setup function that will automatically run</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">// first when the device starts.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="co">// The next line ensures that the communication hardware</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  <span class="co">// on our device is ready to send messages.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>  <span class="co">// The name &quot;Serial&quot; is such for historical reasons</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>  <span class="co">// (it is the name for this type of communication).</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  Serial.begin(<span class="dv">9600</span>); <span class="co">// The 9600 is the speed of the connection.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="co">// Define a variable in which we will store a counter that goes up by one on</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a><span class="co">// each step.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="dt">int</span> counter = <span class="dv">1</span>;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="co">// This function runs repeatedly after the setup function finishes.</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>  <span class="co">// Send a message to the connected computer.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>  <span class="co">// The message will just be the value of the counter.</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>  Serial.println(counter);</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>  <span class="co">// Increment the value of the counter.</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>  counter = counter + <span class="dv">1</span>;</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>  <span class="co">// Wait for 500 milliseconds (half a second) before you </span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>  <span class="co">// start the loop function again.</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>}</span></code></pre></div>
+<p>You may have noticed that we use the <code>delay()</code> function here. As <code>loop</code> repeats many times in a second, we use the delay function so that the speed that counter is displayed through the Serial monitor is slow enough to follow. In this case, we tell it to pause for 500 milliseconds or half a second (there are 1000 milliseconds in a second).</p>
+<p>These concepts will be useful as you begin to code a computer chip, like the one inside the SpinWheel. We will refer back to this guide and hope that you will use it as a reference.</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="keywords" content="SpinWheel, programming, electronics, physics, color, light, electromagnetism, color theory, pigments, art">
+  <title>SpinWheel Workshop</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/reveal.js/css/reset.css">
+  <link rel="stylesheet" href="/reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/custom_slides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/reveal.js/css/print/pdf.css' : '/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">SpinWheel Workshop</h1>
+</section>
+
+<section>
+<section id="the-biology-of-sight" class="title-slide slide level1">
+<h1>The Biology of Sight</h1>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<style>
+.note_question {
+  color: #2676b0;
+}
+</style>
+<aside class="notes">
+<h3>
+To be done in Session 1 (10ish minutes of mostly instructing students)
+</h1>
+<p>This section aims to introduce a couple of curious facts about color, light, and sight. Of particular importance is to introduce the idea that mixing the primary red, green, and blue color light enables tricking our eyes into perceiving any other color. <strong>However, the main goal is to excite the kids with a non-technical topic before we talk about code</strong>.</p>
+<p><em>For this first lesson, we will learn how to trick our eyes into perceiving a rainbow of colors using only red, green, and blue LEDs.</em></p>
+Be sure to check out the <a href="/sight">biology of sight</a> and <a href="/colortheory">color theory</a> lessons on which this section is based or see <a href="/slides/sight">the detailed slide deck on Sight and Light for more</a>.
+</aside>
+</section>
+<section class="slide level2">
+
+<p><img data-src="/images/banners/colors_and_eye.png" /></p>
+<aside class="notes">
+<p>Consider spending a second to mention the structure of our eyes and the sub-pixels of a TV, just briefly as you will have a chance to mention this in more detail later.</p>
+<em>Our eyes have sensors for three different colors and our brain knows to interpret mixtures of these base colors as new derivative colors. Our technology, including TVs, use this to create any desired color by using only red, green, and blue light sources.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/optical_glass_triangular_prism.jpg" title="Picture of a white light being split into colors by a prism" alt="" /><figcaption>White light being split into colors by a prism. The white light shines on the prism from the bottom left, and a big part of it is refracted and split as it passes through the prism. <a class="imagecredit" href="https://www.pexels.com/photo/optical-glass-triangular-prism-3845161/">image credit Pexels</a></figcaption>
+</figure>
+<aside class="notes">
+<p>If you care about physics and electrodynamics, mention in some detail that white light is a mixture of all wavelengths, and that color and wavelength are related. However, this is unrelated to the way eyes perceive color and can be skipped if you prefer. Consult the <a href="/lightandcolor">light and color lesson</a> for more details.</p>
+<p><em>In reality, white light is a mixture of many colors. This mixture can be seen by using a prism to separate the components of the mixture.</em></p>
+<em>A prism works by bending, or “refracting”, light at different angles depending on its color, thereby allowing us to see all of the colors that make up white light. This is why if you let sunlight shine through a prism, you can see a rainbow.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/rods_cones.png" title="Close-up cartoon of rods and cones in an eye" alt="" /><figcaption>An artistic rendering of a close-up of the back of the eye illustrating the rods (black) and cones (triangles colored by type). <a class="imagecredit" href="https://johnhegarty8.wixsite.com/johnhegarty">image credit Jack Hegarty</a></figcaption>
+</figure>
+<aside class="notes">
+<p>Spend some time talking about this schematic and what it means that our eyes have only three colors sensor but we are able to see more colors.</p>
+<p><em>The light-sensing tissue in the back of our eyes, the retina, has small cells that respond to some of these colors. They are called “cone cells” and are classified into three separate groups by the color that they sense the best: red, green, or blue. Each of these cells responds only to one of these three colors, but not the others. For instance, the blue-sensing cones respond to blue light, but do not respond to red light, and vice versa.</em></p>
+<p><em>This leads to a problem… <span class="note_question">If our eyes can sense only red, green, and blue, how come we can see yellow?</span></em></p>
+<em>Our eyes and brains have evolved so that our red- and green-sensing cones both respond slightly to yellow. If our brain detects that both groups of cones are activated, it knows to interpret the color as yellow. And similar compromises are made for the other colors we can detect. For instance, purple activates both red- and blue-sensing cones.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<iframe src="https://theoatmeal.com/comics/mantis_shrimp" style="width:100%; height:50vh">
+</iframe>
+<p><a href="https://theoatmeal.com/comics/mantis_shrimp">The Oatmeal</a> has a great educational comics on an animal with even more color sensitivity.</p>
+<aside class="notes">
+Up to you if you want to mention there are animals with different number of color receptors, or mention the Oatmeal comics that talks about how amazing the Mantis Shrimp is with its 12 receptors and its thermonuclear explosion of colors and blood soaked rainbows.
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/lcd_pixels_macro.jpg" title="An up-close picture of a computer screen, showing the red, green, and blue subpixels, making up the white background" alt="" /><figcaption>An up-close picture of a computer screen, showing the red, green, and blue light sources, making up the white background. These sources, or subpixels, are so close together that from a distance we see them as overlapping and observe only their mixture.<a class="imagecredit" href="https://commons.wikimedia.org/wiki/File:LCD_Pixels_Macro.jpg">image credit Wikimedia</a></figcaption>
+</figure>
+<aside class="notes">
+<p><em>We can exploit this imperfection of our eyes to make rich colorful displays while using only three colors. For instance, our eyes cannot distinguish between true purple and a mixture of blue and red, so we don’t need a purple light source, only blue and red lights.</em></p>
+<em>If you look at a TV screen displaying a white page with a magnifying glass, you will see that it is made out of red, blue, and green dots. Combinations of these red, blue, and green dots make up the colorful displays you are looking at on your screen.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/LED_close-up.jpg" title="An up-close picture of five SpinWheel LEDs, showing the red, green, and blue subpixels." alt="" /><figcaption>An up-close picture of some of the SpinWheel’s LEDs, showing the red, green, and blue subpixels.</figcaption>
+</figure>
+<aside class="notes">
+<em>The SpinWheel’s colorful display uses a similar method. If you look closely at a LED light on the SpinWheel or in the above image, you can see that it contains 3 small light sources: one red, one green, and one blue. Combining these lights in different intensities allows for a wide variety of colors to be displayed on the LEDs. This will allow us to program the SpinWheel to display beautiful colorful patterns (while using only a small set of hardware components).</em>
+</aside>
+</section>
+<section id="an-example-of-red-green-blue-mixing" class="slide level2">
+<h2>An example of Red, Green, Blue mixing</h2>
+<style>
+#acolortests {
+  text-align: left;
+  font-size: 2rem;
+}
+#acolortests .explain {
+  font-size: 1rem;
+  width: 80%;
+  margin: 0 auto;
+}
+#acolortests input {
+  width: 20%;
+  margin: 0;
+}
+#acolortests span {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+#acolortests .spacer {
+  width:5%;
+}
+#acolortests .vis {
+  width: 20%;
+  height: 2em;
+  line-height: 2em;
+  border: solid 1px;
+  border-color: black;
+  color: white;
+}
+#aredshow {border-color: red !important;}
+#agreenshow {border-color: green !important;}
+#ablueshow {border-color: blue !important;}
+#acolortests .svganim {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+</style>
+<div id="acolortests">
+<div class="explain">
+
+</div>
+<div>
+<input type="range" min="0" max="255" value="255" id="ared"><span class="spacer"></span><input type="range" min="0" max="255" value="255" id="agreen"><span class="spacer"></span><input type="range" min="0" max="255" value="255" id="ablue">
+</div>
+<div>
+<span id="aredshow" class="vis">255</span><span class="spacer">+</span><span id="agreenshow" class="vis">255</span><span class="spacer">+</span><span id="ablueshow" class="vis">255</span><span class="spacer">=</span><span id="argbshow" class="vis"> </span>
+</div>
+<div class="svganim">
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+<filter id="alight"> <feDiffuseLighting id="asvgred" in="SourceGraphic" result="lightr" lighting-color="#f00" diffuseConstant="1.5"> <fePointLight x="50" y="150" z="80" /> <!--<feSpotLight x="15" y="20" z="40" limitingConeAngle="25" pointsAtX="50" pointsAtY="50" pointsAtZ="20"/>--> </feDiffuseLighting> <feDiffuseLighting id="asvggreen" in="SourceGraphic" result="lightg" lighting-color="#0f0" diffuseConstant="1.5"> <fePointLight x="100" y="30" z="80" /> <!--<feSpotLight x="100" y="-10" z="40" limitingConeAngle="25" pointsAtX="100" pointsAtY="60" pointsAtZ="0"/>--> </feDiffuseLighting> <feDiffuseLighting id="asvgblue" in="SourceGraphic" result="lightb" lighting-color="#00f" diffuseConstant="1.5"> <fePointLight x="150" y="150" z="80" /> <!--<feSpotLight x="185" y="20" z="40" limitingConeAngle="25" pointsAtX="150" pointsAtY="50" pointsAtZ="20"/>--> </feDiffuseLighting> <feComposite in="SourceGraphic" in2="lightr" result="sourceWithR" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/> <feComposite in="SourceGraphic" in2="lightg" result="sourceWithG" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/> <feComposite in="SourceGraphic" in2="lightb" result="sourceWithB" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/> <feComposite in="sourceWithR" in2="sourceWithG" result="sourceWithRG" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/> <feComposite in="sourceWithRG" in2="sourceWithB" result="sourceWithRGB" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/> </filter> <circle cx="100" cy="100" r="80" fill="white" stroke="black" stroke-opacity="1" filter="url(#alight)" />
+</svg>
+</div>
+<script>
+function achangeColor(){
+  var r = document.getElementById("ared").value;
+  var g = document.getElementById("agreen").value;
+  var b = document.getElementById("ablue").value;
+  document.getElementById("argbshow").style["background-color"]=`rgb(${r},${g},${b})`;
+  document.getElementById("aredshow").innerHTML=r;
+  document.getElementById("aredshow").style["background-color"]=`rgb(${r},0,0)`;
+  document.getElementById("asvgred").setAttribute("lighting-color",`rgb(${r},0,0)`);
+  document.getElementById("agreenshow").innerHTML=g;
+  document.getElementById("agreenshow").style["background-color"]=`rgb(0,${g},0)`;
+  document.getElementById("asvggreen").setAttribute("lighting-color",`rgb(0,${g},0)`);
+  document.getElementById("ablueshow").innerHTML=b;
+  document.getElementById("ablueshow").style["background-color"]=`rgb(0,0,${b})`;
+  document.getElementById("asvgblue").setAttribute("lighting-color",`rgb(0,0,${b})`);
+}
+document.getElementById("ared").oninput = achangeColor;
+document.getElementById("agreen").oninput = achangeColor;
+document.getElementById("ablue").oninput = achangeColor;
+achangeColor();
+</script>
+</div>
+<aside class="notes">
+Play a bit with the sliders, ask about favorite colors, make them guess how to mix it, mention that shortly we will do it with the device itself.
+</aside>
+</section></section>
+<section>
+<section id="programming-an-artistic-piece-of-electronics" class="title-slide slide level1">
+<h1>Programming an artistic piece of electronics</h1>
+<aside class="notes">
+<h3>
+To be done in Session 1 (30ish minutes with a lot of interaction from students)
+</h3>
+<p>We will finally start modifying code and uploading it to the SpinWheel. In the next few slides we will <strong>not</strong> explain in detail what “variables” or “functions” are. Using the word “command” instead of “function” might help. We will just hack around to get a sense of it.</p>
+<p>Moreover, each “code” slide would have an interactive “sliders based” slide before it, where we can observe what the device can in principle do before trying to express it in code. Try to stress that idea to the students: <em>do not start thinking in code, rather start by thinking what you want to happen, and only then express it in code</em>.</p>
+Try to gauge the engagement of the students here: this would be a crucial spot to learn whether you are going too slow or too fast for them.
+</aside>
+</section>
+<section class="slide level2">
+
+<!--WARNING: This really abuses the virtual spinwheel code. Here be dragons... and bugs...-->
+<style>
+#first-color {
+  width:50vw;
+}
+.colortests {
+  font-size: 2rem;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0  white,
+    -1px 1px 0  white,
+    1px 1px 0   white;
+  color: black;
+}
+.colortests input {
+  width: 80%;
+  margin: 0;
+}
+.colortests span {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.colortests .vis {
+  width: 80%;
+  height: 2em;
+  line-height: 2em;
+  border: solid 1px;
+}
+.redshow {border-color: red !important;}
+.greenshow {border-color: green !important;}
+.blueshow {border-color: blue !important;}
+</style>
+<div id="first-color" class="ssw-container ssw-skip">
+<div class="ssw-code">
+<div class="colortests">
+<div>
+<input type="range" min="0" max="255" value="0" class="red"><br><span class="vis redshow">0</span><br><br><input type="range" min="0" max="255" value="0" class="green"><br><span class="vis greenshow">0</span><br><br><input type="range" min="0" max="255" value="0" class="blue"><br><span class="vis blueshow">0</span>
+</div>
+<script>
+var firstcolornode = document.getElementById("first-color");
+function changeColor(){
+  var r = firstcolornode.getElementsByClassName("red")[0].value;
+  var g = firstcolornode.getElementsByClassName("green")[0].value;
+  var b = firstcolornode.getElementsByClassName("blue")[0].value;
+  var col =`rgb(${r},${g},${b})`;
+  for (let led of firstcolornode.getElementsByClassName("ssw-large-led")) {
+    led.style["background-color"]=col;
+  }
+  firstcolornode.getElementsByClassName("redshow")[0].innerHTML=r;
+  firstcolornode.getElementsByClassName("redshow")[0].style["background-color"]=`rgb(${r},0,0)`;
+  firstcolornode.getElementsByClassName("greenshow")[0].innerHTML=g;
+  firstcolornode.getElementsByClassName("greenshow")[0].style["background-color"]=`rgb(0,${g},0)`;
+  firstcolornode.getElementsByClassName("blueshow")[0].innerHTML=b;
+  firstcolornode.getElementsByClassName("blueshow")[0].style["background-color"]=`rgb(0,0,${b})`;
+}
+firstcolornode.getElementsByClassName("red")[0].oninput = changeColor;
+firstcolornode.getElementsByClassName("green")[0].oninput = changeColor;
+firstcolornode.getElementsByClassName("blue")[0].oninput = changeColor;
+changeColor();
+</script>
+</div>
+</div>
+<div class="ssw-vis-out" style="width: 200px;">
+<div class="ssw-vis">
+<div>
+<img src="/simspinwheel/spinwheel_invertgray.png">
+<div class="ssw-large-led ssw-large-led0">
+
+</div>
+<div class="ssw-large-led ssw-large-led1">
+
+</div>
+<div class="ssw-large-led ssw-large-led2">
+
+</div>
+<div class="ssw-large-led ssw-large-led3">
+
+</div>
+<div class="ssw-large-led ssw-large-led4">
+
+</div>
+<div class="ssw-large-led ssw-large-led5">
+
+</div>
+<div class="ssw-large-led ssw-large-led6">
+
+</div>
+<div class="ssw-large-led ssw-large-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led0">
+
+</div>
+<div class="ssw-small-led ssw-small-led1">
+
+</div>
+<div class="ssw-small-led ssw-small-led2">
+
+</div>
+<div class="ssw-small-led ssw-small-led3">
+
+</div>
+<div class="ssw-small-led ssw-small-led4">
+
+</div>
+<div class="ssw-small-led ssw-small-led5">
+
+</div>
+<div class="ssw-small-led ssw-small-led6">
+
+</div>
+<div class="ssw-small-led ssw-small-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led8">
+
+</div>
+<div class="ssw-small-led ssw-small-led9">
+
+</div>
+<div class="ssw-small-led ssw-small-led10">
+
+</div>
+<div class="ssw-small-led ssw-small-led11">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+Very briefly reprise the discussion from the last color-mixing slide, this time in the context of it being possible on the SpinWheel LEDs.
+</aside>
+</section>
+<section class="slide level2">
+
+<p>The corresponding command in code looks like</p>
+<p><code>SpinWheel.setLargeLEDsUniform(50, 255, 250)</code></p>
+<aside class="notes">
+<p>Maybe mention that they are not expected to “know” this command, rather these things usually come in documentation tables provided with the language or device you are programming.</p>
+There is also <code>setSmallLEDsUniform</code>.
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(50, 255, 250);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<aside class="notes">
+<p>Finally, we will actually write and upload code. Briefly explain what each line does. The students do not need to write the code from scratch, they can open it from the Example’s folder in the Arduino software. It is the sketch in <a href="/codedoc/examples/Paper_Guide/Purple_LEDs/"><code>Paper_Guide Purple_LEDs</code></a>. Instruct them to set it up to light up with their favorite color. <strong>After</strong> the successful uploads, do not spend much time here: the next slide is more interesting.</p>
+You should be able to make suggestions in the simulator on this page, but having your own Arduino software running and shared on screen would be pretty important too. Expect a lot of errors due to semicolons and commas.
+</aside>
+</section>
+<section class="slide level2">
+
+<!--WARNING: This really abuses the virtual spinwheel code. Here be dragons... and bugs...-->
+<div id="second-color" class="ssw-container ssw-skip">
+<div class="ssw-code">
+<div class="colortests">
+<div>
+<input type="range" min="0" max="7" value="0" class="number"><br>LED Number <span class="numshow">0</span><br><br><input type="range" min="0" max="255" value="255" class="red"><br><span class="vis redshow">255</span><br><br><input type="range" min="0" max="255" value="255" class="green"><br><span class="vis greenshow">255</span><br><br><input type="range" min="0" max="255" value="255" class="blue"><br><span class="vis blueshow">255</span>
+</div>
+<script>
+var secondcolornode = document.getElementById("second-color");
+function changeSingleColor(){
+  var n = secondcolornode.getElementsByClassName("number")[0].value;
+  var r = secondcolornode.getElementsByClassName("red")[0].value;
+  var g = secondcolornode.getElementsByClassName("green")[0].value;
+  var b = secondcolornode.getElementsByClassName("blue")[0].value;
+  var col =`rgb(${r},${g},${b})`;
+  secondcolornode.getElementsByClassName(`ssw-large-led${n}`)[0].style["background-color"]=col;
+  secondcolornode.getElementsByClassName("numshow")[0].innerHTML=n;
+  secondcolornode.getElementsByClassName("redshow")[0].innerHTML=r;
+  secondcolornode.getElementsByClassName("redshow")[0].style["background-color"]=`rgb(${r},0,0)`;
+  secondcolornode.getElementsByClassName("greenshow")[0].innerHTML=g;
+  secondcolornode.getElementsByClassName("greenshow")[0].style["background-color"]=`rgb(0,${g},0)`;
+  secondcolornode.getElementsByClassName("blueshow")[0].innerHTML=b;
+  secondcolornode.getElementsByClassName("blueshow")[0].style["background-color"]=`rgb(0,0,${b})`;
+}
+function changeSingleColorNumber(){
+  var n = secondcolornode.getElementsByClassName("number")[0].value;
+  secondcolornode.getElementsByClassName("numshow")[0].innerHTML=n;
+}
+secondcolornode.getElementsByClassName("number")[0].oninput = changeSingleColorNumber;
+secondcolornode.getElementsByClassName("red")[0].oninput = changeSingleColor;
+secondcolornode.getElementsByClassName("green")[0].oninput = changeSingleColor;
+secondcolornode.getElementsByClassName("blue")[0].oninput = changeSingleColor;
+changeSingleColor();
+</script>
+</div>
+</div>
+<div class="ssw-vis-out" style="width: 200px;">
+<div class="ssw-vis">
+<div>
+<img src="/simspinwheel/spinwheel_invertgray.png">
+<div class="ssw-large-led ssw-large-led0">
+
+</div>
+<div class="ssw-large-led ssw-large-led1">
+
+</div>
+<div class="ssw-large-led ssw-large-led2">
+
+</div>
+<div class="ssw-large-led ssw-large-led3">
+
+</div>
+<div class="ssw-large-led ssw-large-led4">
+
+</div>
+<div class="ssw-large-led ssw-large-led5">
+
+</div>
+<div class="ssw-large-led ssw-large-led6">
+
+</div>
+<div class="ssw-large-led ssw-large-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led0">
+
+</div>
+<div class="ssw-small-led ssw-small-led1">
+
+</div>
+<div class="ssw-small-led ssw-small-led2">
+
+</div>
+<div class="ssw-small-led ssw-small-led3">
+
+</div>
+<div class="ssw-small-led ssw-small-led4">
+
+</div>
+<div class="ssw-small-led ssw-small-led5">
+
+</div>
+<div class="ssw-small-led ssw-small-led6">
+
+</div>
+<div class="ssw-small-led ssw-small-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led8">
+
+</div>
+<div class="ssw-small-led ssw-small-led9">
+
+</div>
+<div class="ssw-small-led ssw-small-led10">
+
+</div>
+<div class="ssw-small-led ssw-small-led11">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+By sequentially selecting an LED and then setting its color we can do this for all LEDs. Spend a minute or so, showing an example in which a few consecutive LEDs are turned in something like red, then blue, then purple. We will do this on the actual device shortly.
+</aside>
+</section>
+<section class="slide level2">
+
+<p>The corresponding command is <code>SpinWheel.setLargeLED(4, 255, 0, 100);</code></p>
+<aside class="notes">
+<p>Note that now we do not just give the 3 colors to be used, but also specify which LED to turn on.</p>
+There is also <code>setSmallLED</code>.
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 0, 100);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<aside class="notes">
+<p>Unleash some more creativity here. As a starting point, the students can use <a href="/codedoc/examples/Paper_Guide/Red_LED/"><code>Paper_Guide Red_LED</code></a>. Feel free to spend a lot of time here, and have them copy paste the line with <code>setLargeLED</code> and even start using <code>setSmallLED</code> and make their own pattern. If they are getting impatient, tell them that soon we will see how to make these things flash and change with time, but for the moment <strong>we need to learn how to do static images</strong>.</p>
+<p><strong>Do not necessarily stay on this page. The next few pages have tips that on the small LEDs and other ideas that might be of use. For the next few minutes at least, do not feel bound by the sliders, rather really focus on doing things with the kids and making new patterns by adding more larger or small LEDs in various colors.</strong></p>
+<p><strong>Encourage them to make pictures, selfies, screenshots, etc.</strong></p>
+You should be able to make suggestions in the simulator on this page, but having your own Arduino software running and shared on screen would be pretty important too. Expect a lot of errors due to semicolons and commas.
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+<aside class="notes">
+Let them know that this schematic is also available in their booklets and online.
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="turning-on-the-small-leds">Turning on the Small LEDs</h3>
+<p>You can also turn on all of the small LEDs. To do this, instead of using <code>SpinWheel.setLargeLEDsUniform</code>, you can use the line<br />
+<code>SpinWheel.setSmallLEDsUniform</code>. Like above, the three numbers represent the red, green, and blue components of the color you want to make.</p>
+<aside class="notes">
+<p>The next few slides explain the commands for the small LEDs. Just stick to one of them, or better, open your own Arduino software, and play with the kids.</p>
+<strong>Encourage them to make pictures, selfies, screenshots, etc.</strong>
+</aside>
+</section>
+<section class="slide level2">
+
+<p><code>SpinWheel.setSmallLEDsUniform(0, 200, 255);</code></p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setSmallLEDsUniform(0, 200, 255);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<p><code>SpinWheel.setSmallLED(2, 0, 255, 0);</code></p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setSmallLED(2, 0, 255, 0);
+  SpinWheel.setSmallLED(5, 0, 255, 0);
+  SpinWheel.setSmallLED(8, 0, 255, 0);
+  SpinWheel.setSmallLED(11, 0, 255, 0);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+</section>
+<section class="slide level2">
+
+<p>At this point, you can modify the code above to create your own pattern.</p>
+<p>We encourage you to take some time to experiment with this to create your own designs.</p>
+<p>Consider checking out:</p>
+<ul>
+<li><a href="/slides/intro">The Initial Setup slide deck</a></li>
+<li><a href="/quickstart">SpinWheel Initial Setup at <code>/quickstart</code></a></li>
+<li><a href="/intro">Getting Started with the SpinWheel at <code>/intro</code></a></li>
+<li><a href="/troubleshoot">SpinWheel Troubleshooting Guide at <code>/troubleshoot</code></a></li>
+<li><a href="/arduino101">Arduino 101 at <code>/arduino101</code></a></li>
+</ul>
+<aside class="notes">
+<p>Some userful resources, some of which we will do together. This is probably the end of the first session. No need to spend time on this slide, rather show the upcoming slide and excite them about what we are going to do: <strong>a bit more advanced programming that lets us make time dependent and even motion sensing patterns</strong>.</p>
+If you ended early, do the “General Programming Principles”, but do not worry too much about it.
+</aside>
+</section></section>
+<section>
+<section id="more-general-programming-principles" class="title-slide slide level1">
+<h1>More general programming principles</h1>
+<aside class="notes">
+<h3>
+To be done in Session 2, but might start in Session 1 (15ish minutes of mostly instructing students)
+</h3>
+<p>Now that the students have basic understanding of color mixing and have seen some simple examples of what the device can do (and made simplistic programs themselves), we can talk about what a program actually looks like. Remember, up to now they have just been “hacking” some code, based on what the names of commands sound like and changed some numbers, they have not learnt why commands are ordered in a certain way. We will learn this here.</p>
+<p>For a lot of this section you probably want to use the word “command”, not the word “function”, to avoid confusion among students that might know what a mathematical function is.</p>
+Based on the <a href="/basics">Basic Structure of a Program</a> and <a href="/progpatterns">Coding Building Blocks</a> pages. Check out the <a href="/slides/programming">Programming slide deck</a> which includes more details.
+</aside>
+</section>
+<section id="the-skeleton-of-an-arduino-program" class="slide level2">
+<h2>The Skeleton of an Arduino Program</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>This program does absolutely nothing.</p>
+<aside class="notes">
+<p>The video on the next page might be when you actually want to talk a lot as it explains this slide well visually. But here is what the code of an “empty” program looks like.</p>
+<p><em>Most programs for any computer are split in a section that prepares various prerequisites and turns on various hardware, followed by a section that actually runs the interesting features of the program. Arduino makes this separation very obvious: We have a block called <code>setup</code> that performs the setup, and a block of commands called <code>loop</code> that is executed repeatedly (in a “loop”). That block usually looks for any detected events (e.g. keystrokes on a computer or shaking of a phone) and responds with something useful (e.g. shows a character or turns on a light). Frequently this type of loop is called “the event loop”.</em></p>
+<em>This program does nothing, as we have not put any commands in either of the two blocks.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<video src="/images/bookpics/setup_loop.mp4" muted playsinline loop>
+</video>
+<figcaption>
+When you turn on the SpinWheel, <code>setup()</code> is run once and then the <code>loop()</code> block is run repeatedly until the SpinWheel is turned off.
+</figcaption>
+</figure>
+<aside class="notes">
+Right click on the image to play the video, and reprise the explanation from the previous slide, showing how at first only <code>setup</code> is executed and then the commands from <code>loop</code> are executed repeatedly.
+</aside>
+</section>
+<section id="extra-elements-of-a-spinwheel-program" class="slide level2">
+<h2>Extra Elements of a SpinWheel Program</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// Include extra resources and commands</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co">// specific to the SpinWheel.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  <span class="co">// Instruct the specific SpinWheel hardware</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="co">// to be ready to receive instructions.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>}</span></code></pre></div>
+<aside class="notes">
+<em>The SpinWheel needs a few extra functionalities to be enabled. In different languages that happens in different ways. In the case of the language used by Arduino (C++), you need the <code>#include</code> and <code>using</code> invocations. They make a lot of extra SpinWheel commands available to you. You also need to use a particular <code>setup</code> command that turns on much of the SpinWheel hardware.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<p>Make it light up:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  <span class="co">// Set the large LED number 0 to</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>  <span class="co">// have red=255, green=0, and blue=0 color.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  SpinWheel.setLargeLED(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  <span class="co">// Update the currently shining LEDs</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="co">// based on the instructions provided up to here.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>}</span></code></pre></div>
+<aside class="notes">
+<em>Finally, we get to remake the simple program we saw previous that just turns on one LED. Shortly we will make it a bit more interesting. Here <code>setLargeLED</code> sets the collor, and <code>drawFrame</code> heeds all previous <code>set</code> commands and updates the actual LEDs with the given colors. Be careful with semicolons, computers can be stupid about typos.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+<aside class="notes">
+This diagram of LEDs and their indices is available in the booklet or on the website as well.
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 0, 0);
+  SpinWheel.setLargeLED(2, 255, 0, 0);
+  SpinWheel.setLargeLED(7, 255, 255, 255);
+  SpinWheel.setLargeLED(5, 255, 255, 255);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<aside class="notes">
+Just another interactive example to drill the idea down. Feel free to skip it.
+</aside>
+</section>
+<section id="creating-changing-patterns" class="slide level2">
+<h2>Creating changing patterns</h2>
+<p>To begin writing more complex code, we need to introduce the idea of <em>variables</em>. Variables allow us to store information in the program and change that information as needed.</p>
+<p>To <strong>define</strong> a new variable we can add the following line to the loop block:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">1</span>;</span></code></pre></div>
+<aside class="notes">
+<em>Finally, we will make something that is dynamic and changes. To track and update values that we want to change, we will put these values in variables, e.g., a variable that contains which LED should be on. In this particular language <code>int</code> denotes a variable that contains integer numbers.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>  <span class="dt">int</span> which_LED = <span class="dv">1</span>;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>}</span></code></pre></div>
+<aside class="notes">
+<em>Compared to the previous function implementatation, this does not do anything new, but we will see how story the number of the LED in a variable lets us change that value if we wish.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="co">// We have to declare which_LED outside of the loop to change it every loop</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">0</span>; </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>  <span class="co">// clear all LEDs</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>  SpinWheel.clearAllLEDs();</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>  <span class="co">// Turn on 1 LED</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>  </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>  <span class="co">// change the LED to use</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>  which_LED = which_LED + <span class="dv">1</span>;</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>  </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>  <span class="co">// pause the code to delay running the next loop</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>  </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>}</span></code></pre></div>
+<aside class="notes">
+<em>We had to define the variable <strong>outside</strong> of the <code>loop</code> block in order to have it retain its value in between each <code>loop</code> run. But now, in each loop we are incrementing the value of <code>which_LED</code> and we can see how it cause the LED which is on to change when we upload it to the SpinWheel. We had to also use the <code>delay</code> function to make this happen slowly enough so that we can see it with our eyes. We also use the <code>clearAllLEDs</code> function to erase the state of the LEDs that was set up to now.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<video src="/images/bookpics/brightness_loop.mp4" muted playsinline loop>
+</video>
+<aside class="notes">
+Right click to get the play menu for this video. You can reprise the previous explanation of the similar visualization: <em>First we have <code>setup</code> and then in each <code>loop</code> we increment <code>which_LED</code>.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="additional-programming-notes">Additional Programming Notes</h3>
+<ul>
+<li>Only one “command” per line. This makes the code more readable.</li>
+<li>Command are followed by a semicolon <code>;</code>.</li>
+<li>Commands tend to be some name followed by parentheses <code>()</code>.</li>
+<li>Inside these parentheses we put some extra information: this information can control how a command performs.</li>
+</ul>
+<aside class="notes">
+<p>The next few slides are a bit dry. Try to gauge your students interest here and abreviate things if they are not interested.</p>
+Just use the content of the slides, they are self-explantory: we cover the two main ideas necessary for simple procedural programming: what a variable is and what a function (or command or routine) is. We do not even discuss how to create your own functions, only how to use functions that are already created.
+</aside>
+</section>
+<section id="building-blocks-for-your-program" class="slide level2">
+<h2>Building Blocks for your Program</h2>
+</section>
+<section id="variables" class="slide level2">
+<h2>Variables</h2>
+<p>Before processing data, we have to tell the computer to store it in its memory. This is done using <strong>variables</strong>.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/variables.png" alt="" /><figcaption>“Variables” are like labeled shelves for information. When you need to save a number for later use, you put it in a variable of your choice. Above we have number 3 stored in the variable <code>a</code>, number 4 stored in variable <code>b</code> and the number 7 is about to be stored in a variable named <code>e</code>. We can pick the names for the variables ourselves (any sequence of letters that is not interrupted by whitespaces). <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p>We will only discuss two types of variables: integers and decimals. Other types do exist, but we won’t cover them here.</p>
+<p>To <strong>define</strong> a new integer variable you need the following line in your code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="dt">int</span> my_special_integer = <span class="dv">6</span>;</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>If we want to work with decimals, we use the variable type <code>float</code> instead of <code>int</code>. The name comes from the early history of computers and is unimportant for our purposes (how the decimal point can “float” between the digits).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="dt">float</span> pi = <span class="fl">3.1415</span>;</span></code></pre></div>
+</section>
+<section id="functions" class="slide level2">
+<h2>Functions</h2>
+<p>In computer programming, functions are commands that take a few variables and do something useful with them. Functions are reusable pieces of code.</p>
+</section>
+<section class="slide level2">
+
+<p>Here is some code that uses an example function called <code>max</code> that takes two numbers as input and returns the larger number. The input values are also called the <strong>arguments</strong> of the function.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(number_a, number_b);</span></code></pre></div>
+<aside class="notes">
+Try to run through and ask the students what they expect to happen, line by line.
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(number_a, number_b);</span></code></pre></div>
+<p>The value stored in <code>resulting_number</code> in this case would be <code>7</code>.</p>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/functions.png" alt="" /><figcaption>Functions are tools provided in a given programming language that are capable of ingesting a number of parameters and producting (a.k.a “returning”) some new value that depended on the input parameters. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<aside class="notes">
+<em>It takes something in and it spits something out.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="dt">int</span> result = max(sqrt(number_a-<span class="dv">1</span>) * <span class="dv">2</span>, min(number_b, <span class="dv">2</span>));</span></code></pre></div>
+<figure>
+<video src="/images/bookpics/calc_tree.mp4" muted playsinline loop>
+</video>
+<figcaption>
+</figcaption>
+</figure>
+<aside class="notes">
+<p>If the students are bored, just skip this, but if they are engaged, this is an important slide that helps understand how nested functions work. How each function gives its result to the outer function that uses it.</p>
+Right click to play and try to explain in detail each layer of the computation as it appears in the diagram. Do not worry if it is going too fast, just use a few more loops of the animation.
+</aside>
+</section>
+<section id="comments" class="slide level2">
+<h2>Comments</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co">// I am writing this comment to remind me</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="co">// that the next line stores the number 5</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="co">// in the variable named my_test_variable.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="dt">int</span> my_test_variable = <span class="dv">5</span>;</span></code></pre></div>
+<aside class="notes">
+Mention that comments will be used a lot for explanations in the example pieces of code.
+</aside>
+</section>
+<section class="slide level2">
+
+<p>Based on the <a href="/basics">Basic Structure of a Program</a> and <a href="/progpatterns">Coding Building Blocks</a> pages.</p>
+<p>Check out the <a href="/slides/programming">Programming slide deck</a> which includes more details.</p>
+</section></section>
+<section>
+<section id="intro-to-animation" class="title-slide slide level1">
+<h1>Intro to Animation</h1>
+<p>How to use code to light up the display and make properly timed animation frames.</p>
+<aside class="notes">
+<h3>
+To be done in Session 2 (10ish minutes of mostly instructing students)
+</h3>
+<p><em>We learnt how to make static images and we were introduced to the very basics of creating a program in this language. Now we will join the two skills into making a image that changes through time.</em></p>
+See the <a href="/animation">Intro to Animation</a> and <a href="/animation2">Animations and Patterns</a> pages for details.
+</aside>
+</section>
+<section class="slide level2">
+
+<video src="/images/behindthescenes/pretty_device.mp4" muted autoplay playsinline loop>
+</video>
+<aside class="notes">
+Just a pretty video showing what is possible.
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/generative_art.png" alt="" /><figcaption>We will create “generative” art. Instead of having pre-drawn animation frames, we will let the computer generate them from scratch. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<aside class="notes">
+<em>There is a caveat to what we call “animation” here. We are not making a sequence of cartoon drawings, rather we will be making more abstract colorful patterns. This type of art is frequently called <strong>generative art</strong>, because we programmed a computer to generate the artwork, instead of creating the artwork directly. It is a great way to create an infinite family of art.</em>
+</aside>
+</section>
+<section id="timing" class="slide level2">
+<h2>Timing</h2>
+<video src="/images/bookpics/simple_blink.mp4" muted autoplay playsinline loop>
+</video>
+<p>How does the computer keep time so that it knows when to change a frame?</p>
+<aside class="notes">
+<em>We want our image to change through time, i.e. to depend on the current time. Therefore we need to find a way to <strong>measure</strong> time in our program.</em>
+</aside>
+</section>
+<section id="timing-1" class="slide level2">
+<h2>Timing</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="dt">int</span> t = millis();</span></code></pre></div>
+<p><code>millis()</code> gives the number of milliseconds since the device was turned on.</p>
+<aside class="notes">
+<em>Storing the result of the function <code>millis</code> (the number of millisecondds since startup) lets us use it later to make brightness or color depend on time.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<video src="/images/bookpics/time_loop.mp4" muted playsinline loop>
+</video>
+<figcaption>
+Every time the <code>loop()</code> block is run, <code>millis()</code> determines the number of milliseconds since <code>setup()</code> was run and stores it in the variable <code>t</code>.
+</figcaption>
+</figure>
+<aside class="notes">
+Similar to previous videos that showcase the <code>setup</code> and many consecutive <code>loop</code> executions, here we repeat this demonstration to show how the value of <code>t</code> changes as each <code>loop</code> function is executed. Mention that there is some mismatch here in the numbers: <code>t</code> will grow at each execution, but depending on how fast each <code>loop</code> is, <code>t</code> would be growing by different amounts.
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="dt">int</span> t_repeating = t % <span class="dv">2500</span>;</span></code></pre></div>
+<figure>
+<img data-src="/images/Modular_division_timeline.png" title="Division of time (shown in blue) into intervals of 2500 (shown in orange)" alt="" /><figcaption>Division of time into intervals of 2500. In this example, 5600 milliseconds have passed, which is 2 full cycles of 2500 milliseconds with a remainder of 600.</figcaption>
+</figure>
+<aside class="notes">
+<p><em>If we want to have images that repeat, we need to divide the measured time in equal intervals and see how much time has passed since the start of the current interval (not since powering on the device). We can do that by performing division with remainder, and retaining the remainder. The <code>%</code> sign is used in this language to denote this remainder calculation.</em></p>
+Spend some time showing through the graphical representation of this operation, and stress that we do this only if we want repeating patterns (where we will use <code>t_repeating</code> instead of <code>t</code>)
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="dt">int</span> t_repeating = t % <span class="dv">2500</span>;</span></code></pre></div>
+<figure>
+<video src="/images/bookpics/time_remainder.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Using time to create a repeating pattern: the value returned by <code>millis()</code> (in blue) is divided into equal intervals. The remainder of that division (in orange) provides a steady repeating sequence of numbers on which we can base a repeating animation.
+</figcaption>
+</figure>
+<aside class="notes">
+Play the video and reprise a similar explanation of the intervals and remainders, but in the new graphical context.
+</aside>
+</section>
+<section id="a-picture-that-depends-on-time" class="slide level2">
+<h2>A picture that depends on time</h2>
+<aside class="notes">
+<em>And now, finally, a simple changing image.</em>
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  int t = millis();
+  int t_repeating = t % 2500;
+  int b = t_repeating / 10;
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(b, b, b);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<aside class="notes">
+<p><em>And now, finally, a simple changing image.</em></p>
+<p>Go line by line in it. Stress that the brightness ramps up gently but then turns of abruptly (we will do more pleasing patterns soon). The students can also get this code from the examples menu at <a href="/codedoc/examples/Animations_and_Patterns/Simple_Blink/"><code>Animaitions_and_Patterns Simple_Blink</code></a>, which is a very heavily commented version. Be sure to be showing your own Arduino editor if you go that route.</p>
+We are sweeping under the rug the fact that we aim for <code>b</code> to always be between 0 and 255, because those are the permitted scales. Feel free to talk a bit more about it.
+</aside>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/creating_own_functions.png" alt="" /><figcaption>Check out our lesson on the building blocks of coding to learn more about the essential pieces of writing a sketch. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<aside class="notes">
+A little inspirational image about making your own fancier patterns.
+</aside>
+</section></section>
+<section>
+<section id="animations-and-patterns" class="title-slide slide level1">
+<h1>Animations and Patterns</h1>
+<p>Common tools for more pleasant animations</p>
+<aside class="notes">
+<h3>
+To be done in Session 2 (20ish minutes with a lot of interaction from students)
+</h3>
+<p><em>To the aforementioned simple idea of “measuring repeating intervals of time” we will now add a few <strong>suggested</strong> extra patterns that might be of interest. They are not speical in any way, but they are pleasant and convenient. You can use them directly or even create completely new patterns).</em></p>
+<p>See <a href="/animation2">Animations and Patterns</a> pages for details.</p>
+Just follow along with the slide content and code for the next few slides, going through examples. Each example is also available from the examples menu in the Arduino software (the sketch name is given on each slide).
+</aside>
+</section>
+<section id="smoother-pulsing" class="slide level2">
+<h2>Smoother pulsing</h2>
+<figure>
+<video src="/images/bookpics/triangular_wave.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Instead of the pattern of brightness that abruptly dropped to zero that we saw previously, we can employ a pattern that also decreases steadily, making for a more pleasant pulsing light.
+</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<p><a href="/codedoc/examples/Animations_and_Patterns/Smoother_Blink"><code>Examples → SpinWearables → Animations_and_Patterns → Smoother_Blink</code></a></p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int b = triangularWave(t_repeating / 10);
+  // The next function takes three arguments:
+  // The red, green, and blue components of the color we desire.
+  // We are mixing only red and blue, setting green to zero.
+  SpinWheel.setLargeLEDsUniform(b, 0, b);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+</section>
+<section id="the-color-wheel" class="slide level2">
+<h2>The color wheel</h2>
+<figure>
+<img data-src="/images/bookpics/colorwheel.png" title="The color wheel lets you generate a color based on a single continuously changing (maybe time-dependent) number." alt="" /><figcaption>The color wheel lets you generate a color based on a single continuously changing (maybe time-dependent) number. The red, blue and green components of the colors in the color wheel are shown in the plot on the right.</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int s = t_repeating/10;
+  SpinWheel.setLargeLEDsUniform(colorWheel(s));
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p><a href="/codedoc/examples/Animations_and_Patterns/Color_Wheel"><code>Animations_and_Patterns → Color_Wheel</code></a></p>
+</section>
+<section id="non-uniform-patterns-and-accessing-separate-leds" class="slide level2">
+<h2>Non-uniform patterns and accessing separate LEDs</h2>
+<aside class="notes">
+Here we will slowly transition to examples that the students will be modifying and experimenting with. Go through the first one relatively quickly, just stressing the idea that we can calculate new variables from the old variables, such that some relationship is imposed between LEDs (e.g., that they are the opposite brightness of each other).
+</aside>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int w = triangularWave(t_repeating/10);
+  // The next line sets the intensity of the 2nd LED 
+  // to be opposite of the value in w
+  int w_opposite = 255 - w;
+  SpinWheel.setLargeLED(0, w, 0, 0);
+  SpinWheel.setLargeLED(2, 0, w_opposite, 0);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p><a href="/codedoc/examples/Animations_and_Patterns/Railroad_Signal"><code>Railroad_Signal</code></a></p>
+</section>
+<section class="slide level2">
+
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_delay = 200; // Change this number! What happens?
+  int t0 = (t % 2500) / 10;
+  int t1 = ((t+t_delay) % 2500) / 10;
+  int t2 = ((t+2*t_delay) % 2500) / 10;
+  int t3 = ((t+3*t_delay) % 2500) / 10;
+  SpinWheel.setLargeLED(0, colorWheel(t0));
+  SpinWheel.setLargeLED(1, colorWheel(t1));
+  SpinWheel.setLargeLED(2, colorWheel(t2));
+  SpinWheel.setLargeLED(3, colorWheel(t3));
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p><a href="/codedoc/examples/Animations_and_Patterns/Rainbow_Chase"><code>Rainbow_Chase</code></a></p>
+<aside class="notes">
+Here we also started adding arbitrary artificial delays between LEDs so that it looks like the colors are chasing each other. Spend the rest of the session simply experimenting with this sketch and making it fancier and weirder. Use the small LEDs too. A lot of copy-pasting is fine too!
+</aside>
+</section>
+<section class="slide level2">
+
+Overwhelmed by the possibilities of how you can modify the above sketches? Here are some suggestions:
+<ul>
+<li>
+Try to add more LEDs to your patterns.
+</li>
+<li>
+Try to have some of them (e.g. the small ones) have varying brightness, while others (e.g. the large ones) have changing colors.
+</li>
+<li>
+Mix and match code from the previous examples.
+</li>
+</ul>
+<p>Let your creativity sing through the code!</p>
+</section>
+<section class="slide level2">
+
+<p>See the <a href="/animation">Intro to Animation</a> and <a href="/animation2">Animations and Patterns</a> pages for more.</p>
+</section></section>
+<section>
+<section id="sensing-motion-and-tilt" class="title-slide slide level1">
+<h1>Sensing motion and tilt</h1>
+
+</section>
+<section class="slide level2">
+
+<figure>
+<video src="/images/bookpics/preloaded_tilt3.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+</figcaption>
+</figure>
+</section>
+<section id="simple-levels" class="slide level2">
+<h2>Simple Levels</h2>
+<figure>
+<img data-src="/images/bookpics/round_maze.jpg" alt="" /><figcaption>A toy in which the tilt can force a ball to roll in a given direction. <a class="imagecredit" href="https://commons.wikimedia.org/wiki/File:Round_maze.jpg">image credit Wikimedia</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<figure>
+<img src="/images/bookpics/level_and_glass.png" style="max-width:90%">
+<figcaption>
+Bubbles rise against gravity, both in the cylinder of the level and in a glass of carbonated water.<a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a>
+</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/onebubble.jpg" alt="" /><figcaption>A bubble level. <a class="imagecredit" href="https://publiclab.org/notes/mathew/10-26-2015/deploying-passive-particle-monitors">image credit Public Lab</a></figcaption>
+</figure>
+</section>
+<section id="in-two-dimensions" class="slide level2">
+<h2>In Two Dimensions</h2>
+<figure>
+<img data-src="/images/bookpics/twobubble.jpg" alt="" /><figcaption>A bubble level with separate sensors for each axis of tilt. <a class="imagecredit" href="https://publiclab.org/notes/mathew/10-26-2015/deploying-passive-particle-monitors">image credit Public Lab</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<style>
+#grid2d {
+  text-align: center;
+  background: white;
+  color: black;
+}
+.grid2dcontrol > input {
+  width: 40px;
+}
+.xcom {
+  color: #228e2c;
+}
+.ycom {
+  color: #2676b3;
+}
+</style>
+<div id="grid2d">
+<div id="vectorGrid">
+<canvas class="trajectory1D" width="400" height="400">
+</canvas>
+</div>
+<div id="values">
+<div class="grid2dcontrol xcom">
+X component: <span id="xshow">0</span>
+</div>
+<div>
+<input type="range" min="-6" max="6"  id="xvalue">
+</div>
+<div class="grid2dcontrol ycom">
+Y component: <span id="yshow">0</span>
+</div>
+<div>
+<input type="range" min="-6" max="6"  id="yvalue">
+</div>
+<div class="grid2dcontrol">
+Magnitude: <span id="magshow">0</span>
+</div>
+<!--<div class="grid2dcontrol">Angle: <span id="angshow">0</span>&deg;</div>-->
+</div>
+</div>
+<script>
+function canvas_arrow(context, fromx, fromy, tox, toy) {
+  var headlen = 10;
+  var dx = tox - fromx;
+  var dy = toy - fromy;
+  var angle = Math.atan2(dy, dx);
+  context.moveTo(fromx, fromy);
+  context.lineTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+  context.moveTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
+
+const level_tube_img = new Image();
+level_tube_img.src = "/images/bookpics/level_canvas_tube.png";
+const level_bubble_img = new Image();
+level_bubble_img.src = "/images/bookpics/level_canvas_bubble.png";
+const level_tube_img_r = new Image();
+level_tube_img_r.src = "/images/bookpics/level_canvas_tube_r.png";
+const level_bubble_img_r = new Image();
+level_bubble_img_r.src = "/images/bookpics/level_canvas_bubble_r.png";
+const v_to_path2D = document.getElementById('vectorGrid');
+const ctx2D = v_to_path2D.getElementsByClassName('trajectory1D')[0].getContext('2d');
+var xElement = document.getElementById("xvalue");
+var yElement = document.getElementById("yvalue");
+xElement.value = 2;
+yElement.value = 2;
+var xcurrent = 0;
+var ycurrent = 0;
+ctx2D.textAlign = 'center';
+ctx2D.textBaseline = 'middle';
+
+function canvas_axis(context, maxX, maxY) {
+  var midX = maxX/2;
+  var midY = maxY/2;
+  var stepX = maxX/20;
+  var stepY = maxY/20;
+  context.strokeStyle='rgba(0,0,0,0.5)';
+  context.lineWidth=1;
+  context.moveTo(midX, 0);
+  context.lineTo(midX,maxY);
+  context.moveTo(0, midY);
+  context.lineTo(maxX, midY);
+  context.stroke();
+  context.strokeStyle='rgba(0,0,0,0.1)';
+  for (var i=-10; i<=10; i++) {
+    context.moveTo(0,midY+i*stepY);
+    context.lineTo(maxX,midY+i*stepY);
+    context.moveTo(midX+i*stepX,0);
+    context.lineTo(midX+i*stepX,maxY);
+  }
+  context.stroke();
+  context.drawImage(level_tube_img,45,360, 310, 34);
+  context.drawImage(level_tube_img_r,6,45, 34, 310);
+}
+
+function plot_all(){
+    xcurrent = 0.8*xcurrent + 0.2*xElement.value;
+    ycurrent = 0.8*ycurrent + 0.2*yElement.value;
+    var x = xcurrent;
+    var y = ycurrent;
+    x_scale = x*20 + 200;
+    y_scale = -y*20 + 200;
+  
+    ctx2D.clearRect(0,0,400,400);
+    ctx2D.beginPath();
+    canvas_axis(ctx2D, 400, 400);
+    ctx2D.drawImage(level_bubble_img,x_scale-22,360, 44, 34);
+    ctx2D.drawImage(level_bubble_img_r,6,y_scale-22, 34, 44);
+    ctx2D.font = '14px sans';
+    ctx2D.fillStyle = '#228e2c';
+    ctx2D.strokeStyle = '#228e2c';
+    ctx2D.beginPath();ctx2D.moveTo(x_scale,y_scale);ctx2D.lineTo(200,y_scale);ctx2D.stroke();
+    ctx2D.fillText('X = '+xcurrent.toFixed(1),x*10+200,y_scale-10*Math.sign(y));
+    ctx2D.fillStyle = '#2676b3';
+    ctx2D.strokeStyle = '#2676b3';
+    ctx2D.beginPath();ctx2D.moveTo(x_scale,y_scale);ctx2D.lineTo(x_scale,200);ctx2D.stroke();
+    ctx2D.fillText('Y = '+ycurrent.toFixed(1),x_scale+40*Math.sign(x),-y*10+200);
+    ctx2D.beginPath();
+    ctx2D.strokeStyle='black';
+    ctx2D.lineWidth=2;
+    canvas_arrow(ctx2D,200,200,x_scale, y_scale);
+    ctx2D.stroke();
+    var magnitude = Math.sqrt(x*x  + y*y);
+    var direction_angle = Math.atan2(y,x)/Math.PI*180;
+    if (direction_angle < 0){
+        direction_angle = direction_angle + 360;
+    }
+    document.getElementById("xshow").innerHTML=xcurrent.toFixed(1);
+    document.getElementById("yshow").innerHTML=ycurrent.toFixed(1);
+    document.getElementById("magshow").innerHTML=magnitude.toFixed(1);
+    //document.getElementById("angshow").innerHTML=direction_angle.toFixed(0);
+}
+
+setInterval(plot_all, 50);
+</script>
+</section>
+<section class="slide level2">
+
+<div id="threediv">
+<div id="threejsanim">
+
+</div>
+<span id="xlenp">X component: <span id="xlen"></span></span><span id="ylenp">Y component: <span id="ylen"></span></span>Tilt back and forth:<input id="fbtilt" type="range" min="-100" max="+100" value="30">Tilt left and right:<input id="lrtilt" type="range" min="-100" max="+100">Rotate face:<input id="frotate" type="range" min="-100" max="+100">
+</div>
+<style>
+#threediv {
+  text-align: center;
+  width: 100%;
+  font-size: 0.5em;
+  transform: scale(1.5);
+}
+#threediv > * {
+  display: block;
+  margin: auto;
+}
+#threediv #xlenp {
+  color: #228e2c;
+}
+#threediv #ylenp {
+  color: #2676b3;
+}
+</style>
+<script type="module">
+
+import * as THREE from '/three/three.module.js';
+
+import { OrbitControls } from '/three/OrbitControls.js';
+ 
+function makeSpinWheel() {
+  var outerbox = new THREE.Group();
+  var box = new THREE.Group();
+  var geometry = new THREE.CylinderGeometry(20,20,1,24);
+  var material = new THREE.MeshPhongMaterial({color: 0x111111, transparent: true, opacity: 0.90});
+  var disk = new THREE.Mesh( geometry, material );
+  box.add(disk);
+  var sgeometry = new THREE.CylinderGeometry(1.5,1.5,1,24);
+  var sdisk = new THREE.Mesh( sgeometry, material );
+  sdisk.position.set(21/1.414,0,21/1.414);
+  box.add(sdisk);
+  for (var i=0; i<4; i++) {
+    var bgeometry = new THREE.BoxGeometry(5,1.5,5);
+    var wmaterial = new THREE.MeshPhongMaterial({color: 0xbbbbbb});
+    var square1 = new THREE.Mesh(bgeometry, wmaterial);
+    var square2 = new THREE.Mesh(bgeometry, wmaterial);
+    var x = (-1)**i;
+    var z = (-1)**(i>>1);
+    square1.position.set(x*10,1.25,z*10);
+    square2.position.set(x*3,1.25,z*3);
+    //square1.rotation.z += Math.PI/2;
+    box.add(square1);
+    box.add(square2);
+  }
+  box.rotation.y = Math.PI*3/4;
+  outerbox.add(box);
+  return outerbox;
+}
+
+function makeScene() {
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color( 0xffffff );
+
+  var lights = [];
+  lights[ 0 ] = new THREE.PointLight( 0xaaaaaa, 1, 0 );
+  lights[ 1 ] = new THREE.PointLight( 0xaaaaaa, 1, 0 );
+  lights[ 2 ] = new THREE.PointLight( 0xaaaaaa, 1, 0 );
+  lights[ 0 ].position.set( 0, 200, 100 );
+  lights[ 1 ].position.set( 0, 0, 100 );
+  lights[ 2 ].position.set( 0, - 200, 100 );
+  
+  scene.add( lights[ 0 ] );
+  scene.add( lights[ 1 ] );
+  scene.add( lights[ 2 ] );
+
+  var grid = new THREE.GridHelper( 1500, 70 );
+  grid.position.set(0,-100,0);
+  scene.add(grid);
+
+  return scene;
+}
+
+var camera, scene, renderer;
+var box;
+var arrow;
+var xarrow, yarrow, zarrow;
+var sphere;
+var lx_glob, ly_glob;
+const size = 400;
+const animdiv = document.getElementById('threejsanim');
+const fgtilt = document.getElementById('fbtilt');
+const lrtilt = document.getElementById('lrtilt');
+const frotate = document.getElementById('frotate');
+const xlen = document.getElementById('xlen');
+const ylen = document.getElementById('ylen');
+   
+function init() {
+  scene = makeScene();
+  
+  box = makeSpinWheel();
+  scene.add(box);
+
+  arrow = new THREE.ArrowHelper(
+    new THREE.Vector3(0,1,0),
+    new THREE.Vector3(0,0,0),
+    //40, 0xf58559,
+    40, 0xaaaaaa,
+    10, 4
+  );
+  scene.add(arrow);
+
+  xarrow = new THREE.ArrowHelper(
+    new THREE.Vector3(1,0,0),
+    new THREE.Vector3(0,2,0),
+    40, 0x92bd80,
+    10, 4
+  );
+  box.add(xarrow);
+
+  yarrow = new THREE.ArrowHelper(
+    new THREE.Vector3(0,0,-1),
+    new THREE.Vector3(0,2,0),
+    40, 0x8fb0d3,
+    10, 4
+  );
+  box.add(yarrow);
+
+  zarrow = new THREE.ArrowHelper(
+    new THREE.Vector3(0,1,0),
+    new THREE.Vector3(0,2,0),
+    40, 0xf58559,
+    10, 4
+  );
+  //box.add(zarrow);
+
+  /*
+  var sgeometry = new THREE.SphereGeometry( 3, 12, 12 );
+  var smaterial = new THREE.MeshBasicMaterial( {color: 0xf58559} );
+  sphere = new THREE.Mesh( sgeometry, smaterial );
+  scene.add(sphere);
+  */ 
+
+  var fov = 60;
+  var aspect = 2;
+  var near = 0.10;
+  var far = 500;
+  camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.z = 80;
+  
+  renderer = new THREE.WebGLRenderer( { antialias: true } );
+  renderer.setSize( size, size/2 );
+  animdiv.appendChild( renderer.domElement );
+
+  var controls = new OrbitControls(camera, renderer.domElement);
+}
+ 
+function animate() {
+  requestAnimationFrame( animate );
+  const fb = fbtilt.value*Math.PI/2/100;
+  const lr = lrtilt.value*Math.PI/2/100;
+  const r = frotate.value*Math.PI/2/100;
+  const euler = new THREE.Euler(fb,r,lr,'ZXY');
+  box.setRotationFromEuler(euler);
+  const g = new THREE.Vector3(0,1,0);
+  const py0 = new THREE.Vector3(0,0,-1);
+  const my0 = new THREE.Vector3(0,0,1);
+  const y0 = new THREE.Vector3(0,0,-1).applyEuler(euler);
+  const ly = y0.dot(g);
+  const aly = Math.abs(ly)*40
+  yarrow.setLength(aly, Math.min(10,aly), 4);
+  var dy;
+  if (ly > 0) {
+    dy = py0;
+  } else {
+    dy = my0;
+  }
+  const px0 = new THREE.Vector3(1,0,0);
+  const mx0 = new THREE.Vector3(-1,0,0);
+  const x0 = new THREE.Vector3(1,0,0).applyEuler(euler);
+  const lx = x0.dot(g);
+  const alx = Math.abs(lx)*40
+  xarrow.setLength(alx, Math.min(10,alx), 4);
+  var dx;
+  if (lx > 0) {
+    dx = px0;
+  } else {
+    dx = mx0;
+  }
+  const pz0 = new THREE.Vector3(0,1,0);
+  const mz0 = new THREE.Vector3(0,-1,0);
+  const z0 = new THREE.Vector3(0,1,0).applyEuler(euler);
+  const lz = z0.dot(g);
+  const alz = Math.abs(lz)*40
+  //zarrow.setLength(alz, Math.min(10,alz), 4);
+  var dz;
+  if (lz > 0) {
+    dz = pz0;
+  } else {
+    dz = mz0;
+  }
+  xarrow.setDirection(dx);
+  yarrow.setDirection(dy);
+  //zarrow.setDirection(dz);
+  /*
+  const xy = x0.clone()
+               .multiplyScalar(lx*40);
+  xy.add(y0.clone()
+           .multiplyScalar(ly*40));
+  sphere.position.copy(xy);
+  */
+  renderer.render( scene, camera );
+  lx_glob = lx;
+  ly_glob = ly;
+  xlen.innerHTML = Math.round(lx_glob*100)/100;
+  ylen.innerHTML = Math.round(ly_glob*100)/100;
+}
+ 
+init();
+animate();
+ 
+</script>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/dance_axis.png" alt="" /><figcaption>These are the three axes that the SpinWheel can detect acceleration and gravity along. In the interactive 3D diagram you can see how the vector of gravitational acceleration (in grey) is decomposed along these three axes. You can drag, ctrl+drag, or scroll on the 3D image to rotate, pan, or zoom the camera.<a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="programming-your-own-tilt-sensor">Programming your own Tilt Sensor</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>  <span class="co">// Connect to the computer, so we can read status messages.</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>  Serial.begin(<span class="dv">115200</span>);</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a>  <span class="co">// Ensure the special SpinWheel hardware is working.</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>  SpinWheel.begin();  </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a>}</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a>  <span class="co">// Send a confirmation message over and over.</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a>  Serial.println(<span class="st">&quot;I am working!&quot;</span>); </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="measuring-tilt">Measuring Tilt</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables; </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>  <span class="co">// Ensure all of the SpinWheel hardware is on.</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a>}</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>  <span class="co">// Read all sensor data.</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>  SpinWheel.readIMU();</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a>  <span class="co">// Save the x-axis measurement in a variable.</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true"></a>  <span class="dt">int</span> x = SpinWheel.ax*<span class="dv">255</span>;</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="responding-to-tilt-along-the-x-axis">Responding to Tilt Along the X-axis</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables; </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>  <span class="co">// Ensure all of the SpinWheel hardware is on.</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a>}</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a>  <span class="co">// Read all sensor data.</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a>  SpinWheel.readIMU();</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a>  <span class="co">// Save the x-axis measurement in a variable.</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a>  <span class="dt">int</span> x = SpinWheel.ax*<span class="dv">255</span>;</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a>  <span class="co">// Turn off all LEDs.</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a>  SpinWheel.clearAllLEDs();</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true"></a>  <span class="co">// If the tilt is in a given direction,</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true"></a>  <span class="co">// turn on the corresponding LED.</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true"></a>  <span class="co">// We only want the SpinWheel to register</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true"></a>  <span class="co">// if the tilt is sufficiently large.</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true"></a>  <span class="cf">if</span> (x &gt; <span class="dv">10</span>) {</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">5</span>, x, x, x);</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true"></a>  }</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true"></a>  <span class="cf">else</span> <span class="cf">if</span> (x &lt; -<span class="dv">10</span>) {</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">7</span>,-x,-x,-x);</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true"></a>  }</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true"></a></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>  <span class="cf">if</span> (x &gt; <span class="dv">10</span>) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">5</span>, x, x, x);</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>  }</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>  <span class="cf">else</span> <span class="cf">if</span> (x &lt; -<span class="dv">10</span>) {</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">7</span>,-x,-x,-x);</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>  }</span></code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

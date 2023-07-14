@@ -1,0 +1,95 @@
+.ssw-container {
+  display: flex;
+  flex-direction: row;
+  text-align: left !important; /* because of slides */
+}
+.ssw-code {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ssw-codecontent {
+  flex-grow: 1;
+}
+.ssw-codeblock {
+  font-family: monospace;
+  white-space: pre;
+  width: 100%;
+}
+.ssw-codeblock {
+  padding: 0 2px 0 2px !important; /* "!imp" because of slides */
+  margin: 2px 0 2px 0 !important;  /* "!imp" because of slides */
+}
+textarea.ssw-codeblock {
+  scrollbar-width: none;
+  padding: 0 1px 0 1px;
+  margin: 1px 0 1px 0;
+  border: 1px solid gray;
+  overflow-y: hidden;
+}
+.ssw-codecontrols {
+  flex-grow: 0;
+}
+.ssw-bt-debug {
+  display: none;
+}
+.ssw-debug {
+  font-family: monospace;
+  white-space: pre;
+  width: 100%;
+}
+.ssw-vis-out {
+  flex-shrink: 1;
+}
+.ssw-vis {
+  font-family: monospace; /* because of slides */
+  font-size: 1px;         /* because of slides */
+  line-height: 1;         /* because of slides */
+}
+.ssw-vis > div {
+  max-width: 200px;
+  position: relative; left: 0; top: 0;
+  cursor: move;
+}
+.ssw-vis > div > img {
+  position: relative; left: 0; top: 0;
+  width: 100%;
+  max-width: unset;  /* because of slides */
+  max-height: unset; /* because of slides */
+  border: unset;     /* because of slides */
+  margin: unset;     /* because of slides */ 
+}
+.ssw-large-led {
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+  background: black;
+}
+.ssw-large-led0 {left:49%;top:39%;}
+.ssw-large-led1 {left:57%;top:47%;}
+.ssw-large-led2 {left:49%;top:55%;}
+.ssw-large-led3 {left:41%;top:47%;}
+.ssw-large-led4 {left:49%;top:22%;}
+.ssw-large-led5 {left:74%;top:47%;}
+.ssw-large-led6 {left:49%;top:72.5%;}
+.ssw-large-led7 {left:23.5%;top:47%;}
+.ssw-small-led {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  border-radius: 50%;
+  background: black;
+}
+.ssw-small-led0  {left:64.0%;top:24.1%;}
+.ssw-small-led1  {left:70.0%;top:28.5%;}
+.ssw-small-led2  {left:75.0%;top:34.5%;}
+.ssw-small-led3  {left:75.0%;top:62.0%;}
+.ssw-small-led4  {left:70.2%;top:68.5%;}
+.ssw-small-led5  {left:64.0%;top:72.5%;}
+.ssw-small-led6  {left:36.5%;top:72.5%;}
+.ssw-small-led7  {left:30.5%;top:68.5%;}
+.ssw-small-led8  {left:25.5%;top:62.0%;}
+.ssw-small-led9  {left:25.5%;top:34.5%;}
+.ssw-small-led10 {left:30.5%;top:28.5%;}
+.ssw-small-led11 {left:36.5%;top:24.1%;}

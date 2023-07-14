@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="SpinWheel, arduino, setup, programming" />
+  <title>Basic Structure of a Program</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Basic Structure of a Program</h1>
+</header>
+<main>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<div class="intro-box">
+<p>A program is a set of written commands for your computer to follow. Here you will see what such a program might look like in one particular computer language. Before reading this, be sure to read our <a href="/quickstart">Initial Setup Guide</a>.</p>
+</div>
+<p>Approach this page the way you would approach the first few lines of a foreign language you want to learn. Try to pick out words that make sense, without worrying about the overall structure, correct syntax, or proper grammar. As time passes and you have learned new things, come back to this page and see whether you can understand a bit more of it.</p>
+<p>In different communities, computer programs are referred to by different names: program, sketch, script, etc. Arduino tends to call them sketches because you use them to sketch out what you want your device to do. We also like the name script, because it invokes the idea of a sequence of instructions. The programs you write are a set of instructions you give to the device and the order in which you want them to be executed.</p>
+<h2 id="writing-your-first-sketch">Writing your First Sketch</h2>
+<p>Computers follow instructions. They do not solve problems on their own. So, when writing a program for the SpinWheel’s onboard computer, you need to be very explicit in the instructions that you write!</p>
+<h3 id="the-skeleton-of-an-arduino-program">The Skeleton of an Arduino Program</h3>
+<p>The particular language we are using requires our programs to have a certain structure. The most bare-bones program looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>This program does absolutely nothing. It contains two blocks (or sections) of code which start and end with the brackets: <code>{</code> and <code>}</code>. For our program to do anything, we need to fill these blocks with instructions. The first block is called <code>setup</code> and runs only once, immediately after the device is powered up. This block is used for setting up any initial conditions we might require.</p>
+<p>Next there is the <code>loop</code> block. This block is executed repeatedly “in a loop”, starting immediately after <code>setup</code> is done and repeating itself until the power is turned off. Most of our instructions will be written in this block. They will frequently involve measuring time or motion and then producing a color or a pattern of colors depending on the SpinWheel’s measurement.</p>
+<figure>
+<video src="/images/bookpics/setup_loop.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+When you turn on the SpinWheel, <code>setup()</code> is run once and then the <code>loop()</code> block is run repeatedly until the SpinWheel is turned off.
+</figcaption>
+</figure>
+<h3 id="extra-elements-of-a-spinwheel-program">Extra Elements of a SpinWheel Program</h3>
+<p>To produce a program capable of sending instructions to the hardware of the SpinWheel (e.g. the LEDs and motion sensor), our program requires a few more lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// Include extra resources and commands</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co">// specific to the SpinWheel.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  <span class="co">// Instruct the specific SpinWheel hardware</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="co">// to be ready to receive instructions.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Adding <code>#include "SpinWearables.h"</code> and <code>using namespace SpinWearables;</code> before the <code>setup</code> block ensures that the rest of the program has access to extra resources and commands specific for programming your SpinWheel. It is also necessary to add <code>SpinWheel.begin();</code> in the <code>setup</code> block. This line makes sure that the SpinWheel hardware is ready for the instructions that we will add in <code>loop</code> in the next chunk of code. When you start writing other programs for the SpinWheel, these extra lines will be essential.</p>
+<p>Notice the faded bluish lines that begin with two slashes <code>//</code>. This text is called a “comment.” By starting the line with <code>//</code>, the computer is told to completely disregard everything else on the line. If you reread the comments above, you will notice that they give the same information as we wrote in the paragraph above. We will use comments extensively to write down explanations for ourselves and any other humans that might be reading the code, without worrying about the computer being confused by them.</p>
+<p>The <code>loop</code> block is still empty and this program still will not do anything interesting. However, our <code>setup</code> section is complete: it prepares the SpinWheel to receive instructions. Through our activities, we will rarely need anything more sophisticated in <code>setup</code>.</p>
+<p>Finally, let us turn on an LED by simply adding a single command to the block of code we started above.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  <span class="co">// Set the large LED number 0 to</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>  <span class="co">// have red=255, green=0, and blue=0 color.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  SpinWheel.setLargeLED(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  <span class="co">// Update the currently shining LEDs</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="co">// based on the instructions provided up to here.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Try to copy this code into a new file in the Arduino software and upload it to your SpinWheel. To open a new sketch in Arduino, click on <code>File → New</code>. This will open a blank sketch with only the empty <code>setup</code> and <code>loop</code> blocks from above. It should cause one single large LED to turn on in bright red. You can modify the <code>setLargeLED</code> line to change the appearance of the SpinWheel. The first item (also called a “parameter”) in the parentheses <span class="footnote">identifies the affected LED<span>The number goes from 0 to 7.</span></span> and the other <span class="footnote">three numbers are the red, green, and blue components<span>They have to be numbers between 0 (color is off) and 255 (color is on at full brightness).</span></span> of the desired color. Together, this line of code looks something like: <code>SpinWheel.setLargeLED(LED_you_want_to_change, amount_of_red, amount_of_green, amount_of_blue)</code>.</p>
+<div class="further-reading">
+<p>To remind yourself how to make any color you want using only red, green, and blue, check out the <a href="/sight">Biology of Sight</a> adventure.</p>
+</div>
+<p>Check out the diagram below to see how to refer to each individual LED of the SpinWheel:</p>
+<figure>
+<img src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+<p>Play around with lighting up all of the different large LEDs, or combinations of them! Before trying to modify the code through the Arduino interface, you can experiment with this virtual SpinWheel to light up the LEDs of your choice. What happens when you run the following code on the virtual SpinWheel or on your physical SpinWheel? How would you modify this code to light up the opposite set of large LEDs?</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 0, 0);
+  SpinWheel.setLargeLED(2, 255, 0, 0);
+  SpinWheel.setLargeLED(7, 255, 255, 255);
+  SpinWheel.setLargeLED(5, 255, 255, 255);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p>These virtual SpinWheels show up in many of our adventures as a way to test and experiment with your code and see what the result might look like before uploading to your real SpinWheel! The virtual Spinwheels will only show the <code>loop</code> block of the code. Make sure to add the <code>setup</code> block when copying into the Arduino software!</p>
+<div class="further-reading">
+<p>If you are eager to customize the SpinWheel in other ways (for instance by lighting up the small LEDs), check out the <a href="/allcommands">list of ways to manipulate the SpinWheel’s LEDs</a> we have created. For each of the functions introduced, there is a virtual SpinWheel to allow you to experiment with the code and become comfortable with how it works.</p>
+</div>
+<h2 id="creating-changing-patterns">Creating changing patterns</h2>
+<p>In order to produce more dynamic patterns on our SpinWheel, we have to modify the loop section. Currently, every loop produces the same result; the same LED is lit up with the same color. To begin writing more complex code, we need to introduce the idea of <em>variables</em>. Variables allow us to store information in the program and change that information as needed.</p>
+<p>To <strong>define</strong> a new variable we can add the following line to the loop block:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">1</span>;</span></code></pre></div>
+<p>This reserves a location in the memory of the computer, lets us refer to that location by the name <code>which_LED</code>, and stores the value <code>1</code> there. By itself, this variable doesn’t impact the output of the SpinWheel, but we can use it to store the location of the LED we want to light up.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>  <span class="dt">int</span> which_LED = <span class="dv">1</span>;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Try to copy this code into a new file in the Arduino software and upload it to your SpinWheel. If you change the value of <code>which_LED</code>, you’ll see a different LED light up.</p>
+<div class="further-reading">
+<p>To learn more about variables and other important concepts for creating programs, check out our <a href="/progpatterns">lesson on the building blocks of programming</a>. We encourage you to go back and forth between these pages as you deepen your understanding of programming the SpinWheel.</p>
+</div>
+<p>In this code, every loop still produces the same result; <code>which_LED</code> has the same value every time <code>loop()</code> is run. Lets modify the code to change the selected LED every time loop is run.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="co">// We have to declare which_LED outside of the loop to change it every loop</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">0</span>; </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>  <span class="co">// clear all LEDs</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>  SpinWheel.clearAllLEDs();</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>  <span class="co">// Turn on 1 LED</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a>  </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>  <span class="co">// change the LED to use</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>  which_LED = which_LED + <span class="dv">1</span>;</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>  </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>  <span class="co">// pause the code to delay running the next loop</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>  </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>}</span></code></pre></div>
+<p>In this code, every loop increases the value of <code>which_LED</code> by 1. This value is then used in <code>SpinWheel.setLargeLED()</code> to indicate which LED to light up. This concept is further illustrated below. As each <code>loop()</code> block is run, the value stored in memory for <code>which_LED</code> is changed. Because the <code>loop</code> block runs many times a second, we have added the line <code>delay(500)</code> to pause the code for 500 milliseconds (0.5 seconds) before finishing the loop. Without the delay, the lights would change too quickly for us to see the change.</p>
+<video src="/images/bookpics/brightness_loop.mp4" muted autoplay playsinline loop>
+</video>
+<p>You may have noticed that after a few seconds your SpinWheel stops lighting up. This is because the value in <code>which_LED</code> no longer corresponds to one of the 8 LEDs on the SpinWheel. For example, if <code>which_LED</code> equals 10, the code will try to turn on LED number 10. Since it doesn’t exist, nothing happens. To light up the SpinWheel again, unplug it and toggle the BAT/USB switch. This restarts the code, running <code>setup</code> again and starting <code>which_LED</code> over at 0.</p>
+<p>You have now written your first piece of code for the SpinWheel!</p>
+<div class="further-reading">
+<p>What if instead you wanted this pattern to repeat itself over and over again? Check out the adventure on <a href="/animation">creating computer generated animations</a> to learn how!</p>
+</div>
+<h3 id="additional-programming-notes">Additional Programming Notes</h3>
+<p>There are a couple more things you might have noticed about the style of this programming language:</p>
+<ul>
+<li>We tend to have only one “command” per line. This makes the code more readable.</li>
+<li>Each command is followed by a semicolon <code>;</code>. That makes it easier for the computer to separate different commands.</li>
+<li>Commands tend to be some name followed by parentheses <code>()</code>.</li>
+<li>Inside these parentheses we frequently put some extra information: this information can control how a command performs. For instance, in <code>setLargeLED</code> we have one parameter that selects the LED we want to modify and three parameters for the color of that LED.</li>
+<li>There are other ways in which LED colors can be modified and motion be detected. We will be discussing many such tools in future pages.</li>
+</ul>
+<div class="further-reading">
+<p>We invite you to play with the SpinWheel examples available in the Arduino software and to peruse <a href="/book">the many suggested activities we have prepared for you</a>. To learn more about the programming language used by the SpinWheel, check out our lesson on the <a href="/progpatterns">building blocks of coding</a>. If you are already accustomed to programming, you might want to see the <a href="/allcommands">list of all functions provided with the SpinWheel</a> or to peruse the <a href="/codedoc/src/SpinWearables.h.html">code of the SpinWearables library</a>.</p>
+</div>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

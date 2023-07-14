@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="SpinWheel, arduino, setup" />
+  <title>SpinWheel Initial Setup</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">SpinWheel Initial Setup</h1>
+</header>
+<main>
+<div class="intro-box">
+<p>We’re so excited that you are ready to use your SpinWheel! This page provides details on the contents of your kit, instructions for turning it on for the first time and begins the process of setting you up to create new and exciting programs on your SpinWheel!</p>
+</div>
+<h2 id="contents">Contents</h2>
+<p>Your kit contains a SpinWheel, a battery, and, if you ordered one, a paper copy of the SpinWheel Field Guide. A micro USB cable is needed to charge and program the SpinWheel and is not included with the kit. You likely already own a micro USB cable (a Kindle or an old Android smartphone would use such a cable), but you can also buy a micro USB cable online.</p>
+<p>The SpinWheel has four main components: a power source (the battery), a sensor (for motion and magnetic fields), a set of lights (the light emitting diodes, or LEDs), and a micro computer (the brain of the device).</p>
+<figure>
+<img src="/images/quickstart/unboxing.small.png" title="Unboxing the device." style="max-width:90%" alt="" /><figcaption>Unboxing the device. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<div class="warning">
+<p>The SpinWheel contains sensitive electronic components. While they are securely soldered to the devide, they can break if jostled excessively. For this reason, it is important to be gentle with your SpinWheel when you attach the micro USB cable, and when putting it into a backpack, purse, or pocket. It is also particularly important to treat the battery with care; do not puncture or bend it. Storing the SpinWheel in a smaller pocket within your bag or in the box you received it in will help keep it safe.</p>
+</div>
+<p>Your kit may have come with a paper booklet (the SpinWheel <a href="/book">Field Guide</a>) with some hands-on adventures and reference materials to assist you as you are programming the SpinWheel. The activities in the booklet are also found in expanded versions online. We highly recommend that you make use of both.</p>
+<h2 id="quick-start">Quick Start</h2>
+<figure>
+<img src="/images/quickstart/arduino_library_setup.small.png" title="Arduino setup." alt="" /><figcaption><a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<ol type="1">
+<li><p>The battery of your Spinwheel might not be attached when you receive it. Before attaching the battery, slide the switch on the back of the SpinWheel to be on “USB.” Then firmly insert the battery connector into the battery jack on the circuit board. If you have difficulty, see our <a href="/troubleshoot">Troubleshooting Guide</a>.</p></li>
+<li><p>To turn on the SpinWheel, flip the switch on the back to “BAT” (for “battery”). You should see it turn on and light up brightly!</p></li>
+<li><p>The SpinWheel comes preloaded with several basic animations. You can press the button on the back of the SpinWheel to toggle between different animations.</p></li>
+<li><p>To turn off the SpinWheel, flip the switch to “USB”.</p></li>
+<li><p>To charge, plug a micro USB cable into the USB jack on the back of the SpinWheel, set the switch to “USB” and charge using a computer or USB-to-wall converter. Note: the battery may require charging before use. Reaching full charge takes approximately 1 hr.</p></li>
+</ol>
+<p>The switch on the SpinWheel should be set to “USB” whenever it is plugged into your computer, whether to charge or to program. You should also keep the switch in this position when you are not using the SpinWheel and for long term storage to protect the battery from discharging.</p>
+<div class="warning">
+<p>The SpinWheel will not work properly if connected to a computer/charger without having the switch set to USB. It will not charge and programming it would be extremely unreliable.</p>
+</div>
+<h2 id="installing-the-arduino-software">Installing the Arduino Software</h2>
+<p>Much of the joy of the SpinWheel comes from your ability to change it and make it do whatever you wish! The rest of the guide will walk you through adding a new animation to your SpinWheel. Do not worry if you find this part challenging, learning new things can be confusing at first. If you get stuck, check out the <a href="/troubleshoot">Troubleshooting Guide</a> and don’t be afraid to experiment. While feeling confused is normal, it will get easier as you go!</p>
+<p>In order to write new animations for the SpinWheel, you will need a way to reprogram the computer on the SpinWheel. We use the Arduino programming language to communicate with the SpinWheel.</p>
+<ol type="1">
+<li>Start by installing the Arduino software on your computer, which you can download for free from <a href="https://arduino.cc/en/Main/Software#download">arduino.cc/en/Main/Software</a>. For step by step help, Arduino has provided <a href="https://www.arduino.cc/en/Guide">instructions</a> for each operating system.</li>
+</ol>
+<h2 id="configuring-the-arduino-software">Configuring the Arduino Software</h2>
+<p>Once the software is installed, we have to configure it to communicate with the SpinWheel.</p>
+<ol start="2" type="1">
+<li><p>Plug your SpinWheel into your computer with a micro USB cable and flip the switch to the position labeled “USB”.</p></li>
+<li><p>Open the Arduino software.</p></li>
+<li><p>Open the <code>Tools</code> menu and go to <code>Port</code>. You will see a list of serial ports on your computer; select the port that corresponds to the SpinWheel.</p>
+<p>If there are multiple ports and you are unsure which one to use, simply unplug the SpinWheel and see which serial port disappears when you do so. This port corresponds to your SpinWheel’s serial port. If you do not see a port appear/disappear, you may need to try a different micro USB cable. We have more tips about this in our <a href="/troubleshoot">Troubleshooting Guide</a>.</p></li>
+<li><p>Go back to the Tools menu and select <code>Tools → Board</code>. Select Arduino Leonardo as the board (a.k.a. processor), so that the software knows which <span class="footnote">“dialect” <span>Computer languages have dialects just like human languages!</span></span> to use to talk to the SpinWheel.</p></li>
+</ol>
+<figure>
+<img src="/images/quickstart/port_and_board_screenshot.png" title="Use `Tools→ Port` and `Tools→ Board` to change the settings on the Arduino software." alt="" /><figcaption>Use <code>Tools → Port</code> and <code>Tools → Board</code> to pick the port corresponding to the SpinWheel and the “Leonardo” board type. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<p>Properly selecting the board and port are essential for the Arduino software to communicate with the SpinWheel. If you are unable to upload code to the Spinwheel in the next section, double check that the switch is set to “USB” and that you have the correct board and port selected.</p>
+<h2 id="installing-the-spinwheel-libraries">Installing the SpinWheel Libraries</h2>
+<ol type="1">
+<li><p>To get the first set of examples of this new language and the other libraries necessary to run the SpinWheel code, download our SpinWearables Arduino Library using <code>Sketch → Include Library → Manage Libraries...</code>.</p></li>
+<li><p>In the search bar of the Library Manager, search for <code>SpinWearables</code> and then click <code>Install</code>.</p></li>
+<li><p>You will be automatically prompted to install two other required libraries (<code>NeoPixel</code> for controlling the LEDs and <code>ICM 20948</code> for reading the motion sensor). You will need to install both of these to use the SpinWheel.</p></li>
+</ol>
+<figure>
+<img src="/images/quickstart/adding_libraries_screenshot.png" title="Installing Arduino libraries." style="max-width:90%" alt="" /><figcaption>Installing Arduino libraries. <a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+<h2 id="running-a-program-on-the-spinwheel">Running a Program on the SpinWheel</h2>
+<p>To test that your SpinWheel is working properly, you can install a new program, or sketch, from the example files to animate your SpinWheel.</p>
+<ol type="1">
+<li><p>Choose a file to install by opening <code>File → Examples → SpinWearables</code> and picking one of the examples. For instance, pick <a href="/codedoc/examples/BlinkingFirmware"><code>BlinkingFirmware</code></a>. This will open a new window with the code.</p></li>
+<li><p>Upload the code to your SpinWheel by pressing the upload button (the arrow at the top).</p></li>
+</ol>
+<figure>
+<img src="/images/quickstart/upload_button_screenshot.png" title="Upload programs to your SpinWheel using the `Upload` button (highlighted in white)." style="max-width:388px" alt="" /><figcaption>Upload programs to your SpinWheel using the <code>Upload</code> button (highlighted in white).</figcaption>
+</figure>
+<p>Now your SpinWheel will have the new colorful blinking pattern (from <code>BlinkingFirmware</code>) you just uploaded. If you get an error here, then check out our <a href="/troubleshoot">Troubleshooting Guide</a> for help on some common problems.</p>
+<h2 id="exploring-the-spinwheel-further">Exploring the SpinWheel further</h2>
+<p>Feel free to open any of the other SpinWheel sketches and upload them onto the device. Do not worry about understanding what the code does, you will learn more about this language in future lessons. We encourage you to experiment with these examples! If you want to save any changes, you will be prompted to save the sketch in a new location (can be anywhere on your computer). The original file will always be available to open again.</p>
+<p>Uploading a new sketch to your SpinWheel will overwrite the preloaded sketch that came on it. If you want your SpinWheel to have the sketch that it came with, simply open the <a href="/codedoc/examples/SpinWheelStockFirmware"><code>SpinWheelStockFirmware</code></a> example and upload it.</p>
+<p>In future SpinWheel activities, you will be writing new sketches to animate the SpinWheel. To transfer a sketch from your computer to your SpinWheel, simply connect your SpinWheel to your computer, change the switch to “USB”, open the code of your new sketch in the Arduino software and press the upload button.</p>
+<p>Congratulations! You are now ready to continue with the rest of the SpinWheel activities!</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

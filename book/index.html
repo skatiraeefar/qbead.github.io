@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="spinwheel, STEM, science, science and art, physics, computer science, middle school, high school, textbook" />
+  <title>The SpinWheel Field Guide</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<video src="/images/banners/linewheel_crossfade.mp4" muted autoplay playsinline></video>
+<h1 class="title">The SpinWheel Field Guide</h1>
+</header>
+<main>
+<p>Welcome to the SpinWheel Field Guide! We hope you will enjoy learning to use the SpinWheel to uncover more about the world around you!</p>
+<style>
+@font-face {
+  font-family: 'xkcd';
+  src: url('/xkcd-script.ttf')  format('truetype');
+}
+
+:root {
+  /* Change this to change the appearance of the hexaons */
+  --hex-width: 150px; 
+  --hex-inner-border: 15px;
+  
+  /* Other hexagon dimentions */
+  --hex-side: calc(var(--hex-width)/2);
+  --hex-height: calc(var(--hex-side)*1.7320508075688772);
+  --hex-tiptotip: calc(var(--hex-side)*3 - var(--hex-inner-border)*0.75);
+  --hex-transition: all .2s ease;
+}
+
+/* Hexagons */
+.hexagon-container {
+  display: grid;
+  grid-template-columns: var(--hex-tiptotip) var(--hex-tiptotip) var(--hex-tiptotip) var(--hex-tiptotip);
+  grid-auto-rows: calc(var(--hex-height)/2 - var(--hex-inner-border)*1.7320508075688772/8);
+  grid-gap: 0 0;
+  font-family: xkcd;
+}
+.hexagon {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: var(--hex-height);
+  justify-content: center;
+  position: relative;
+  transition: var(--hex-transition);
+  width: var(--hex-width);
+}
+
+.hexagon:nth-child(8n + 5),
+.hexagon:nth-child(8n + 6),
+.hexagon:nth-child(8n + 7),
+.hexagon:nth-child(8n + 8) {
+  margin-left: calc(var(--hex-side) * 1.5 - var(--hex-inner-border)*0.375);
+}
+
+.hexagon {
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+}
+
+.hexagon * {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--hex-transition);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  background-color: white;
+}
+
+.hexagon a {
+  text-align: center;
+  line-height: 18px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.hexagon *:hover {
+  background-color: white !important;
+  font-size: 18px !important;
+}
+
+.hexagon > * {
+  width: calc(var(--hex-width) - var(--hex-inner-border));
+  height: calc(var(--hex-height) - var(--hex-inner-border)*1.7320508075688772/2);
+}
+
+.hexagon > div > div {
+  width: calc(var(--hex-width) - 1.8*var(--hex-inner-border));
+  height: calc(var(--hex-height) - 1.8*var(--hex-inner-border)*1.7320508075688772/2);
+}
+
+.hexagon > div > div > a {
+  width: calc(var(--hex-width) - 2.1*var(--hex-inner-border));
+  height: calc(var(--hex-height) - 2.1*var(--hex-inner-border)*1.7320508075688772/2);
+}
+</style>
+<ul id="hexmap" class="hexagon-container">
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+</ul>
+<p>Keep reading for our recommended order for completing the lessons and adventures. However, this is just a recommendation! Depending on which activities you are excited by and your comfort with programming, you may skip around. Feel free to click on any hexagon in this diagram to navigate to any of the adventures to start exploring.</p>
+<p>As you read, you will notice that we reference material from different lessons and adventures as we go. Don’t worry if you don’t understand everything the first time you read a page. Jump around between the lessons and adventures – by moving between them, you will gain even more from each page. This may be a new way of learning for you and it may feel unnatural at first. However, it will become much more familiar and empowering as you progress. You’ll also be practicing a whole new way of learning - one that engineers and scientists use all the time as they solve problems and create new knowledge!</p>
+<p>We also provide a set of <a href="/slides">slide decks</a> that educators might want to use in their lessons.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>These pages provide the essentials to get started programming your SpinWheel. If you have coding experience, we still recommend doing the <a href="/quickstart">Initial Setup Guide</a> before jumping into any of the adventures.</p>
+<ol>
+<li>
+<a href="/intro">Getting Started with the SpinWheel</a>: Before you download the software for programming your SpinWheel, try out this page to get your first taste of how to control the SpinWheel’s LEDs.
+</li>
+<li>
+<a href="/quickstart">Initial Setup Guide</a>: This is where we explain how to set up your SpinWheel, download the Arduino software and provide essential information for the rest of the adventures.
+</li>
+<li>
+<a href="/troubleshoot">Troubleshooting Guide</a>: If you have problems with getting the SpinWheel to work, then first look here for advice. This has tips and tricks for using your SpinWheel.
+</li>
+</ol>
+<h2 id="intro-adventures">Intro Adventures</h2>
+<p>These adventures assume that you have no coding experience and are a great way to become comfortable with both the SpinWheel and coding. The associated lessons go into more depth on the concepts that are referenced for the first time in these adventures. We have written the lessons to supplement the content in the adventures and we provide links in each adventure when we recommend checking them out to learn more. We hope these will spark your curiousity to learn even more about the world around you!</p>
+<ol>
+<li>
+<a href="/sight">Biology of Sight</a> - if you find the learning curve too steep, you might enjoy the <a href="/paper_booklet">Mixing Color with Light lesson from the companion booklet</a>
+</li>
+<li>
+<a href="/animation">Intro to Animation</a> - similarly, if this adventure seems too overwhelming at first, check out the <a href="/paper_booklet">Customizing the SpinWheel's Display and Creating Animations with the SpinWheel chapters from the companion booklet</a>
+</li>
+<li>
+<a href="/stroboscope">Stroboscopes and Stroboscopic Photography</a> - using rapidly-flashing sources of light can permit us to photograph very fast objects
+</li>
+</ol>
+<h3 id="associated-lessons">Associated Lessons</h3>
+<ol>
+<li>
+<a href="/lightandcolor">Light and Color</a>
+</li>
+<li>
+<a href="/colortheory">Color Theory</a>
+</li>
+<li>
+<a href="/basics">Basic Structure of a Program</a>
+</li>
+</ol>
+<h2 id="intermediate-adventures">Intermediate Adventures</h2>
+<p>These activities build on the ideas presented in the introductory adventures. If you have coding experience, you can jump right in and then refer back to the earlier adventures and lessons as you have questions.</p>
+<ol>
+<li>
+<a href="/animation2">Animations and Patterns</a>
+</li>
+<li>
+<a href="/tilt">Make a Tilt Sensor</a>
+</li>
+<li>
+<a href="/dancing">Dancing with Color: Linear Motion</a>
+</li>
+<li>
+<a href="/stepcounter">Make a Step Counter</a>
+</li>
+</ol>
+<h3 id="associated-lessons-1">Associated Lessons</h3>
+<ol>
+<li>
+<a href="/progpatterns">Coding Building Blocks</a>
+</li>
+<li>
+<a href="/arduino101">Arduino 101</a>
+</li>
+<li>
+<a href="/vectors">Vectors and Motion</a>
+</li>
+<!--<li> Inertial Reference Frames / Free Fall (planned)</li>
+<li> Physical Computing (planned)</li>-->
+</ol>
+<h2 id="advanced-adventures">Advanced Adventures</h2>
+<p>These are the most challenging SpinWheel activities. Playing with them will be enjoyable for everyone, but to fully master them an undergrad level of understanding of CS and physics might be necessary. They build on concepts introduced in earlier adventures.</p>
+<ol>
+<li>
+<a href="/dancing2">Dancing with Color: Rotational Motion</a>
+</li>
+<li>
+<a href="/compass">Make a Compass</a>
+</li>
+<li>
+<a href="/rnn">Recurrent Neural Networks for Gesture Recognition</a>
+</li>
+</ol>
+<h3 id="associated-lessons-2">Associated Lessons</h3>
+<ol>
+<li>
+<a href="/rotation">Rotation and Moving in Circles</a>
+</li>
+<!--<li> Magnetism (planned)</li>
+<li> Electricity (planned)</li>-->
+</ol>
+<h2 id="appendix">Appendix</h2>
+<h3 id="spinwheel-commands">SpinWheel Commands</h3>
+<p>Here’s a <a href="/allcommands">list of the commands</a> for controlling the SpinWheel’s LEDs. While this has been written for those who are discovering coding for the first time, it can also be used as a reference to create your own SpinWheel designs if you are comfortable with programming. We recommend using it as a reference as you are going through the adventures, either way!</p>
+<h3 id="notes-about-interacting-with-this-guide">Notes about Interacting with this Guide</h3>
+<p>Throughout this guide we use a number of text formatting tools to bring attention to important conceps. Footnotes (actually hovernotes) are visible when you hover <span class="footnote">over dotted text like this<span>Such hovernotes frequently carry interesting additional information.</span></span>. Further reading blocks look as follows:</p>
+<div class="further-reading">
+<p>These boxes denote additional sources of information you might be interested in, either on our own website or elsewhere on the web.</p>
+</div>
+<p>On a few occasions we have warning blocks:</p>
+<div class="warning">
+<p>These denote important considerations about health and device care that should be seen before attempting an activity.</p>
+</div>
+<p>We have a variety of interactive visualizations throughout these pages, that work well on desktop browsers like Firefox and Chrome. Lastly, we have many code examples in our pages that explain how to program the device, <a href="/intro">including some interactive simulations of the device with which you can play directly from the browser</a>.</p>
+<div class="warning">
+<p>The virtual SpinWheel simulations and some of the other interactive widgets do not always work well on mobile devices. The Safari browser also causes issues with some visualizatons.</p>
+</div>
+<h3 id="engineers-diary">Engineer’s Diary</h3>
+<p>Learn more about how the SpinWheel was created and running our Kickstarter on our <a href="/diary">engineer’s diary</a> page!</p>
+<h3 id="concept-map">Concept Map</h3>
+<p>This concept map illustrates how the lessons and adventures are connected and build upon each other. Here you will find both sophisticated engineering adventures that use the SpinWheel directly (double-lined hexagons), along with companion lessons that further explore some of the key concepts you’ll encounter in the adventures (single-lined hexagons).</p>
+<p>The three shaded hexagons are gentler introductory lessons found only in the <a href="/paper_booklet/">paper booklet</a>. Feel free to skip them and jump directly into the adventures. We do recommend skimming through them if this is the first time you have attempted to write a program.</p>
+<ul id="hexmap2" class="hexagon-container">
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+<li class="hexagon">
+</li>
+</ul>
+<script>
+const tiles = [
+{x:1, y:1, bgcolor:"#ffffff", textcolor:"#fffff", bordercolor:"#ffffff", inner: false, text:"Begin Here ➘", href:""},
+{x:2, y:3, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: true, text:"SpinWheel<br>Initial<br>Setup", href:"/quickstart"},
+{x:2, y:2, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: true, text:"SpinWheel<br>Troubleshooting<br>Guide", href:"/troubleshoot"},
+{x:2, y:6, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: false, text:"Arduino<br>101", href:"/arduino101"},
+//light
+{x:2, y:5, bgcolor:"#d0eeec", textcolor:"#13a89e", bordercolor:"#13a89e", inner: true, text:"Mixing<br>Color with<br>Light", href:"/paper_booklet"},
+{x:1, y:6, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: true, text:"Biology of<br>Sight", href:"/sight"},
+{x:1, y:7, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: false, text:"Color<br>Theory", href:"/colortheory"},
+{x:1, y:5, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: false, text:"Light and<br>Color", href:"/lightandcolor"},
+{x:1, y:8, bgcolor:"#ffffff", textcolor:"#13a89e", bordercolor:"#13a89e", inner: true, text:"Stroboscope", href:"/stroboscope"},
+//animations
+{x:1, y:2, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Getting<br>Started<br>with the<br>SpinWheel", href:"/intro"},
+{x:2, y:4, bgcolor:"#d3eef9", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Customizing<br>the SpinWheel&#39;s<br>Display", href:"/paper_booklet"},
+{x:3, y:1, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: false, text:"Basic<br>Structure<br>of a<br>Program", href:"/basics"},
+{x:3, y:3, bgcolor:"#d2e2f0", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Creating<br>Animations<br>with the<br>SpinWheel", href:"/paper_booklet"},
+{x:3, y:2, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: false, text:"Coding<br>Building<br>Blocks", href:"/progpatterns"},
+{x:3, y:4, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Intro to<br>Animation", href:"/animation"},
+{x:4, y:5, bgcolor:"#ffffff", textcolor:"#0e75bc", bordercolor:"#0e75bc", inner: true, text:"Animations<br>and<br>Patterns", href:"/animation2"},
+//motion
+{x:3, y:6, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Make a<br>Tilt Sensor", href:"/tilt"},
+{x:3, y:8, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Make a<br>Step Counter", href:"/stepcounter"},
+{x:3, y:10, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Gesture<br>recognition", href:"/rnn"},
+{x:4, y:7, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: false, text:"Vectors<br>and<br>Motion", href:"/vectors"},
+{x:4, y:6, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Dancing<br>with Color:<br>Linear<br>Motion", href:"/dancing"},
+{x:4, y:8, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: true, text:"Dancing<br>with Color:<br>Rotational<br>Motion", href:"/dancing2"},
+//{x:4, y:9, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: false, text:"Inertial<br>Reference<br>Frames", href:"/inertia"},
+{x:4, y:10, bgcolor:"#ffffff", textcolor:"#9678b6", bordercolor:"#9678b6", inner: false, text:"Rotation<br>and<br>Circular<br>Motion", href:"/rotation"},
+//magnetism
+//{x:2, y:8, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: false, text:"Electricity", href:"/electricity"},
+{x:3, y:9, bgcolor:"#ffffff", textcolor:"#ef5188", bordercolor:"#ef5188", inner: true, text:"Make a<br>Compass", href:"/compass"},
+//{x:2, y:10, bgcolor:"#ffffff", textcolor:"#ef5188", bordercolor:"#ef5188", inner: false, text:"Magnetism", href:"/magnetism"},
+//reference
+{x:4, y:1, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: true, text:"SpinWheel<br>Functions<br>Reference", href:"/allcommands"},
+//{x:4, y:3, bgcolor:"#ffffff", textcolor:"#25aae1", bordercolor:"#25aae1", inner: false, text:"Physical<br>computing", href:"/physicalcomputing"},
+];
+
+function render_hexmap(id) {
+  const hexmap = document.getElementById(id);
+  const allhexes = hexmap.getElementsByClassName("hexagon");
+  for (const tile of tiles) {
+    const hex = allhexes[(tile.x-1)+4*(tile.y-1)];
+
+    hex.style["background-color"] = tile.bordercolor;
+    var innerHTML = `<a href="${tile.href}" style="color:${tile.textcolor};background-color:${tile.bgcolor}">${tile.text}</a>`;
+    if (tile.inner==true) {
+      innerHTML = `<div style="background-color:${tile.bgcolor}"><div style="background-color:${tile.bordercolor}">${innerHTML}</div></div>`;
+    }
+    hex.innerHTML = innerHTML;
+  }
+}
+
+render_hexmap("hexmap");
+render_hexmap("hexmap2");
+
+</script>
+<p>Some adventures, like <a href="/sight">Biology of Sight</a>, directly extend material from <a href="/paper_booklet">the paper field guide</a>. Others, like <a href="/dancing">Dancing with Color</a>, are completely new and will help you use the SpinWheel in even more exciting ways. The paper book isn’t required to get started, but it complements the online resources.</p>
+<p><a class="imagecredit" href="https://johnhegarty8.wixsite.com/johnhegarty">Header image credit: Jack Hegarty</a></p>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="keywords" content="tilt sensor, gravitation, motion, acceleration">
+  <title>Tilt Sensor</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/reveal.js/css/reset.css">
+  <link rel="stylesheet" href="/reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/custom_slides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/reveal.js/css/print/pdf.css' : '/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Tilt Sensor</h1>
+</section>
+
+<section class="slide level2">
+
+<figure>
+<video src="/images/bookpics/preloaded_tilt3.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+</figcaption>
+</figure>
+</section>
+<section>
+<section id="simple-levels" class="title-slide slide level1">
+<h1>Simple Levels</h1>
+<figure>
+<img data-src="/images/bookpics/round_maze.jpg" alt="" /><figcaption>A toy in which the tilt can force a ball to roll in a given direction. <a class="imagecredit" href="https://commons.wikimedia.org/wiki/File:Round_maze.jpg">image credit Wikimedia</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<figure>
+<img src="/images/bookpics/level_and_glass.png" style="max-width:90%">
+<figcaption>
+Bubbles rise against gravity, both in the cylinder of the level and in a glass of carbonated water.<a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a>
+</figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/onebubble.jpg" alt="" /><figcaption>A bubble level. <a class="imagecredit" href="https://publiclab.org/notes/mathew/10-26-2015/deploying-passive-particle-monitors">image credit Public Lab</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="in-two-dimensions" class="title-slide slide level1">
+<h1>In Two Dimensions</h1>
+<figure>
+<img data-src="/images/bookpics/twobubble.jpg" alt="" /><figcaption>A bubble level with separate sensors for each axis of tilt. <a class="imagecredit" href="https://publiclab.org/notes/mathew/10-26-2015/deploying-passive-particle-monitors">image credit Public Lab</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<style>
+#grid2d {
+  text-align: center;
+  background: white;
+  color: black;
+}
+.grid2dcontrol > input {
+  width: 40px;
+}
+.xcom {
+  color: #228e2c;
+}
+.ycom {
+  color: #2676b3;
+}
+</style>
+<div id="grid2d">
+<div id="vectorGrid">
+<canvas class="trajectory1D" width="400" height="400">
+</canvas>
+</div>
+<div id="values">
+<div class="grid2dcontrol xcom">
+X component: <span id="xshow">0</span>
+</div>
+<div>
+<input type="range" min="-6" max="6"  id="xvalue">
+</div>
+<div class="grid2dcontrol ycom">
+Y component: <span id="yshow">0</span>
+</div>
+<div>
+<input type="range" min="-6" max="6"  id="yvalue">
+</div>
+<div class="grid2dcontrol">
+Magnitude: <span id="magshow">0</span>
+</div>
+<!--<div class="grid2dcontrol">Angle: <span id="angshow">0</span>&deg;</div>-->
+</div>
+</div>
+<script>
+function canvas_arrow(context, fromx, fromy, tox, toy) {
+  var headlen = 10;
+  var dx = tox - fromx;
+  var dy = toy - fromy;
+  var angle = Math.atan2(dy, dx);
+  context.moveTo(fromx, fromy);
+  context.lineTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+  context.moveTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+}
+
+const level_tube_img = new Image();
+level_tube_img.src = "/images/bookpics/level_canvas_tube.png";
+const level_bubble_img = new Image();
+level_bubble_img.src = "/images/bookpics/level_canvas_bubble.png";
+const level_tube_img_r = new Image();
+level_tube_img_r.src = "/images/bookpics/level_canvas_tube_r.png";
+const level_bubble_img_r = new Image();
+level_bubble_img_r.src = "/images/bookpics/level_canvas_bubble_r.png";
+const v_to_path2D = document.getElementById('vectorGrid');
+const ctx2D = v_to_path2D.getElementsByClassName('trajectory1D')[0].getContext('2d');
+var xElement = document.getElementById("xvalue");
+var yElement = document.getElementById("yvalue");
+xElement.value = 2;
+yElement.value = 2;
+var xcurrent = 0;
+var ycurrent = 0;
+ctx2D.textAlign = 'center';
+ctx2D.textBaseline = 'middle';
+
+function canvas_axis(context, maxX, maxY) {
+  var midX = maxX/2;
+  var midY = maxY/2;
+  var stepX = maxX/20;
+  var stepY = maxY/20;
+  context.strokeStyle='rgba(0,0,0,0.5)';
+  context.lineWidth=1;
+  context.moveTo(midX, 0);
+  context.lineTo(midX,maxY);
+  context.moveTo(0, midY);
+  context.lineTo(maxX, midY);
+  context.stroke();
+  context.strokeStyle='rgba(0,0,0,0.1)';
+  for (var i=-10; i<=10; i++) {
+    context.moveTo(0,midY+i*stepY);
+    context.lineTo(maxX,midY+i*stepY);
+    context.moveTo(midX+i*stepX,0);
+    context.lineTo(midX+i*stepX,maxY);
+  }
+  context.stroke();
+  context.drawImage(level_tube_img,45,360, 310, 34);
+  context.drawImage(level_tube_img_r,6,45, 34, 310);
+}
+
+function plot_all(){
+    xcurrent = 0.8*xcurrent + 0.2*xElement.value;
+    ycurrent = 0.8*ycurrent + 0.2*yElement.value;
+    var x = xcurrent;
+    var y = ycurrent;
+    x_scale = x*20 + 200;
+    y_scale = -y*20 + 200;
+  
+    ctx2D.clearRect(0,0,400,400);
+    ctx2D.beginPath();
+    canvas_axis(ctx2D, 400, 400);
+    ctx2D.drawImage(level_bubble_img,x_scale-22,360, 44, 34);
+    ctx2D.drawImage(level_bubble_img_r,6,y_scale-22, 34, 44);
+    ctx2D.font = '14px sans';
+    ctx2D.fillStyle = '#228e2c';
+    ctx2D.strokeStyle = '#228e2c';
+    ctx2D.beginPath();ctx2D.moveTo(x_scale,y_scale);ctx2D.lineTo(200,y_scale);ctx2D.stroke();
+    ctx2D.fillText('X = '+xcurrent.toFixed(1),x*10+200,y_scale-10*Math.sign(y));
+    ctx2D.fillStyle = '#2676b3';
+    ctx2D.strokeStyle = '#2676b3';
+    ctx2D.beginPath();ctx2D.moveTo(x_scale,y_scale);ctx2D.lineTo(x_scale,200);ctx2D.stroke();
+    ctx2D.fillText('Y = '+ycurrent.toFixed(1),x_scale+40*Math.sign(x),-y*10+200);
+    ctx2D.beginPath();
+    ctx2D.strokeStyle='black';
+    ctx2D.lineWidth=2;
+    canvas_arrow(ctx2D,200,200,x_scale, y_scale);
+    ctx2D.stroke();
+    var magnitude = Math.sqrt(x*x  + y*y);
+    var direction_angle = Math.atan2(y,x)/Math.PI*180;
+    if (direction_angle < 0){
+        direction_angle = direction_angle + 360;
+    }
+    document.getElementById("xshow").innerHTML=xcurrent.toFixed(1);
+    document.getElementById("yshow").innerHTML=ycurrent.toFixed(1);
+    document.getElementById("magshow").innerHTML=magnitude.toFixed(1);
+    //document.getElementById("angshow").innerHTML=direction_angle.toFixed(0);
+}
+
+setInterval(plot_all, 50);
+</script>
+</section>
+<section class="slide level2">
+
+<div id="threediv">
+<div id="threejsanim">
+
+</div>
+<span id="xlenp">X component: <span id="xlen"></span></span><span id="ylenp">Y component: <span id="ylen"></span></span>Tilt back and forth:<input id="fbtilt" type="range" min="-100" max="+100" value="30">Tilt left and right:<input id="lrtilt" type="range" min="-100" max="+100">Rotate face:<input id="frotate" type="range" min="-100" max="+100">
+</div>
+<style>
+#threediv {
+  text-align: center;
+  width: 100%;
+  font-size: 0.5em;
+}
+#threediv > * {
+  display: block;
+  margin: auto;
+}
+#threediv #xlenp {
+  color: #228e2c;
+}
+#threediv #ylenp {
+  color: #2676b3;
+}
+</style>
+<script type="module">
+
+import * as THREE from '/three/three.module.js';
+
+import { OrbitControls } from '/three/OrbitControls.js';
+ 
+function makeSpinWheel() {
+  var outerbox = new THREE.Group();
+  var box = new THREE.Group();
+  var geometry = new THREE.CylinderGeometry(20,20,1,24);
+  var material = new THREE.MeshPhongMaterial({color: 0x111111, transparent: true, opacity: 0.90});
+  var disk = new THREE.Mesh( geometry, material );
+  box.add(disk);
+  var sgeometry = new THREE.CylinderGeometry(1.5,1.5,1,24);
+  var sdisk = new THREE.Mesh( sgeometry, material );
+  sdisk.position.set(21/1.414,0,21/1.414);
+  box.add(sdisk);
+  for (var i=0; i<4; i++) {
+    var bgeometry = new THREE.BoxGeometry(5,1.5,5);
+    var wmaterial = new THREE.MeshPhongMaterial({color: 0xbbbbbb});
+    var square1 = new THREE.Mesh(bgeometry, wmaterial);
+    var square2 = new THREE.Mesh(bgeometry, wmaterial);
+    var x = (-1)**i;
+    var z = (-1)**(i>>1);
+    square1.position.set(x*10,1.25,z*10);
+    square2.position.set(x*3,1.25,z*3);
+    //square1.rotation.z += Math.PI/2;
+    box.add(square1);
+    box.add(square2);
+  }
+  box.rotation.y = Math.PI*3/4;
+  outerbox.add(box);
+  return outerbox;
+}
+
+function makeScene() {
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color( 0xffffff );
+
+  var lights = [];
+  lights[ 0 ] = new THREE.PointLight( 0xaaaaaa, 1, 0 );
+  lights[ 1 ] = new THREE.PointLight( 0xaaaaaa, 1, 0 );
+  lights[ 2 ] = new THREE.PointLight( 0xaaaaaa, 1, 0 );
+  lights[ 0 ].position.set( 0, 200, 100 );
+  lights[ 1 ].position.set( 0, 0, 100 );
+  lights[ 2 ].position.set( 0, - 200, 100 );
+  
+  scene.add( lights[ 0 ] );
+  scene.add( lights[ 1 ] );
+  scene.add( lights[ 2 ] );
+
+  var grid = new THREE.GridHelper( 1500, 70 );
+  grid.position.set(0,-100,0);
+  scene.add(grid);
+
+  return scene;
+}
+
+var camera, scene, renderer;
+var box;
+var arrow;
+var xarrow, yarrow, zarrow;
+var sphere;
+var lx_glob, ly_glob;
+const size = 400;
+const animdiv = document.getElementById('threejsanim');
+const fgtilt = document.getElementById('fbtilt');
+const lrtilt = document.getElementById('lrtilt');
+const frotate = document.getElementById('frotate');
+const xlen = document.getElementById('xlen');
+const ylen = document.getElementById('ylen');
+   
+function init() {
+  scene = makeScene();
+  
+  box = makeSpinWheel();
+  scene.add(box);
+
+  arrow = new THREE.ArrowHelper(
+    new THREE.Vector3(0,1,0),
+    new THREE.Vector3(0,0,0),
+    //40, 0xf58559,
+    40, 0xaaaaaa,
+    10, 4
+  );
+  scene.add(arrow);
+
+  xarrow = new THREE.ArrowHelper(
+    new THREE.Vector3(1,0,0),
+    new THREE.Vector3(0,2,0),
+    40, 0x92bd80,
+    10, 4
+  );
+  box.add(xarrow);
+
+  yarrow = new THREE.ArrowHelper(
+    new THREE.Vector3(0,0,-1),
+    new THREE.Vector3(0,2,0),
+    40, 0x8fb0d3,
+    10, 4
+  );
+  box.add(yarrow);
+
+  zarrow = new THREE.ArrowHelper(
+    new THREE.Vector3(0,1,0),
+    new THREE.Vector3(0,2,0),
+    40, 0xf58559,
+    10, 4
+  );
+  //box.add(zarrow);
+
+  /*
+  var sgeometry = new THREE.SphereGeometry( 3, 12, 12 );
+  var smaterial = new THREE.MeshBasicMaterial( {color: 0xf58559} );
+  sphere = new THREE.Mesh( sgeometry, smaterial );
+  scene.add(sphere);
+  */ 
+
+  var fov = 60;
+  var aspect = 2;
+  var near = 0.10;
+  var far = 500;
+  camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.z = 80;
+  
+  renderer = new THREE.WebGLRenderer( { antialias: true } );
+  renderer.setSize( size, size/2 );
+  animdiv.appendChild( renderer.domElement );
+
+  var controls = new OrbitControls(camera, renderer.domElement);
+}
+ 
+function animate() {
+  requestAnimationFrame( animate );
+  const fb = fbtilt.value*Math.PI/2/100;
+  const lr = lrtilt.value*Math.PI/2/100;
+  const r = frotate.value*Math.PI/2/100;
+  const euler = new THREE.Euler(fb,r,lr,'ZXY');
+  box.setRotationFromEuler(euler);
+  const g = new THREE.Vector3(0,1,0);
+  const py0 = new THREE.Vector3(0,0,-1);
+  const my0 = new THREE.Vector3(0,0,1);
+  const y0 = new THREE.Vector3(0,0,-1).applyEuler(euler);
+  const ly = y0.dot(g);
+  const aly = Math.abs(ly)*40
+  yarrow.setLength(aly, Math.min(10,aly), 4);
+  var dy;
+  if (ly > 0) {
+    dy = py0;
+  } else {
+    dy = my0;
+  }
+  const px0 = new THREE.Vector3(1,0,0);
+  const mx0 = new THREE.Vector3(-1,0,0);
+  const x0 = new THREE.Vector3(1,0,0).applyEuler(euler);
+  const lx = x0.dot(g);
+  const alx = Math.abs(lx)*40
+  xarrow.setLength(alx, Math.min(10,alx), 4);
+  var dx;
+  if (lx > 0) {
+    dx = px0;
+  } else {
+    dx = mx0;
+  }
+  const pz0 = new THREE.Vector3(0,1,0);
+  const mz0 = new THREE.Vector3(0,-1,0);
+  const z0 = new THREE.Vector3(0,1,0).applyEuler(euler);
+  const lz = z0.dot(g);
+  const alz = Math.abs(lz)*40
+  //zarrow.setLength(alz, Math.min(10,alz), 4);
+  var dz;
+  if (lz > 0) {
+    dz = pz0;
+  } else {
+    dz = mz0;
+  }
+  xarrow.setDirection(dx);
+  yarrow.setDirection(dy);
+  //zarrow.setDirection(dz);
+  /*
+  const xy = x0.clone()
+               .multiplyScalar(lx*40);
+  xy.add(y0.clone()
+           .multiplyScalar(ly*40));
+  sphere.position.copy(xy);
+  */
+  renderer.render( scene, camera );
+  lx_glob = lx;
+  ly_glob = ly;
+  xlen.innerHTML = Math.round(lx_glob*100)/100;
+  ylen.innerHTML = Math.round(ly_glob*100)/100;
+}
+ 
+init();
+animate();
+ 
+</script>
+</section>
+<section class="slide level2">
+
+<figure>
+<img data-src="/images/bookpics/dance_axis.png" alt="" /><figcaption>These are the three axes that the SpinWheel can detect acceleration and gravity along. In the interactive 3D diagram you can see how the vector of gravitational acceleration (in grey) is decomposed along these three axes. You can drag, ctrl+drag, or scroll on the 3D image to rotate, pan, or zoom the camera.<a class="imagecredit" href="https://monochra.com/">image credit Mariya Krastanova</a></figcaption>
+</figure>
+</section>
+<section class="slide level2">
+
+<h3 id="programming-your-own-tilt-sensor">Programming your own Tilt Sensor</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="co">// Connect to the computer, so we can read status messages.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  Serial.begin(<span class="dv">115200</span>);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>  <span class="co">// Ensure the special SpinWheel hardware is working.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>  SpinWheel.begin();  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>  <span class="co">// Send a confirmation message over and over.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>  Serial.println(<span class="st">&quot;I am working!&quot;</span>); </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="measuring-tilt">Measuring Tilt</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables; </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  <span class="co">// Ensure all of the SpinWheel hardware is on.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>  <span class="co">// Read all sensor data.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>  SpinWheel.readIMU();</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  <span class="co">// Save the x-axis measurement in a variable.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  <span class="dt">int</span> x = SpinWheel.ax*<span class="dv">255</span>;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="responding-to-tilt-along-the-x-axis">Responding to Tilt Along the X-axis</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables; </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="co">// Ensure all of the SpinWheel hardware is on.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>}</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>  <span class="co">// Read all sensor data.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  SpinWheel.readIMU();</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="co">// Save the x-axis measurement in a variable.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  <span class="dt">int</span> x = SpinWheel.ax*<span class="dv">255</span>;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>  <span class="co">// Turn off all LEDs.</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>  SpinWheel.clearAllLEDs();</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>  <span class="co">// If the tilt is in a given direction,</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>  <span class="co">// turn on the corresponding LED.</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>  <span class="co">// We only want the SpinWheel to register</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>  <span class="co">// if the tilt is sufficiently large.</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>  <span class="cf">if</span> (x &gt; <span class="dv">10</span>) {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">5</span>, x, x, x);</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>  }</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>  <span class="cf">else</span> <span class="cf">if</span> (x &lt; -<span class="dv">10</span>) {</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">7</span>,-x,-x,-x);</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>  }</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a>}</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>  <span class="cf">if</span> (x &gt; <span class="dv">10</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">5</span>, x, x, x);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>  }</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>  <span class="cf">else</span> <span class="cf">if</span> (x &lt; -<span class="dv">10</span>) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    SpinWheel.setLargeLED(<span class="dv">7</span>,-x,-x,-x);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>  }</span></code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

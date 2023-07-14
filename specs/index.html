@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="spinwheel, education, STEM, outreach, science, engineering day, electronics, computer science, physics" />
+  <title>Technical Specifications</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Technical Specifications</h1>
+</header>
+<main>
+<div class="intro-box">
+<p>Some details for those who want to delve deeper in the components behind the SpinWheel.</p>
+</div>
+<h2 id="controller">Controller</h2>
+<p>An <code>ATmega32U4</code> 8-bit controller with 32K bytes of memory, clocked at 16MHz, about 16 times faster than the Apollo Guidance Computer used for the lunar landing. Running the Arduino Leonardo bootloader, programmable over USB from any computer. The controller was picked because it is among the standard Arduino controllers, therefore it will not require any extra configurations to be performed by the user after installing the Arduino software. Another important considerations was that the USB support is built in this chip, saving space and complexity that would have been taken up if we had to add an extra chip specifically for USB communication.</p>
+<video src="/images/behindthescenes/pretty_device.mp4" muted autoplay playsinline loop>
+</video>
+<h2 id="colored-light-emitting-diodes">Colored Light-emitting Diodes</h2>
+<p>8 <code>IN-PI55</code> 5mm RGB light-emitting diodes controlled asynchronously over a single wire and 12 <code>IN-B101FCH</code> 1mm RGB light-emitting diodes driven syncronously from the controller in a software persistence-of-vision mode. The 5mm RGB lighs were picked because they are supported by the popular NeoPixel Adafruit library.</p>
+<figure>
+<img src="/images/behindthescenes/earring_3.jpg" title="An image of the SpinWheel as an earring" alt="" /><figcaption>The SpinWheel’s LEDs</figcaption>
+</figure>
+<h2 id="motion-sensor">Motion Sensor</h2>
+<p>The <code>ICM-20948</code> sensor providing acceleration, rotation, and magnetic field measurements on all 3-axes. It is one of the more popular sensors, used in many devices by SparkFun and Adafruit, letting us reuse much of the work they have already put in supporting the device.</p>
+<figure>
+<img src="/images/behindthescenes/motion_sensor.jpg" title="The SpinWheel with the bottom LED lit up" alt="" /><figcaption>The SpinWheel’s LEDs can respond to its motion.</figcaption>
+</figure>
+<h2 id="battery">Battery</h2>
+<p>A <code>100mAh</code> LiPo battery that can be charged over USB. Lasts for hours in normal operation, but if you want literally blindingly-bright SpinWheel that can deplete it under 20minutes. Disclaimer: we used “literally” in its literal sense.</p>
+<figure>
+<img src="/images/behindthescenes/back_battery.jpg" title="An image of the SpinWheel&#39;s battery" alt="" /><figcaption>The SpinWheel’s battery</figcaption>
+</figure>
+<p>You can see design files and firmware in our <a href="https://github.com/SpinWearables">git repository</a>.</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

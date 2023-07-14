@@ -1,0 +1,76 @@
+<head>
+
+<link rel="stylesheet" href="./simspinwheel.css">
+<script src='./simspinwheel.js'>
+</script>
+</head>
+
+<body style="width:600px;max-width:100%;">
+
+<h1>Example 1</h1>
+
+<div class="ssw-codecontent">
+<div class="ssw-codeblock">
+void loop() {
+  int t = millis();
+</div>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform((t/10)%255, 0, (t/10)%255);
+</textarea>
+<div class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</div>
+</div>
+
+<h1>Example 2</h1>
+
+<div class="ssw-codecontent">
+<div class="ssw-codeblock">
+void loop() {
+  SpinWheel.readIMU();
+  float ax = abs(SpinWheel.ax)*100;
+  float ay = abs(SpinWheel.ay)*100;
+</div>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(ax, 0, ay);
+</textarea>
+<div class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</div>
+</div>
+
+<h1>Example 3</h1>
+
+not working yet (TODO translate_code function needs improvements, and a lot of replace(regex, ...) calls)
+
+<div class="ssw-codecontent">
+<textarea class="ssw-codeblock">
+uint32_t colorWheel(uint8_t wheelPos) {
+  wheelPos = 255 - wheelPos;
+  if(wheelPos < 85) {
+    return color(255 - wheelPos * 3, 0, wheelPos * 3);
+  }
+  if(wheelPos < 170) {
+    wheelPos -= 85;
+    return color(0, wheelPos * 3, 255 - wheelPos * 3);
+  }
+  wheelPos -= 170;
+  return color(wheelPos * 3, 255 - wheelPos * 3, 0);
+}
+</textarea>
+<div class="ssw-codeblock">
+void loop() {
+  int t = millis();
+</div>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform((t/10)%255, 0, (t/10)%255);
+</textarea>
+<div class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</div>
+</div>
+
+</body>

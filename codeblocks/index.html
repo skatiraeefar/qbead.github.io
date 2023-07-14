@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="SpinWheel, getting started, experimenting" />
+  <title>Color Coding</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Color Coding</h1>
+</header>
+<main>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>SpinWheel.setLargeLEDsUniform(<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">255</span>);</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>SpinWheel.drawFrame();</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">// Include extra resources and commands</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="co">// specific to the SpinWheel.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>  <span class="co">// Instruct the specific SpinWheel hardware</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>  <span class="co">// to be ready to receive instructions.</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>}</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>SpinWheel.setLargeLED(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>SpinWheel.drawFrame();</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>SpinWheel.setLargeLED(<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>SpinWheel.setLargeLED(<span class="dv">2</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>SpinWheel.setLargeLED(<span class="dv">7</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>);</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>SpinWheel.setLargeLED(<span class="dv">5</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>);</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>SpinWheel.drawFrame();</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>  SpinWheel.begin();  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>  <span class="co">// The next line ensures that the communication hardware</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>  <span class="co">// on our device is ready to send messages.</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>  <span class="co">// The name &quot;Serial&quot; is such for historical reasons</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>  <span class="co">// (it is the name for this type of communication).</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>  <span class="co">// The 9600 is the speed of the connection.</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>  Serial.begin(<span class="dv">9600</span>); </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>}</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>  <span class="co">// This line gets the information from the SpinWheel’s</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a>  <span class="co">// motion sensor.</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a>  SpinWheel.readIMU();</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a>  <span class="co">// Send a message to the connected computer.</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a>  <span class="co">// The message will just be the value of the SpinWheel’s </span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a>  <span class="co">// rotation around the x-axis.</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a>  Serial.println(SpinWheel.gx);</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a>  <span class="co">// Wait for 500 milliseconds (half a second) before you </span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a>  <span class="co">// start the loop function again.</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">1</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>  <span class="dt">int</span> which_LED = <span class="dv">1</span>;</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>);</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="dt">int</span> my_special_integer = <span class="dv">6</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="dt">float</span> pi = <span class="fl">3.1415</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(number_a, number_b);</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="dt">int</span> my_number = <span class="dv">6</span>;</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(my_number, <span class="dv">8</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="dt">int</span> number_a = <span class="dv">5</span>;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="dt">int</span> number_b = <span class="dv">7</span>;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="dt">int</span> resulting_number = max(sqrt(number_a-<span class="dv">1</span>) * <span class="dv">2</span>, min(number_b, <span class="dv">2</span>));</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="dt">float</span> x = <span class="fl">3.5</span>;</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="dt">float</span> y = <span class="fl">2.5</span>;</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="dt">float</span> resulting_number = avg(x, y);</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="dt">float</span> avg(<span class="dt">float</span> first_argument, <span class="dt">float</span> second_argument) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>  <span class="cf">return</span> <span class="fl">0.5</span>*(first_argument+second_argument);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="dt">float</span> root4(<span class="dt">float</span> x) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>  <span class="dt">float</span> intermediate_value = sqrt(x);</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>  <span class="cf">return</span> sqrt(intermediate_value);</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>a = calculation1();</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>delay(<span class="dv">1000</span>);</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>b = calculation2();</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="dt">void</span> delay_seconds(<span class="dt">int</span> number_of_seconds) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>  <span class="dt">int</span> number_of_milliseconds = <span class="dv">1000</span> * number_of_seconds;</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>  delay(number_of_milliseconds);</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="co">// I am writing this comment to remind me </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="co">// that the next line stores the number 5 </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a><span class="co">// in the variable named my_test_variable.</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a><span class="dt">int</span> my_test_variable = <span class="dv">5</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&quot;SpinWearables.h&quot;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> SpinWearables;</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a><span class="dt">void</span> setup() {</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>  SpinWheel.begin();</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>}</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a><span class="co">// variable to specify which LED to light up</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a><span class="dt">int</span> which_LED = <span class="dv">0</span>; </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a>  SpinWheel.setLargeLED(which_LED, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>); </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>  SpinWheel.drawFrame(); </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true"></a>  <span class="co">// add in a delay to make the LEDs change at a reasonable speed</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true"></a>  delay(<span class="dv">500</span>);</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true"></a>  <span class="co">// Increase the value of which_LED by 1.</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true"></a>  which_LED = which_LED + <span class="dv">1</span>; </span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true"></a>}</span></code></pre></div>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

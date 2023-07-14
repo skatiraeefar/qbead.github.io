@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="animations, frames, timing" />
+  <title>Animations and Patterns</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Animations and Patterns</h1>
+</header>
+<main>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<div class="intro-box">
+<p>This adventure builds on what you learned in the Intro to Animation adventure, empowering you to make some more sophisticated patterns.</p>
+</div>
+<p>To create an animation or a video, we need a rapid sequence of still images, called frames. The frames must be displayed rapidly enough that it looks like a smoothly changing pattern to our eyes. This is true both for the computer screen playing a video and for the SpinWheel lights changing their patterns. For example, this is a short repeating animation that you learned how to make in the <a href="/animation">Intro to Animation</a> adventure.</p>
+<video src="/images/bookpics/simple_blink.mp4" muted autoplay playsinline loop>
+</video>
+<div class="warning">
+<p>If you haven’t already done the <a href="/animation">Intro to Animation</a> adventure, we recommend looking it over before starting this lesson.</p>
+</div>
+<p>There is a whole universe of patterns you can create with the SpinWheel: simply grab a piece of paper, draw the pattern you desire, and translate it into an expression of code and math that implements it. However, that much freedom can be daunting at first. Here we will start by modifying the animation that you created in the <a href="/animation">Intro to Animation adventure</a>. Then we will present some additional sketches that allow you to create animations with changing colors and where you can control each LED separately. We invite you upload these sketches from <code>Examples → SpinWearables → Animations_and_Patterns</code> to see what they do on your SpinWheel and then experiment with modifying them.</p>
+<h2 id="smoother-pulsing">Smoother pulsing</h2>
+<p>You may have noticed that the brightness of the LEDs in the <a href="/codedoc/examples/Animations_and_Patterns/Simple_Blink">sketch we present in the Intro to Animation adventure</a> was abruptly cut off. Wouldn’t it be prettier if we gently turned off the LEDs, similarly to how gently we are ramping them up? We can implement this by writing a function that first goes up and then slowly goes back down. We have already written such a function for you to use and called it <a href="/codedoc/src/SpinWearables.h.html#triangular-wave"><code>triangularWave</code></a>, because when you plot it, it looks like a series of triangles.</p>
+<figure>
+<video src="/images/bookpics/triangular_wave.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+Instead of the pattern of brightness that abruptly dropped to zero that we saw previously, we can employ a pattern that also decreases steadily, making for a more pleasant pulsing light.
+</figcaption>
+</figure>
+<p>Below you can see a small modification of our previous example that employs such triangular waves. In order to also show some color, instead of purely white LEDs, we will <a href="/colortheory">mix only red and blue, and leave the green set to zero</a>. <a href="/codedoc/examples/Animations_and_Patterns/Smoother_Blink">You can peruse the entirety of the code online</a>, or access it directly from the Arduino software from <code>Examples → SpinWearables → Animations_and_Patterns → Smoother_Blink</code>.</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int b = triangularWave(t_repeating / 10);
+  // The next function takes three arguments:
+  // The red, green, and blue components of the color we desire.
+  // We are mixing only red and blue, setting green to zero.
+  SpinWheel.setLargeLEDsUniform(b, 0, b);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<div class="further-reading">
+<p>If you want to learn more about controlling the SpinWheel’s LEDs, then try out our <a href="/sight">Biology of Sight</a> adventure. The <a href="/colortheory">Color Theory</a> lesson provides more information about why we can use red, green, and blue LEDs to represent all the colors of the rainbow.</p>
+</div>
+<h2 id="the-color-wheel">The color wheel</h2>
+<p>Up until now we have discussed how to turn a time-dependent number into a brightness. However, instead of having time-dependent intensity of light, we might be more interested in a time-dependent hue. One particularly lovely way to achieve this is to use a color wheel, where we assign a color to each point of a circle, and use it as a reference when turning numbers into colors. We provide you with a function, <code>colorWheel()</code>, that converts the numbers between 0 and 255 to a color as seen in the image below. For each input number, the appropriate red, blue and green components of a color from the colorWheel are calculated and used to color our LED lights.</p>
+<figure>
+<img src="/images/bookpics/colorwheel.png" title="The color wheel lets you generate a color based on a single continuously changing (maybe time-dependent) number." alt="" /><figcaption>The color wheel lets you generate a color based on a single continuously changing (maybe time-dependent) number. The red, blue and green components of the colors in the color wheel are shown in the plot on the right.</figcaption>
+</figure>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int s = t_repeating/10;
+  SpinWheel.setLargeLEDsUniform(colorWheel(s));
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p>In this case, rather than independently controlling the red, green, and blue components of each LED, you are providing one number that represents the color. In the color wheel diagram above, you can see on the right the relative amounts of red, green, and blue light that go into each color on the left. As usual, <a href="/codedoc/examples/Animations_and_Patterns/Color_Wheel">the entirety of the code is documented on its own page</a>, and in the Arduino examples menu under <code>Animations_and_Patterns → Color_Wheel</code></p>
+<h2 id="non-uniform-patterns-and-accessing-separate-leds">Non-uniform patterns and accessing separate LEDs</h2>
+<p>Lastly, we would like to have a pattern that illuminates different LEDs differently. To set the color of all of the larger LEDs to a single uniform color, we have already seen that we need to use <code>SpinWheel.setLargeLEDsUniform(r,g,b)</code>, where <code>r</code>, <code>g</code>, and <code>b</code> are the red, green, and blue components of the color we desire. They need to be between 0 (turned off) and 255 (maximum intensity). To do the same to the smaller LEDs, we can use <code>SpinWheel.setSmallLEDsUniform(r,g,b)</code>.</p>
+<p>If we want to illuminate a single large LED (numbered from 0 to 7), we can use <code>SpinWheel.setLargeLED(i,r,g,b)</code>, where the first argument <code>i</code> is the number of the LED we want to change. Similarly, we use <code>SpinWheel.setSmallLED(i,r,g,b)</code> to do the same for the smaller LEDs.</p>
+<div class="further-reading">
+<p>For a refresher on how to control individual LEDs and a reminder of the number that corresponds to each LED, you can refer back to our <a href="/basics">Basic Structure of a Program lesson</a>.</p>
+</div>
+<p>By accessing individual LEDs, we can create an interesting time-dependent pattern where different LEDs show different colors and intensities. Consider this case, in which only two of the LEDs (number 0 and number 2) are enabled, but with different patterns.</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_repeating = t % 2500;
+  int w = triangularWave(t_repeating/10);
+  // The next line sets the intensity of the 2nd LED 
+  // to be opposite of the value in w
+  int w_opposite = 255 - w;
+  SpinWheel.setLargeLED(0, w, 0, 0);
+  SpinWheel.setLargeLED(2, 0, w_opposite, 0);
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p>In this code, the lights are given opposite intensities and set to different colors. The code above can be opened from the examples folder, under the name <code>Railroad_Signal</code> or <a href="/codedoc/examples/Animations_and_Patterns/Railroad_Signal">viewed online</a>.</p>
+<p>Another cool pattern can be created with a particularly useful trick that adds a “delay” between the time-dependent numbers controlling the color of each LED. This creates the illusion that the LEDs are following each other.</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+</pre>
+<textarea class="ssw-codeblock">
+  int t = millis();
+  int t_delay = 200; // Change this number! What happens?
+  int t0 = (t % 2500) / 10;
+  int t1 = ((t+t_delay) % 2500) / 10;
+  int t2 = ((t+2*t_delay) % 2500) / 10;
+  int t3 = ((t+3*t_delay) % 2500) / 10;
+  SpinWheel.setLargeLED(0, colorWheel(t0));
+  SpinWheel.setLargeLED(1, colorWheel(t1));
+  SpinWheel.setLargeLED(2, colorWheel(t2));
+  SpinWheel.setLargeLED(3, colorWheel(t3));
+  SpinWheel.drawFrame();
+</textarea>
+<pre class="ssw-codeblock">
+}
+</pre>
+</div>
+<p>This code is <a href="/codedoc/examples/Animations_and_Patterns/Rainbow_Chase">in the <code>Rainbow_Chase</code> example</a>.</p>
+<p>You now have the tools you need to control each LED of the SpinWheel and create a time dependent color or brightness. Use these sketches and the building blocks introduced in them to create new and exciting patterns on your SpinWheel! We have created a <a href="/allcommands">reference</a> with the various commands (like <code>setLargeLED()</code> and <code>setSmallLEDsUniform()</code>), that we introduced above, as well as some new ones for programming the SpinWheel in even more ways. As you try out the other adventures and begin to program the SpinWheel for yourself, we hope that you will find these functions useful. These functions also have virtual SpinWheels embedded in the page to allow you to experiment with the code and see how they work more easily!</p>
+<div class="further-reading">
+<p>If you are interested in learning more about mixing of colors with LEDs and how the human eye works, then check out our <a href="/sight">Biology of Sight adventure</a>. You can also delve deeper into <a href="/progpatterns">the building blocks of this programming language</a>, which could enable you to write more sophisticated programs and patterns.</p>
+</div>
+Overwhelmed by the possibilities of how you can modify the above sketches? Here are some suggestions:
+<ul>
+<li>
+Try to add more LEDs to your patterns.
+</li>
+<li>
+Try to have some of them (e.g. the small ones) have varying brightness, while others (e.g. the large ones) have changing colors.
+</li>
+<li>
+Mix and match code from the previous examples.
+</li>
+</ul>
+<p>Let your creativity sing through the code!</p>
+<div class="further-reading">
+<p>You might have noticed that many of the functions and commands we have used are set to repeat themselves when their input passes through 255. There is a reason for this. There are 256 numbers from 0 to 255. And 256 is exactly how many different values can be stored in one byte. One byte is how much space is dedicated to many typical variables in the language used by the Arduino software, hence, many of its functions are written to expect numerical values on that scale.</p>
+</div>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

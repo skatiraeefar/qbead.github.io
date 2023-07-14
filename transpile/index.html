@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="transpile, javascript, C, emulate, simulate" />
+  <title>C++ to Javascript translation for interactive Arduino webpage lessons</title>
+  <style>
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<video src="/images/banners/linewheel_crossfade.mp4" muted autoplay playsinline></video>
+<h1 class="title">C++ to Javascript translation for interactive Arduino webpage lessons</h1>
+</header>
+<main>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<style>
+.ssw-bt-debug {
+  display: inline !important;
+}
+</style>
+<div class="intro-box">
+<p>We built the <a href="https://www.kickstarter.com/projects/spinwheel/447670470">SpinWheel</a> and its <a href="https://spinwearables.com">engaging aesthetics</a> around the Arduino platform because of its low barrier to entry. We also wanted our online learning resources to be interactive, in the style of <a href="https://explorabl.es/">Explorable Explanations</a>, as this significantly improves learning outcomes. Thus, we needed to find a way to “compile” example C code in our webpages and show how changes to the code would affect the physical device. Since the SpinWheel contains motion sensors which are central to many of the lessons we want to teach, we sought a way to simulate that in a web page as well. Read on to see our misadventures in hacking together the most fragile C-to-Javascript transpiler: 100 lines of silly code that open up great pedagogical opportunities.</p>
+</div>
+<h2 id="the-spinwheel---the-c-code-which-we-want-to-simulate-in-the-browser">The SpinWheel - the C++ code which we want to simulate in the browser</h2>
+<p>This is the SpinWheel:</p>
+<video src="/images/bookpics/preloaded_tilt3.mp4" muted autoplay playsinline loop>
+</video>
+<p>And this is the result of a <a href="/stepcounter">lesson</a> which teaches how to turn this wearable keychain/jewelry into a step counter. The large LEDs respond to the current motion, while the small LEDs accumulate the total motion, hence counting “steps”.</p>
+<video src="/images/bookpics/stepcounter_final.mp4" muted autoplay playsinline loop>
+</video>
+<p>The C++ code to do this is fairly simple (or it will be after you go through our <a href="/book">lessons</a>). We can show it here in its entirety, but even such a short piece of code can look intimidating to those new to coding. Instead, let us explore how we can present it in an <strong>interactive</strong> fashion inside of the browser.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">float</span> total_motion = <span class="dv">0</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="dt">float</span> threshold = <span class="fl">0.1</span>;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="dt">float</span> conversion_factor = <span class="fl">0.01</span>;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="dt">void</span> loop() {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  <span class="co">// Read sensor</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>  SpinWheel.readIMU();</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>  <span class="co">// Calculate intensity based on the detected acceleration</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>  <span class="dt">float</span> total_acceleration = sqrt(SpinWheel.ax*SpinWheel.ax+SpinWheel.ay*SpinWheel.ay+SpinWheel.az*SpinWheel.az);</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>  <span class="dt">float</span> kinematic_acceleration = abs(total_acceleration - <span class="fl">1.0</span>); </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>  <span class="dt">int</span> intensity = <span class="dv">20</span>*kinematic_acceleration;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>  SpinWheel.setLargeLEDsUniform(intensity, intensity, intensity);</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>  <span class="co">// Accumulate all of the motion readings over time in a single number.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>  <span class="co">// To avoid false readings, perform the accumulation only if the motion</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>  <span class="co">// was sufficiently strong.</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>  <span class="cf">if</span> (kinematic_acceleration&gt;threshold) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>    total_motion = total_motion+conversion_factor*kinematic_acceleration;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>  }</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>  <span class="co">// Display how much you have moved, by turning on the corresponding</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>  <span class="co">// number of small LEDs.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>  SpinWheel.setSmallLEDs(<span class="dv">0</span>,total_motion,<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>);</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="scoping-the-transpiler-project">Scoping the “Transpiler” Project</h2>
+<p>Given the aforementioned constraints, we have to find a way to compile C++ code inside of the browser and then let it run, mimicking the wearable device. Here were a few ideas we iterated through:</p>
+<ol type="1">
+<li>Maybe we can send the code to a backend server which will compile it to a form executable in the browser (<a href="https://emscripten.org/">Emscripten</a> maybe?), then send it back to the page and hook it up to a mock rendering of the SpinWheel…
+<ul>
+<li>Definitely not something a group of volunteers with crazy schedules trying to prepare for their thesis defenses want to spend weeks on!</li>
+<li>Just the idea of sandboxing the server is unpleasant…</li>
+<li>And how do we incorporate the motion sensor?</li>
+<li>Reporting compilation errors back to students!? Terrible idea that will immediately turn them away from programming!</li>
+</ul></li>
+<li>Have a much more restricted set of examples, where students can modify only a single variable and the rest of the code is rendered and immutable. The actual simulation of the device will then be a completely separate piece of Javascript code that we write case-by-case.
+<ul>
+<li>So much manual labor involved for such a limited and borderline boring experience…</li>
+</ul></li>
+<li>Use regex to turn the C++ code into Javascript code!
+<ul>
+<li>Will we be able to live with the shame of such a hackish solution?</li>
+</ul></li>
+</ol>
+<p>Yes, we will find a way to live with the shame. We will incorporate some of option 2 as well, so that the fragility of our “transpiler” is not too obvious. A silver lining of this approach is that separation between editable code and pre-rendered code will guide the attention of the student to the part of the code that is most important to the concept under study.</p>
+<p>Without further ado, here is an example of what a humble version of the final result would look like. Click on <code>Run</code>! Does it do what you would expect given the code?</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  // Milliseconds since start
+  int t = millis();
+  // Brightness periodic with time
+  int b = (t/10)%255;
+</pre>
+<textarea class="ssw-codeblock">
+  // Turn on only the RED and GREEN channels
+  SpinWheel.setLargeLEDsUniform(b, b, 0);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>Play a bit with the modifiable part. It is still fragile, with many ways to break it, but it is sufficient for guided explorations. We will also explain the <code>Debug</code> button shortly.</p>
+<h2 id="editable-vs-immutable-parts-of-the-examples">Editable vs Immutable Parts of the Examples</h2>
+<p>As mentioned, we will let the students modify only small parts of the “C++” code. We do this by writing parts of the code snippets in preformatted <code>div</code>s, while the editable part is in <code>textarea</code> tags. The <strong>entirety</strong> of html or markdown that the lesson writer needs to write for the above example is this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;ssw-codecontent&quot;</span><span class="ot"> markdown=</span><span class="st">0</span><span class="kw">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">&lt;pre</span><span class="ot"> class=</span><span class="st">&quot;ssw-codeblock&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>void loop() {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  // Milliseconds since start</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  int t = millis();</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  // Brightness periodic with time</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  int b = (t/10)%255;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">&lt;/pre&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;ssw-codeblock&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>  // Turn on only the RED and GREEN channels</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>  SpinWheel.setLargeLEDsUniform(b, b, 0);</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">&lt;/textarea&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">&lt;pre</span><span class="ot"> class=</span><span class="st">&quot;ssw-codeblock&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  SpinWheel.drawFrame();</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>}</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="kw">&lt;/pre&gt;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p>Our “transpiler” framework detects all <code>ssw-codecontent</code> classes and adds all of the extra functionality around them. As a side note, you might have noticed that we are sticking to using scare quotes around “transpiler”… We are not really ready to live with the shame of the hackish solution you will see below ;) Nonetheless, we are proud that it becomes so simple to add pieces of interactive C++ code to our lessons, without requiring the lesson-writers to learn yet another framework.</p>
+<h2 id="the-virtual-device">The “Virtual” Device</h2>
+<p>We also needed to implement a virtual version of the device. Consider the <code>drawFrame()</code> function that takes the buffer of color values and actually renders it to the LEDs. The implementation of the physical version involves a method in a C++ class (which you can view rendered in a <a href="/codedoc/src/SpinWearables.h.html">beautiful literary programming style</a>). It involves some crazy bit shifting and persistence of vision tricks running on the microcontroller. Thankfully, the Javascript version is much simpler. First, we recreate the device in html:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">&lt;div&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;/simspinwheel/spinwheel_invertgray_nosmalls.png&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;ssw-large-led ssw-large-led0&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>⋮</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;ssw-large-led ssw-large-led7&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;ssw-small-led ssw-small-led0&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>⋮</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;ssw-small-led ssw-small-led11&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p>And we place all these <code>small-led</code> and <code>large-led</code> <code>div</code>s using css.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">.ssw-large-led</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>  <span class="kw">width</span>: <span class="dv">5</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>  <span class="kw">height</span>: <span class="dv">5</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>  <span class="kw">border-radius</span>: <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>  <span class="kw">background</span>: <span class="cn">black</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="fu">.ssw-large-led0</span> {<span class="kw">left</span>:<span class="dv">49</span><span class="dt">%</span><span class="op">;</span><span class="kw">top</span>:<span class="dv">39</span><span class="dt">%</span><span class="op">;</span>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>⋮</span></code></pre></div>
+<p>Finally, we just use Javascript to modify them. Each <code>&lt;div class="ssw-codecontent"&gt;</code> has its own <code>SpinWheel</code> Javascript class that has methods with the same names as the C++ methods, so that the “transpiler” has an easy time hooking up to the virtual SpinWheel. For example, here is the Javascript version of the <code>drawFrame()</code>, without any painful bit-fiddling that the hardware version required. We also include the class constructor, as it is responsible for acquiring handles for all the <code>div</code>s whose colors we will be changing (the virtual LEDs).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">constructor</span>(container) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  ⋮</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">_ssw_lLEDdiv</span> <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(container<span class="op">.</span><span class="fu">getElementsByClassName</span>(<span class="st">&quot;ssw-large-led&quot;</span>))<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">_ssw_lLEDarray</span> <span class="op">=</span> <span class="kw">new</span> <span class="bu">Uint8Array</span>(<span class="kw">this</span><span class="op">.</span><span class="at">_ssw_lLEDdiv</span><span class="op">.</span><span class="at">length</span><span class="op">*</span><span class="dv">3</span>)<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>  ⋮</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="fu">drawFrame</span>() {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>  <span class="kw">this</span><span class="op">.</span><span class="fu">drawLargeLEDFrame</span>()<span class="op">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>  <span class="kw">this</span><span class="op">.</span><span class="fu">drawSmallLEDFrame</span>()<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>}</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="fu">drawSmallLEDFrame</span>() {</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="kw">this</span><span class="op">.</span><span class="at">_ssw_sLEDdiv</span><span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">_ssw_sLEDdiv</span>[i]<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">background</span> <span class="op">=</span> <span class="vs">`rgb(</span><span class="sc">${</span><span class="kw">this</span><span class="op">.</span><span class="at">_ssw_sLEDarray</span>[<span class="dv">3</span><span class="op">*</span>i]<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span><span class="kw">this</span><span class="op">.</span><span class="at">_ssw_sLEDarray</span>[<span class="dv">3</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>]<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span><span class="kw">this</span><span class="op">.</span><span class="at">_ssw_sLEDarray</span>[<span class="dv">3</span><span class="op">*</span>i<span class="op">+</span><span class="dv">2</span>]<span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>  }</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>}</span></code></pre></div>
+<p>The <code>_ssw_lLEDdiv</code> array contains the handles for all <code>div</code>s, while the <code>_ssw_lLEDarray</code> contains the RGB color values (as populated by <code>setLargeLEDsUniform(r,g,b)</code> for instance.</p>
+<h2 id="the-second-best-part-the-actual-transpiler">The Second Best Part: The Actual Transpiler</h2>
+<p>It is embarrassingly simple, but quite effective:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>base_code <span class="op">=</span> base_code<span class="op">.</span><span class="fu">replace</span>(<span class="bu">RegExp</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">b&#39;</span><span class="op">+</span>pair[<span class="dv">0</span>]<span class="op">+</span><span class="st">&#39;</span><span class="sc">\\</span><span class="st">b&#39;</span><span class="op">,</span><span class="st">&#39;g&#39;</span>)<span class="op">,</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>                              pair[<span class="dv">1</span>])<span class="op">;</span></span></code></pre></div>
+<p><code>pair</code> is just the pair of keywords that we need to translate: the C++ one and the Javascript one. For instance one such pair would be <code>['int', 'var']</code>. Obviously, we are losing some fidelity in the translation, especially around data types, and we can only use C++ constructs close to the Javascript syntax, but for a well-controlled educational snippet of code that is all we need. A big part of engineering is to know when to not over engineer your solution.</p>
+<p>The regex needs to be a bit more carefully designed, but for the moment it suffices. E.g. we want to turn <code>int intensity</code> into <code>var intensity</code>, not <code>var varensity</code> which a simple replace would have given us. To do that, the <code>\b</code> piece in <code>\bkeyword\b</code> matches everything that is not a word-character, i.e. not <code>a-zA-Z0-9_</code>.</p>
+<p>And we need to be a bit careful how we call that <code>loop</code> function - we need a timed callback, because a busy loop would cause the webpage to hang. The gist of our solutions is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">var</span> c <span class="op">=</span> <span class="dv">200</span><span class="op">;</span> <span class="co">// counts number of executions</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">_ssw_loop</span>() {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>  <span class="fu">loop</span>()<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>  c<span class="op">--;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>  <span class="cf">if</span> (c<span class="op">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    <span class="pp">setTimeout</span>(_ssw_loop<span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>  }</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="fu">_ssw_loop</span>()<span class="op">;</span></span></code></pre></div>
+<p>If we want to, we can even use <a href="https://www.sitepoint.com/delay-sleep-pause-wait/"><code>async</code> to implement the popular Arduino <code>delay</code> function</a>, which pauses the execution of the program.</p>
+<p>You can click the <code>Debug</code> button to see what the generated Javascript code actually looks like.</p>
+<h2 id="the-truly-best-part-the-virtual-motion-sensor">The Truly Best Part: The Virtual Motion Sensor</h2>
+<p>Run the code below, grab the image of the SpinWheel with your mouse, and shake it. What happened to the LEDs?</p>
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.readIMU();
+  float ax = abs(SpinWheel.ax)*100;
+  float ay = abs(SpinWheel.ay)*100;
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(ax, ay, 0);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>We still need to figure out how to present the colors in a more noticeable fashion, but <strong>your virtual SpinWheel lits up with colors infered from your virtual motion sensor</strong>. This also ended being embarrassingly simple to implement. We just added a <code>onmousemove</code> handler to the <code>div</code> containing the image of the SpinWheel. Then we calculate the numerical second derivative of the positions in the <code>_ddx</code> and <code>_ddy</code> properties of the class. Note that we are also using an exponential decay filter <code>_ddx = 0.1*(dx-_dx)/dt + 0.9*_ddx</code> in order to smooth out the signal.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">elementDrag</span>(e) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>  e <span class="op">=</span> e <span class="op">||</span> <span class="bu">window</span><span class="op">.</span><span class="at">event</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>  e<span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>  <span class="co">// calculate the new cursor position:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>  pos1 <span class="op">=</span> pos3 <span class="op">-</span> e<span class="op">.</span><span class="at">clientX</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>  pos2 <span class="op">=</span> pos4 <span class="op">-</span> e<span class="op">.</span><span class="at">clientY</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>  <span class="kw">var</span> tnew <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getTime</span>()<span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>  <span class="kw">var</span> dt <span class="op">=</span> tnew<span class="op">-</span>t<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>  t <span class="op">=</span> tnew<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>  dx <span class="op">=</span> pos1<span class="op">/</span>dt<span class="op">*</span><span class="dv">200</span><span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>  dy <span class="op">=</span> pos2<span class="op">/</span>dt<span class="op">*</span><span class="dv">200</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>  SpinWheel<span class="op">.</span><span class="at">_ddx</span> <span class="op">=</span> <span class="fl">0.1</span><span class="op">*</span>(dx<span class="op">-</span>SpinWheel<span class="op">.</span><span class="at">_dx</span>)<span class="op">/</span>dt <span class="op">+</span> <span class="fl">0.9</span><span class="op">*</span>SpinWheel<span class="op">.</span><span class="at">_ddx</span><span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>  SpinWheel<span class="op">.</span><span class="at">_ddy</span> <span class="op">=</span> <span class="fl">0.1</span><span class="op">*</span>(dy<span class="op">-</span>SpinWheel<span class="op">.</span><span class="at">_dy</span>)<span class="op">/</span>dt <span class="op">+</span> <span class="fl">0.9</span><span class="op">*</span>SpinWheel<span class="op">.</span><span class="at">_ddy</span><span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>  SpinWheel<span class="op">.</span><span class="at">_dx</span> <span class="op">=</span> dx<span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>  SpinWheel<span class="op">.</span><span class="at">_dy</span> <span class="op">=</span> dy<span class="op">;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a>  pos3 <span class="op">=</span> e<span class="op">.</span><span class="at">clientX</span><span class="op">;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a>  pos4 <span class="op">=</span> e<span class="op">.</span><span class="at">clientY</span><span class="op">;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a>  <span class="co">// set the element&#39;s new position:</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a>  elmnt<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">top</span> <span class="op">=</span> (elmnt<span class="op">.</span><span class="at">offsetTop</span> <span class="op">-</span> pos2) <span class="op">+</span> <span class="st">&quot;px&quot;</span><span class="op">;</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a>  elmnt<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">left</span> <span class="op">=</span> (elmnt<span class="op">.</span><span class="at">offsetLeft</span> <span class="op">-</span> pos1) <span class="op">+</span> <span class="st">&quot;px&quot;</span><span class="op">;</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Now all we have to do is flesh out our Javascript <code>SpinWheel</code> class such that it is up to feature parity with the C++ one running on our hardware, and start using this in all of our lessons. (We also plan to add functionality for the rotation sensor.)</p>
+<p>We would be happy to hear your feedback on this little hack of ours. Feel free to contact us at <code>mail@spinwearables.com</code>!</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

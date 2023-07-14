@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="SpinWheel, getting started, experimenting" />
+  <title>Getting Started with the SpinWheel</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Getting Started with the SpinWheel</h1>
+</header>
+<main>
+<link rel="stylesheet" href="/simspinwheel/simspinwheel.css">
+<script src='/simspinwheel/simspinwheel.js'></script>
+<div class="intro-box">
+<p>Before you dive into programming the SpinWheel, first give this adventure a try to learn more about what the SpinWheel is capable of. We’ll start with some simple animations and end with some code that you’ll add to the SpinWheel itself in later adventures.</p>
+</div>
+<p>Welcome to the SpinWheel educational materials! This page is the first of many adventures and lessons we have written to empower you create exciting new programs on your SpinWheel. If you have never programmed before, we hope that this lesson will help you become more comfortable with looking at new code and figuring out what it might do. If you already have coding experience, then you may prefer jumping to the <a href="/quickstart">Initial Setup Guide</a> and then continuing into the other adventures.</p>
+<h2 id="the-spinwheel">The SpinWheel</h2>
+<p>When you pulled the SpinWheel out of the box and turned it on for the first time, the first thing you may have noticed is its LEDs. As you toggle between the programs on the SpinWheel using the button on the back, you can see some of the many things that the SpinWheel can do. You can program the LEDs to make repeating patterns or respond to the motion of the device. You can also light up all the LEDs in one color. As you go through the adventures and lessons in our <a href="/book">Field Guide</a>, you will learn how these animations were written and become comfortable customizing it further.</p>
+<h2 id="controlling-the-spinwheel">Controlling the SpinWheel</h2>
+<p>Before you start programming your SpinWheel, we will start by experimenting with some virtual SpinWheels right here in your internet window. Do not worry at this point about understanding fully what every line of code does. We encourage you to experiment with changing the parameters and then observing what happens. This may feel uncomfortable at first, but keep trying and don’t be afraid if you don’t understand everything the first time you read it.</p>
+<h3 id="turning-on-the-large-leds">Turning on the Large LEDs</h3>
+<p>To start with, let’s try turning on all of the big LEDs. Using the sliders, you can change the colors on the virtual SpinWheel below:</p>
+<!--WARNING: This really abuses the virtual spinwheel code. Here be dragons... and bugs...-->
+<style>
+.colortests {
+  font-size: 2rem;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0  white,
+    -1px 1px 0  white,
+    1px 1px 0   white;
+}
+.colortests input {
+  width: 80%;
+  margin: 0;
+}
+.colortests span {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.colortests .vis {
+  width: 80%;
+  height: 2em;
+  line-height: 2em;
+  border: solid 1px;
+}
+.redshow {border-color: red !important;}
+.greenshow {border-color: green !important;}
+.blueshow {border-color: blue !important;}
+</style>
+<div id="first-color" class="ssw-container ssw-skip">
+<div class="ssw-code">
+<div class="colortests">
+<div>
+<input type="range" min="0" max="255" value="0" class="red"><br><span class="vis redshow">0</span><br><br><input type="range" min="0" max="255" value="0" class="green"><br><span class="vis greenshow">0</span><br><br><input type="range" min="0" max="255" value="0" class="blue"><br><span class="vis blueshow">0</span>
+</div>
+<script>
+var firstcolornode = document.getElementById("first-color");
+function changeColor(){
+  var r = firstcolornode.getElementsByClassName("red")[0].value;
+  var g = firstcolornode.getElementsByClassName("green")[0].value;
+  var b = firstcolornode.getElementsByClassName("blue")[0].value;
+  var col =`rgb(${r},${g},${b})`;
+  for (let led of firstcolornode.getElementsByClassName("ssw-large-led")) {
+    led.style["background-color"]=col;
+  }
+  firstcolornode.getElementsByClassName("redshow")[0].innerHTML=r;
+  firstcolornode.getElementsByClassName("redshow")[0].style["background-color"]=`rgb(${r},0,0)`;
+  firstcolornode.getElementsByClassName("greenshow")[0].innerHTML=g;
+  firstcolornode.getElementsByClassName("greenshow")[0].style["background-color"]=`rgb(0,${g},0)`;
+  firstcolornode.getElementsByClassName("blueshow")[0].innerHTML=b;
+  firstcolornode.getElementsByClassName("blueshow")[0].style["background-color"]=`rgb(0,0,${b})`;
+}
+firstcolornode.getElementsByClassName("red")[0].oninput = changeColor;
+firstcolornode.getElementsByClassName("green")[0].oninput = changeColor;
+firstcolornode.getElementsByClassName("blue")[0].oninput = changeColor;
+changeColor();
+</script>
+</div>
+</div>
+<div class="ssw-vis-out" style="width: 200px;">
+<div class="ssw-vis">
+<div>
+<img src="/simspinwheel/spinwheel_invertgray.png">
+<div class="ssw-large-led ssw-large-led0">
+
+</div>
+<div class="ssw-large-led ssw-large-led1">
+
+</div>
+<div class="ssw-large-led ssw-large-led2">
+
+</div>
+<div class="ssw-large-led ssw-large-led3">
+
+</div>
+<div class="ssw-large-led ssw-large-led4">
+
+</div>
+<div class="ssw-large-led ssw-large-led5">
+
+</div>
+<div class="ssw-large-led ssw-large-led6">
+
+</div>
+<div class="ssw-large-led ssw-large-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led0">
+
+</div>
+<div class="ssw-small-led ssw-small-led1">
+
+</div>
+<div class="ssw-small-led ssw-small-led2">
+
+</div>
+<div class="ssw-small-led ssw-small-led3">
+
+</div>
+<div class="ssw-small-led ssw-small-led4">
+
+</div>
+<div class="ssw-small-led ssw-small-led5">
+
+</div>
+<div class="ssw-small-led ssw-small-led6">
+
+</div>
+<div class="ssw-small-led ssw-small-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led8">
+
+</div>
+<div class="ssw-small-led ssw-small-led9">
+
+</div>
+<div class="ssw-small-led ssw-small-led10">
+
+</div>
+<div class="ssw-small-led ssw-small-led11">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="further-reading">
+<p>To learn why we are mixing colors using red, green, and blue,<br />
+check out our <a href="/sight">Biology of Sight</a> adventure. On this page, you can try this out this on your own SpinWheel, as well as learn more about how our eyes work.</p>
+</div>
+<p>On your SpinWheel, rather than using sliders to change the color, you will instead use building blocks of code. On the virtual SpinWheel below, you can see how the code that you would run on your physical SpinWheel would change the LED display. For now, focus only on the line <code>SpinWheel.setLargeLEDsUniform(50, 255, 250)</code>. It has three numbers that you can change to control the color of the SpinWheel LEDs. Like with the sliders, where you created colors by mixing red, green, and blue together, the first number, <code>50</code>, represents the amount of red, the next, <code>255</code>, represents the amount of green, and the final, <code>250</code>, gives the amount of blue. These combinations give a bright blue color. Press the “Run for 10 seconds” button to see what happens.</p>
+<!-- fast timer -->
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLEDsUniform(50, 255, 250);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>Try changing the code for yourself by typing the numbers you want instead of <code>50, 255, 250</code> in the line <code>SpinWheel.setLargeLEDsUniform(50, 255, 250)</code>. Then, press “Run for 10 seconds” to see the color you created on the SpinWheel.</p>
+<div class="further-reading">
+<p>If you are really curious about what those other lines mean, we explain them more in our <a href="/basics">Basic Structure of a Program</a> lesson. We recommend doing that page after the <a href="/quickstart">Initial Setup Guide</a>.</p>
+</div>
+<p>It is also possible to specifically control each large LED. With the first slider, you can select the LED that you want to change the color of. Then, using the other sliders, you can adjust the color of that LED. Repeat this process for each LED you want to change the color of. If you move all three sliders for a given LED to zero, then that will turn the LED “off” again. Experiment with the LED number slider to see how the numbering of the LEDs works (or check out the diagram at the bottom of this section).</p>
+<!--WARNING: This really abuses the virtual spinwheel code. Here be dragons... and bugs...-->
+<div id="second-color" class="ssw-container ssw-skip">
+<div class="ssw-code">
+<div class="colortests">
+<div>
+<input type="range" min="0" max="7" value="0" class="number"><br>LED Number <span class="numshow">0</span><br><br><input type="range" min="0" max="255" value="255" class="red"><br><span class="vis redshow">255</span><br><br><input type="range" min="0" max="255" value="255" class="green"><br><span class="vis greenshow">255</span><br><br><input type="range" min="0" max="255" value="255" class="blue"><br><span class="vis blueshow">255</span>
+</div>
+<script>
+var secondcolornode = document.getElementById("second-color");
+function changeSingleColor(){
+  var n = secondcolornode.getElementsByClassName("number")[0].value;
+  var r = secondcolornode.getElementsByClassName("red")[0].value;
+  var g = secondcolornode.getElementsByClassName("green")[0].value;
+  var b = secondcolornode.getElementsByClassName("blue")[0].value;
+  var col =`rgb(${r},${g},${b})`;
+  secondcolornode.getElementsByClassName(`ssw-large-led${n}`)[0].style["background-color"]=col;
+  secondcolornode.getElementsByClassName("numshow")[0].innerHTML=n;
+  secondcolornode.getElementsByClassName("redshow")[0].innerHTML=r;
+  secondcolornode.getElementsByClassName("redshow")[0].style["background-color"]=`rgb(${r},0,0)`;
+  secondcolornode.getElementsByClassName("greenshow")[0].innerHTML=g;
+  secondcolornode.getElementsByClassName("greenshow")[0].style["background-color"]=`rgb(0,${g},0)`;
+  secondcolornode.getElementsByClassName("blueshow")[0].innerHTML=b;
+  secondcolornode.getElementsByClassName("blueshow")[0].style["background-color"]=`rgb(0,0,${b})`;
+}
+function changeSingleColorNumber(){
+  var n = secondcolornode.getElementsByClassName("number")[0].value;
+  secondcolornode.getElementsByClassName("numshow")[0].innerHTML=n;
+}
+secondcolornode.getElementsByClassName("number")[0].oninput = changeSingleColorNumber;
+secondcolornode.getElementsByClassName("red")[0].oninput = changeSingleColor;
+secondcolornode.getElementsByClassName("green")[0].oninput = changeSingleColor;
+secondcolornode.getElementsByClassName("blue")[0].oninput = changeSingleColor;
+changeSingleColor();
+</script>
+</div>
+</div>
+<div class="ssw-vis-out" style="width: 200px;">
+<div class="ssw-vis">
+<div>
+<img src="/simspinwheel/spinwheel_invertgray.png">
+<div class="ssw-large-led ssw-large-led0">
+
+</div>
+<div class="ssw-large-led ssw-large-led1">
+
+</div>
+<div class="ssw-large-led ssw-large-led2">
+
+</div>
+<div class="ssw-large-led ssw-large-led3">
+
+</div>
+<div class="ssw-large-led ssw-large-led4">
+
+</div>
+<div class="ssw-large-led ssw-large-led5">
+
+</div>
+<div class="ssw-large-led ssw-large-led6">
+
+</div>
+<div class="ssw-large-led ssw-large-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led0">
+
+</div>
+<div class="ssw-small-led ssw-small-led1">
+
+</div>
+<div class="ssw-small-led ssw-small-led2">
+
+</div>
+<div class="ssw-small-led ssw-small-led3">
+
+</div>
+<div class="ssw-small-led ssw-small-led4">
+
+</div>
+<div class="ssw-small-led ssw-small-led5">
+
+</div>
+<div class="ssw-small-led ssw-small-led6">
+
+</div>
+<div class="ssw-small-led ssw-small-led7">
+
+</div>
+<div class="ssw-small-led ssw-small-led8">
+
+</div>
+<div class="ssw-small-led ssw-small-led9">
+
+</div>
+<div class="ssw-small-led ssw-small-led10">
+
+</div>
+<div class="ssw-small-led ssw-small-led11">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Now let’s try doing the same thing, but using the code you will put on your SpinWheel. To start with, we are just turning on one LED.</p>
+<!-- fast timer -->
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 0, 100);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>You can also copy this line and independently control each large LED. This is similar to how above you could change the color of each LED. Rather than adjusting sliders, copy the <code>SpinWheel.setLargeLED</code> line and change the first number. For instance, to light up the very top large LED in the same color, add <code>SpinWheel.setLarge(4, 255, 0, 100);</code>. The first number gives the LED and the next three give the amount of red, green, and blue light (like in the <code>SpinWheel.setLargeLEDsUniform</code> command). Try adding more LEDs or changing the color yourself on the SpinWheel!</p>
+<figure>
+<img src="/images/spinwheel_with_numbers.png" title="SpinWheel LED numbering" alt="" /><figcaption>SpinWheel LED numbering.</figcaption>
+</figure>
+<h3 id="turning-on-the-small-leds">Turning on the Small LEDs</h3>
+<p>You can also turn on all of the small LEDs. To do this, instead of using <code>SpinWheel.setLargeLEDsUniform</code>, you can use the line<br />
+<code>SpinWheel.setSmallLEDsUniform</code>. Like above, the three numbers represent the red, green, and blue components of the color you want to make.</p>
+<!-- fast timer -->
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setSmallLEDsUniform(0, 200, 255);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>In the same way that you used <code>SpinWheel.setLargeLED</code>, you can also use <code>SpinWheel.setSmallLED</code> to control each of the 12 small LEDs on their own. Experiment with adding more lines to turn on more of the small LEDs or create a completely different pattern.</p>
+<!-- fast timer -->
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setSmallLED(2, 0, 255, 0);
+  SpinWheel.setSmallLED(5, 0, 255, 0);
+  SpinWheel.setSmallLED(8, 0, 255, 0);
+  SpinWheel.setSmallLED(11, 0, 255, 0);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<h3 id="controlling-all-of-the-leds">Controlling all of the LEDs</h3>
+<p>It is also possible to control each large and small LED independently, below we turn on all of the LEDs together:</p>
+<!-- fast timer -->
+<div class="ssw-codecontent" data-markdown="0">
+<pre class="ssw-codeblock">
+void loop() {
+  SpinWheel.clearAllLEDs();
+</pre>
+<textarea class="ssw-codeblock">
+  SpinWheel.setLargeLED(0, 255, 250, 0);
+  SpinWheel.setLargeLED(2, 255, 250, 0);
+  SpinWheel.setLargeLED(5, 255, 250, 0);
+  SpinWheel.setLargeLED(7, 255, 250, 0);
+
+  SpinWheel.setLargeLED(1, 255, 0, 0);
+  SpinWheel.setLargeLED(3, 255, 0, 0);
+  SpinWheel.setLargeLED(4, 255, 0, 0);
+  SpinWheel.setLargeLED(6, 255, 0, 0);
+
+  SpinWheel.setSmallLED(0, 255, 70, 0);
+  SpinWheel.setSmallLED(1, 255, 100, 0);
+  SpinWheel.setSmallLED(2, 255, 200, 0);
+
+  SpinWheel.setSmallLED(3, 255, 200, 0);
+  SpinWheel.setSmallLED(4, 255, 100, 0);
+  SpinWheel.setSmallLED(5, 255, 70, 0);
+
+  SpinWheel.setSmallLED(6, 255, 70, 0);
+  SpinWheel.setSmallLED(7, 255, 100, 0);
+  SpinWheel.setSmallLED(8, 255, 200, 0);
+
+  SpinWheel.setSmallLED(9, 255, 200, 0);
+  SpinWheel.setSmallLED(10, 255, 100, 0);
+  SpinWheel.setSmallLED(11, 255, 70, 0);
+</textarea>
+<pre class="ssw-codeblock">
+  SpinWheel.drawFrame();
+}
+</pre>
+</div>
+<p>At this point, you can modify the code above to create your own pattern that uses all of the LEDs. We encourage you to take some time to experiment with this to create your own designs. Once you have some patterns that you are excited to try on your own SpinWheel, proceed to the <a href="/quickstart">Initial Setup Guide</a> that leads you through installing the computer program necessary to communicate with the SpinWheel. Then work through the <a href="/basics">Basic Structure of a Program</a> lesson that will get you to the point where you can put the code that you wrote above onto your own SpinWheel.</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>

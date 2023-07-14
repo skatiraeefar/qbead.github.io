@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="apple-touch-icon-precomposed" href="/colorwheel180.png">
+  <link rel="icon" href="/colorwheel196.png">
+  <meta property="og:title" content="The SpinWheel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Children have the natural curiosity and capacity to engineer a better world. Our kits just remind them." />
+  <meta property="og:image" content="https://spinwearables.com/hanging.jpg" />
+  <link rel="image_src" href="https://spinwearables.com/hanging.jpg" />
+  <meta name="keywords" content="circuit design, troubleshooting, spinwheel, education, STEM, science, electronics" />
+  <title>Circuit Design</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="/custom.css" />
+  <link rel="stylesheet" href="/custom_book.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.spinwearables.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body>
+<!-- Matomo Image Tracker-->
+<noscript><img src="https://matomo.spinwearables.com/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+<header>
+<div class="nav">
+<a href="/">The SpinWheel</a>
+ | 
+<a href="/book">The Field Guide</a>
+</div>
+<h1 class="title">Circuit Design</h1>
+</header>
+<main>
+<div class="intro-box">
+<p>Creating the blueprints for an electronic device like the SpinWheel involves two parallel processes. On one hand, one needs to ensure the electronic circuit is functional in the abstract. On the other hand, this abstract circuit needs to be laid out on a two dimensional circuit board without crossing wires, and in our case, without placing components in unseemly locations. Here we describe this process, starting from simple child-friendly tools, and slowly evolving it until it is sophisticated enough to produce a hobby device like the SpinWheel.</p>
+</div>
+<h2 id="functional-prototypes-electronics-vs-mechanics">Functional Prototypes: Electronics vs Mechanics</h2>
+<p>In the early stages of a project it is important to compartmentalize the often conflicting goals of a design. On one hand, there would be certain technical requirement for the project, like the capability to sense motion or to turn on an LED. On the other hand, the physical and mechanical properties of the device to be built might have certain constraints, whether for practical reasons (e.g., mounting requirements for a sensor, weight requirements for a drone) or aesthetic reasons (e.g., creating a beautiful STEM educational kit). It helps to address these separately at the beginning. A kind of a divide and conquer strategy.</p>
+<p>One prototype can be made where only the electronics are tested: do not worry about the placement of components or the size of the final circuit board, rather just ensure that you can test that the components work together in principle. A convenient way to do that is to buy “breakout boards”, i.e. small boards on which the desired components are already mounted for easy testing. For instance, our control chip and our LED chips were rather small and very difficult to connect on their own. Before designing the SpinWheel board we wanted to test them, so we bought a small “development board” that uses the same control chip, and we also bought an off-the-shelf strip of LEDs (the same ones we wanted to use in our custom design). This permitted us to test that the different components were indeed compatible, before committing to them.</p>
+<p>This first prototype, which serves to simply test the electronic logic behind the SpinWheel is called the <em>electronic functional prototype</em>. “Functional” because it only tests the electronic functions of the future device, without concerning itself with any mechanic or aesthetic constraints.</p>
+<figure>
+<video src="/images/bookpics/functionalprot.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+It is easier to prototype when you do not worry about the looks of your device. This clip shows many of the same components used in the SpinWheel, mounted on off-the-shelf boards and strips which can be easily modified and experimented with.
+</figcaption>
+</figure>
+<p>Similarly to creating the functional prototype, we would want to create design prototypes of varying sophistication. Maybe a simple sketch is enough, or maybe we would mold a mock device out of polymer clay. The choice depends on how important the look of the device would be for us. In the case of the SpinWheel it is quite central.</p>
+<figure>
+<img src="/images/behindthescenes/draft_layout_inset.jpg">
+<figcaption>
+The first draft of what would become the final layout of the SpinWheel, with enough LEDs to not only be beautiful, but also be able to represent cardinal directions, measured tilt, and other physical quantities.
+</figcaption>
+</figure>
+<h2 id="circuit-diagram-vs-layout">Circuit Diagram vs Layout</h2>
+<p>While constructing the functional prototype we probably made various diagrams as guides to ourselves. Given that the functional prototype was not concerned with form and aesthetics, rather only with logic and proper connections, our diagrams would also be only a guide to which wires to connect together. This type of abstract diagram is called a <em>circuit diagram</em> and it does not tell us how to physically arrange the components on the final board.</p>
+<figure>
+<img src="/images/bookpics/kicad-symbol.png">
+<figcaption>
+A circuit diagram for a small part of the SpinWheel. In the center you see the button, labeled as <code>SWitch2</code>. That button is connected by a green “wire” on the right to a label representing one of the many pins of the controller chip: the one that will be detecting whether the button is pressed. Towards the bottom we see that the button is connected to the ground (or earth) of the circuit.
+</figcaption>
+</figure>
+<p>The symbols used in such a diagram do not necessarily look much like the physical components they represent:</p>
+<figure>
+<img src="/images/bookpics/button-physical.jpg">
+<figcaption>
+What <code>SWitch2</code> actually looks like: A button connected to the board by the four small soldered legs.
+</figcaption>
+</figure>
+<p>To bridge the gap between the circuit diagram and the actual physical realization of that diagram one typically uses a Computer Aided Design (CAD) tool. Such a piece of software lets you translate the diagram into a detailed physical <em>layout</em> for your board and components, as opposed to the messy jumble of reusable breakout boards that was the functional prototype.</p>
+<p>CAD tools store libraries of parts. Each part has a <em>diagram symbol</em> to be used when preparing the circuit diagram and <em>layout footprint</em> connected to that symbol, which represents the physical appearance of the part (in particular, it knows what pads need to be placed on the board in order to solder the part on).</p>
+<figure>
+<img src="/images/bookpics/kicad-layout.png">
+<figcaption>
+The button <em>footprint</em> corresponding to the button <em>symbol</em> seen above. You can also see the traces used to connect various footprints currently out of the frame. The grey circles represent holes (a.k.a. <em>vias</em>) that let the traces to jump from one side of the board to the other. Both the traces and the vias can be seen if you look carefully at the picture from the previous paragraph.
+</figcaption>
+</figure>
+<p>One uses the CAD tool to move the footprints around until a satisfactory placement is achieved. The CAD tool also keeps track (thanks to the circuit diagram) of which pads of which footprints have to be connected by traces. This last task, of placing the traces could either be extremely frustrating or seen as a fun puzzle, as it is quite difficult to connect all components without crossing paths.</p>
+<figure>
+<video src="/images/behindthescenes/schem_timelapse.mp4" muted autoplay playsinline loop>
+</video>
+<figcaption>
+A timelapse of the preparation of the SpinWheel layout. First we place the components in reasonable positions and then we draw the connecting traces and vias between them.
+</figcaption>
+</figure>
+<h2 id="do-it-yourself">Do it yourself</h2>
+<p>A good place to start, even for complete novices, is with hobbyist tools like <a href="https://fritzing.org/">Fritzing</a> and <a href="https://www.tinkercad.com/learn/circuits">Tinkercad</a> which provide a rich and friendly graphical interface in which to experiment with simple circuits, make diagrams, and even board layouts. The jump to more professional tools like <a href="https://upverter.com/">Upverter</a> (an online CAD tool with a reasonable learning curve) and <a href="https://kicad.org/">KiCad</a> (the tool we used for the SpinWheel) can be very intimidating, but by starting with simpler projects it can be achieved even with selfstudy and no external help.</p>
+<figure>
+<img src="/images/bookpics/fritzing.png">
+<figcaption>
+A cartoonish rendition of a circuit used to create a circuit diagram in Fritzing.
+</figcaption>
+</figure>
+<p>We would definitely suggest playing with only functional prototypes and breadboards for a while, to build confidence, before jumping into working with CAD tools. When making your own circuit boards, we would also suggest starting with through-hole components, as they are much easier to solder for novices than other options. And certainly do not hesitate to get inspiration from other designs when working on your own. For instance, we consulted the opensource designs by Arduino, SparkFun, and Adafruit extensively while designing the SpinWheel. If you would like to download the KiCad files for the SpinWheel, you can find them at our <a href="https://github.com/SpinWearables/SpinWheelHardware">git repo</a>.</p>
+<script data-isso="//comments.spinwearables.com/"
+data-isso-reply-to-self="false"
+data-isso-require-author="true"
+data-isso-require-email="true"
+data-isso-avatar="false"
+data-isso-vote="false"
+src="//comments.spinwearables.com/js/embed.min.js"></script>
+<section id="isso-thread"></section>
+<script>
+document.querySelector("#isso-thread").addEventListener(
+  "click",
+  function () {
+    document.querySelectorAll("#isso-thread > div").forEach(function (x) {x.style.display = "block";});
+  });
+</script>
+</main>
+<div id="license">
+<!--<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/cc-by-sa.png" /></a></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. © SpinWearables LLC (<a href="/license">license and trademark details</a>)
+</div>
+</body>
+</html>
